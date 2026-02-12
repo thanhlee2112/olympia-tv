@@ -26,6 +26,7 @@ let gameState = {
     questionVisible: false
   },
   obstacle: null,
+  speedup: null,
   players: null
 }
 
@@ -91,14 +92,28 @@ gameState.obstacle = {
       answer: "VIETNAM"
     }
   },
-
   currentRow: null,
   timer: 0,
+  obstacleClear: false,
   acceptingAnswer: false,
   buzzPlayer: null,
   lockedPlayers: []
 }
-
+gameState.speedup =  
+{
+    questions: [
+      { id: 1, text: "Câu hỏi 1?", answer: "A" },
+      { id: 2, text: "Câu hỏi 2?", answer: "B" },
+      { id: 3, text: "Câu hỏi 3?", answer: "C" },
+      { id: 4, text: "Câu hỏi 4?", answer: "D" }
+    ],
+    currentQuestion: null,
+    timer: 0,
+    running: false,
+    locked: false,
+    answers: {},
+    correctPlayers: []
+}
 let timerInterval = null
 
 /* ======================
@@ -212,7 +227,6 @@ socket.on("mc:addRowScore", ({ playerId }) => {
 
 emitState()
 })
-
 socket.on("mc:showQuestion", () => {
   if (!gameState.kickoff.running) return
 
@@ -220,7 +234,81 @@ socket.on("mc:showQuestion", () => {
   startTimer()
 emitState()
 })
+socket.on("mc:selectSpeedQuestion", (id) => {
+  gameState.speedup.currentQuestion =
+    gameState.speedup.questions.find(q => q.id === id)
+  gameState.speedup.timer = 0
+  gameState.speedup.running = false
+  gameState.speedup.locked = false
+  gameState.speedup.answers = {}
+  gameState.speedup.correctPlayers = []
+  emitState()
+})
 
+socket.on("mc:startSpeedTimer", () => {
+  if (!gameState.speedup.currentQuestion) return
+  gameState.speedup.running = true
+  gameState.speedup.timer = 0
+  gameState.speedup.locked = false
+  const interval = setInterval(() => {
+    gameState.speedup.timer += 0.01
+    gameState.speedup.timer =
+      Number(gameState.speedup.timer.toFixed(2))
+    if (gameState.speedup.timer >= 30) {
+      clearInterval(interval)
+      gameState.speedup.running = false
+      gameState.speedup.locked = true
+    }
+    emitState()
+  }, 10)
+})
+  socket.on("player:speedAnswer", (answer) => {
+    if (!gameState.speedup.running) return
+
+    gameState.speedup.answers[socket.id] = {
+      answer,
+      time: gameState.speedup.timer
+    }
+
+    emitState()
+  })
+
+  socket.on("mc:markSpeedCorrect", (playerId) => {
+    if (!gameState.speedup.correctPlayers.includes(playerId)) {
+      gameState.speedup.correctPlayers.push(playerId)
+    }
+    emitState()
+  })
+
+  socket.on("mc:unmarkSpeedCorrect", (playerId) => {
+    gameState.speedup.correctPlayers =
+      gameState.speedup.correctPlayers.filter(id => id !== playerId)
+    emitState()
+  })
+
+  socket.on("mc:confirmSpeedScore", () => {
+    const { answers, correctPlayers } = gameState.speedup
+
+    const sorted = correctPlayers
+      .map(id => ({
+        id,
+        time: answers[id]?.time ?? 999
+      }))
+      .sort((a, b) => a.time - b.time)
+
+    sorted.forEach((p, index) => {
+      const player = gameState.players.find(pl => pl.id === p.id)
+      if (!player) return
+
+      if (index === 0) player.score += 40
+      else if (index === 1) player.score += 30
+      else if (index === 2) player.score += 20
+      else if (index === 3) player.score += 10
+    })
+
+    gameState.speedup.locked = true
+    emitState()
+  })
 socket.on("mc:answer", (correct) => {
 
   if (!gameState.kickoff.running) return
@@ -303,11 +391,19 @@ socket.on("mc:obstacleResult", (correct) => {
   if (correct) {
     const revealedCount =
       gameState.obstacle.rows.filter(r => r.revealed).length
-
-    const scoreMap = { 1: 80, 2: 60, 3: 40, 4: 20 }
+    gameState.obstacle.obstacleClear = true
+    const scoreMap = { 0:80, 1: 80, 2: 60, 3: 40, 4: 20 }
     const score = scoreMap[revealedCount] || 0
 
     player.score += score
+    gameState.obstacle.rows.forEach((r)=>{
+      r.revealed = true
+      r.disabled = false
+    })
+    gameState.obstacle.image.parts.forEach((i)=>{
+      i.revealed = true
+    })
+    gameState.obstacle.image.center.revealed = true
   } else {
     gameState.obstacle.lockedPlayers.push(playerId)
   }

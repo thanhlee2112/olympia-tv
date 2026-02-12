@@ -1,0 +1,29 @@
+.speed-player {
+  background: #111;
+  color: white;
+  height: 100vh;
+  position: relative;
+  padding: 20px;
+}
+
+.timer-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  height: 100%;
+  background: #222;
+}
+
+.timer-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #4caf50;
+  transition: height 0.1s linear;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}

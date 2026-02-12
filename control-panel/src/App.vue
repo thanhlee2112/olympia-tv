@@ -3,8 +3,8 @@
     <MCHeader />
     <Kickoff v-if="state.phase === 'KhoiDong'" />
     <Obstacle v-else-if="state.phase === 'ChuongNgaiVat'" />
-    <!-- <Speedup v-else-if="state.phase === 'TangToc'" />
-    <Final v-else-if="state.phase === 'VeDich'" /> -->
+    <Speedup v-else-if="state.phase === 'TangToc'" />
+    <!-- <Final v-else-if="state.phase === 'VeDich'" /> -->
     <div v-else class="main-grid">
       <PhaseControl />
       <ScoreBoard />
@@ -16,7 +16,7 @@
 <script setup>
 
 import Obstacle from "./views/Obstacle.vue"
-// import Speedup from "./views/Speedup.vue"
+import Speedup from "./views/Speedup.vue"
 // import Final from "./views/Final.vue"
 import MCHeader from "./components/MCHeader.vue"
 import PhaseControl from "./components/PhaseControl.vue"

@@ -30,7 +30,8 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
       <h1>VƯỢT CHƯỚNG NGẠI VẬT</h1>
 
       {/* 4 hàng ngang dạng tròn */}
-      <div className="rows-circle">
+      <div className="obstacle-hint">
+<div className="rows-circle">
         {state.rows.map((row) => (
           <div
             key={row.id}
@@ -72,7 +73,7 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
                 : "corner-br"
             }`}
           >
-            {part.revealed ? "MỞ" : "?"}
+            {part.revealed ? "MỞ" : i+1}
           </div>
         ))}
 
@@ -80,6 +81,8 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
           TRUNG TÂM
         </div>
       </div>
+      </div>
+      
 
       {/* Buzz */}
       <button
@@ -91,6 +94,16 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
       </button>
 
       {/* Ô nhập đáp án */}
+      {
+        state.currentRow && (
+      <div className="question-section">
+        <div className="question">
+          {state.rows.find(r=>r.id=state.currentRow).question}
+        </div>
+      </div>
+        )
+      }
+
       <div className="answer-section">
         <div className="submitted-line">
           Đáp án đã nhập: {submittedAnswer}

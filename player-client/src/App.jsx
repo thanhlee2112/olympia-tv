@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import socket from "./socket"
 import Kickoff from "./views/Kickoff"
 import Obstacle from "./views/Obstacle"
+import Speedup from "./views/Speedup"
 function App() {
   const [state, setState] = useState(null)
   const [playerId, setPlayerId] = useState(null)
@@ -29,6 +30,9 @@ function App() {
   }
   if(state.phase === "ChuongNgaiVat"){
     return <Obstacle state={state} playerId={playerId} socket={socket} />
+  }
+  if(state.phase === "TangToc"){
+    return <Speedup state={state} playerId={playerId} socket={socket}/>
   }
   return (
     <div style={{

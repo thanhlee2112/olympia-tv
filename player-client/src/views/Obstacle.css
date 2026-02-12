@@ -22,7 +22,11 @@
   background: #111;
   min-height: 100vh;
 }
-
+.obstacle-hint{
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+}
 /* rows circle */
 .rows-circle {
   display: flex;
@@ -79,20 +83,17 @@
 /* image overlay */
 .image-grid-overlay {
   position: relative;
-  width: 164px;
-  height: 164px;
-  margin: 32px auto 0 auto;
+  width: 480px;
+  height: 480px;
 }
 
 .corner-box {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 240px;
+  height: 240px;
   background: #222;
   color: #fff;
   display: flex;
-  align-items: center;
-  justify-content: center;
   border: 2px solid #1976d2;
 }
 
@@ -101,17 +102,17 @@
   color: #1976d2;
 }
 
-.corner-tl { top: 0; left: 0; }
-.corner-tr { top: 0; left: 82px; }
-.corner-bl { top: 82px; left: 0; }
-.corner-br { top: 82px; left: 82px; }
+.corner-tl { top: 0; left: 0; align-items: baseline; justify-content:baseline;}
+.corner-tr { top: 0; right: 0; align-items: baseline; justify-content: end;}
+.corner-bl { bottom: 0; left: 0; align-items: end; justify-content: baseline;}
+.corner-br { bottom: 0; right: 0; align-items: end; justify-content: end;}
 
 .center-box-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   background: #1976d2;
   color: #fff;
   display: flex;
@@ -121,6 +122,12 @@
   border-radius: 12px;
 }
 
+.question-section{
+  text-align:center;
+}
+.question{
+  color: #FFF;
+}
 /* answer */
 .answer-section {
   margin-top: 30px;

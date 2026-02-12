@@ -1,11 +1,13 @@
 <template>
     <audio ref="audioRef"></audio>
+    <audio ref="countdownAudioRef"></audio>
   <div v-if="state && state.obstacle" class="obstacle-mc">
     <h1>VƯỢT CHƯỚNG NGẠI VẬT</h1>
     <!-- 🔐 Từ khóa -->
-    <h2 class="keyword">TỪ KHÓA: {{ state.obstacle.keyword }}</h2>
     <!-- 🟦 4 HÀNG NGANG (tròn) -->
-    <div class="rows-circle">
+     <div class="obstacle-hint">
+    <h2 class="keyword">TỪ KHÓA: {{ state.obstacle.keyword }}</h2>
+      <div class="rows-circle">
       <div
         v-for="row in state.obstacle.rows"
         :key="row.id"
@@ -30,21 +32,23 @@
     <!-- 🖼 4 góc và 1 ô trung tâm overlay -->
     <div class="image-grid-overlay">
       <div class="corner-box corner-tl" :class="{ revealed: state.obstacle.image.parts[0]?.revealed }">
-        {{ state.obstacle.image.parts[0]?.revealed ? "MỞ" : "?" }}
+        {{ state.obstacle.image.parts[0]?.revealed ? "MỞ" : "1" }}
       </div>
       <div class="corner-box corner-tr" :class="{ revealed: state.obstacle.image.parts[1]?.revealed }">
-        {{ state.obstacle.image.parts[1]?.revealed ? "MỞ" : "?" }}
+        {{ state.obstacle.image.parts[1]?.revealed ? "MỞ" : "2" }}
       </div>
       <div class="corner-box corner-bl" :class="{ revealed: state.obstacle.image.parts[2]?.revealed }">
-        {{ state.obstacle.image.parts[2]?.revealed ? "MỞ" : "?" }}
+        {{ state.obstacle.image.parts[2]?.revealed ? "MỞ" : "3" }}
       </div>
       <div class="corner-box corner-br" :class="{ revealed: state.obstacle.image.parts[3]?.revealed }">
-        {{ state.obstacle.image.parts[3]?.revealed ? "MỞ" : "?" }}
+        {{ state.obstacle.image.parts[3]?.revealed ? "MỞ" : "4" }}
       </div>
       <div class="center-box-overlay" :class="{ enabled: canSelectCenter }" @click="selectCenter">
         TRUNG TÂM
       </div>
     </div>
+     </div>
+    
     <!-- ❓ CÂU HỎI -->
     <div v-if="currentRow" class="question-box">
       <h3>{{ currentRow.question }}</h3>
@@ -57,7 +61,7 @@
       </div>
       <button
         v-if="state.obstacle.timer === 0"
-        @click="showAnswer = true"
+        @click="showPlayerAnswer"
       >
         XEM CÂU TRẢ LỜI
       </button>
@@ -99,7 +103,7 @@
           </div>
       
           <div class="row-final-actions">
-            <button @click="revealCorrectAnswer">
+            <button @click="revealCorrectAnswer(currentRow.id)">
               HIỆN ĐÁP ÁN CHUẨN
             </button>
             <button @click="closeRow">
@@ -118,15 +122,19 @@
         <button @click="obstacleResult(false)">SAI</button>
       </div>
     </div>
+    <div>
+      <button v-if="state.obstacle.obstacleClear" @click="returnToDashboard">Trở về màn hình chính</button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { inject, computed, ref } from "vue"
-import { socket, state } from "../socket"
+import { inject, computed, ref,watch } from "vue"
+import { setPhase, socket, state } from "../socket"
 
 const showAnswer = ref(false)
 const audioRef = ref(null)
+const countdownAudioRef = ref(null)
 const currentRow = computed(() => {
   return state.obstacle.rows.find(
     r => r.id === state.obstacle.currentRow
@@ -137,7 +145,14 @@ const rowAnswers = computed(() => {
   if (!rowId) return {}
   return state.obstacle.rowAnswers?.[rowId] || {}
 })
-
+watch(
+  () => state.obstacle.buzzPlayer,
+  async (newVal, oldVal) => {
+    if (newVal && newVal !== oldVal) {
+      await play('/sounds/buzz_obstacle.mp3')
+    }
+  }
+)
 function getPlayerName(id) {
   const p = state.players.find(p => p.id === id)
   return p?.name || ""
@@ -153,6 +168,11 @@ const buzzName = computed(() => {
 const canSelectCenter = computed(() =>
   state.obstacle.rows.every(r => r.revealed || r.disabled)
 )
+
+async function showPlayerAnswer(){
+  showAnswer.value = true
+  await play('/sounds/reveal_player_answer.mp3')
+}
 
 function rowClass(row) {
   return {
@@ -184,7 +204,7 @@ async function selectRow(row) {
 
 async function startTimer() {
   socket.emit("mc:startRowTimer")
-  await play("/sounds/obstacle_countdown.mp3")
+  await play("/sounds/obstacle_countdown.mp3", countdownAudioRef)
 }
 
 async function rowResult(correct) {
@@ -199,19 +219,32 @@ async function rowResult(correct) {
 
 function obstacleResult(correct) {
   socket.emit("mc:obstacleResult", correct)
+  if(correct){
+    play('/sounds/right_answer_obstacle.mp3')
+  }else{
+    play('sounds/wrong_answer_obstacle.mp3')
+  }
 }
 
 function selectCenter() {
   if (!canSelectCenter.value) return
   socket.emit("mc:selectCenter")
 }
+function returnToDashboard(){
+    //
+    setPhase("dashboard");
+}
+
 </script>
 
 <style scoped>
 .obstacle-mc {
-  padding: 20px;
+  padding: 10px;
   color: white;
   background: #111;
+  display:flex;
+  justify-content: space-between
+  
 }
 
 /* 4 hàng ngang dạng tròn */
@@ -277,19 +310,17 @@ function selectCenter() {
 /* 4 góc dính liền nhau che hình ảnh */
 .image-grid-overlay {
   position: relative;
-  width: 164px;
-  height: 164px;
+  width: 480px;
+  height: 480px;
   margin: 32px auto 0 auto;
 }
 .corner-box {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 240px;
+  height: 240px;
   background: #222;
   color: #fff;
   display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 1.2rem;
   border-radius: 0;
   border: 2px solid #1976d2;
@@ -304,25 +335,30 @@ function selectCenter() {
 .corner-tl {
   top: 0;
   left: 0;
+  align-items: baseline;
 }
 .corner-tr {
   top: 0;
-  left: 82px;
+  right: 0px;
+  justify-content: end;
 }
 .corner-bl {
-  top: 82px;
+  bottom: 0;
   left: 0;
+  align-items: end;
 }
 .corner-br {
-  top: 82px;
-  left: 82px;
+  bottom: 0;
+  right: 0;
+  align-items: end;
+  justify-content: end;
 }
 .center-box-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   background: #1976d2;
   color: #fff;
   display: flex;
