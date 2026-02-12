@@ -16,13 +16,7 @@ const io = new Server(server, {
 })
 
 const engine = new GameEngine(io)
-
-io.on("connection", (socket) => {
-  logger.info(`Client connected: ${socket.id}`)
-  engine.registerSocket(socket)
-})
-
 const PORT = 3000
-server.listen(PORT, () => {
+server.listen(PORT,"0.0.0.0", () => {
   logger.info(`Olympia Server running on port ${PORT}`)
 })

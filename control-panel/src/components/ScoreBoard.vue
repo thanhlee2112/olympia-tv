@@ -1,19 +1,20 @@
 <template>
   <div class="panel">
     <h2>Bảng điểm</h2>
-    <div v-for="(s,n) in scores" :key="n" class="row">
-      {{ n }} - {{ s }}
+    <div v-for="score in scores" :key="id" class="row">
+      {{ score.name }} - {{ score.score }} điểm
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue"
-import { socket } from "../socket"
+import { state } from "../socket"
 
 const scores = ref({})
+console.log(state.players);
 
-socket.on("scores", s => scores.value = s)
+scores.value = state.players
 </script>
 
 <style scoped>

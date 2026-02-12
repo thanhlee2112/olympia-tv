@@ -1,5 +1,5 @@
 {
-  "name": "electron",
+  "name": "olympia-tv",
   "version": "1.0.0",
   "private": true,
   "main": "main.js",
@@ -13,29 +13,58 @@
     "electron": "^28.0.0",
     "electron-builder": "^24.13.3"
   },
-    "build": {
-      "appId": "com.olympia.tv",
-      "productName": "Olympia TV",
-      "directories": {
-        "output": "dist"
+  "build": {
+    "appId": "com.olympia.tv",
+    "productName": "Olympia TV",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "renderer/**/*"
+    ],
+    "asar": true,
+    "asarUnpack": [
+      "renderer/player-client/dist/**",
+      "renderer/control-panel/dist/**",
+      "renderer/public-screen/dist/**",
+      "server/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "../server",
+        "to": "server"
       },
-      "files": [
-        "**/*"
-      ],
-      "asar": true,
-      "win": {
-        "target": [
-          {
-            "target": "portable",
-            "arch": ["x64"]
-          }
-        ]
+      {
+        "from": "../player-client/dist",
+        "to": "player-client/dist"
       },
-      "nsis": {
-        "oneClick": false,
-        "allowToChangeInstallationDirectory": true
+      {
+        "from": "../control-panel/dist",
+        "to": "control-panel/dist"
       },
-      "publish": null
-    }
-
+      {
+        "from": "../public-screen/dist",
+        "to": "public-screen/dist"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": null
+  },
+  "dependencies": {
+    "uuid": "^13.0.0"
+  }
 }

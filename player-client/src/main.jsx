@@ -7,5 +7,7 @@ import "./styles/buttons.css"
 import "./styles/animations.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <App />
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 )

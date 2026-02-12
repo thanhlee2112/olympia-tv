@@ -1,19 +1,46 @@
 <template>
   <div class="panel">
     <h2>Điều khiển vòng thi</h2>
-    <button v-for="p in phases" :key="p" @click="change(p)">
-      {{ p }}
+    <button
+      v-for="p in phases"
+      :key="p.label"
+      @click="change(p.value)"
+    >
+      {{ p.label }}
     </button>
   </div>
 </template>
 
 <script setup>
-import { socket } from "../socket"
+import { setPhase } from "../socket"
 
-const phases = ["KhoiDong","ChuongNgaiVat","TangToc","VeDich"]
+const phases = [
+  { label: "Khởi Động", value: "KhoiDong" },
+  { label: "Vượt Chướng Ngại Vật", value: "ChuongNgaiVat" },
+  { label: "Tăng Tốc", value: "TangToc" },
+  { label: "Về Đích", value: "VeDich" }
+]
 
-function change(p) {
-  socket.emit("changePhase", p)
+const sounds = {
+  KhoiDong: new Audio("../public/sounds/start_kickoff.mp3"),
+  ChuongNgaiVat: new Audio("../public/sounds/chuongngaivat.mp3"),
+  TangToc: new Audio("../public/sounds/tangtoc.mp3"),
+  VeDich: new Audio("../public/sounds/vedich.mp3")
+}
+
+function change(phase) {
+  setPhase(phase)
+  playPhaseSound(phase)
+}
+
+function playPhaseSound(phase) {
+  const audio = sounds[phase]
+  console.log(audio);
+  
+  if (!audio) return
+
+  audio.currentTime = 0
+  audio.play().catch(() => {})
 }
 </script>
 
