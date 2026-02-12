@@ -1,0 +1,6 @@
+packages:
+  - 'server'
+  - 'control-panel'
+  - 'player-client'
+  - 'public-screen'
+  - 'electron'

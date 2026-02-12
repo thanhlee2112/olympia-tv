@@ -1,0 +1,29 @@
+.answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.answer {
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(145deg,#111,#222);
+  border: 2px solid #00f;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.answer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00f;
+}
+.answer.correct {
+  background: green;
+  animation: glowCorrect 1s infinite alternate;
+}
+.answer.wrong {
+  background: red;
+  animation: glowWrong 1s infinite alternate;
+}
+.answer.locked {
+  pointer-events: none;
+  opacity: 0.7;
+}

@@ -1,0 +1,14 @@
+{
+  "KhoiDong": [
+    { "text": "Thủ đô Việt Nam?", "answer": "Hà Nội" }
+  ],
+  "ChuongNgaiVat": [
+    { "text": "Tên chương trình này?", "answer": "OLYMPIA" }
+  ],
+  "TangToc": [
+    { "text": "15 x 4 = ?", "answer": "60" }
+  ],
+  "VeDich": [
+    { "text": "Người phát minh điện thoại?", "answer": "Bell" }
+  ]
+}

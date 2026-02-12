@@ -1,0 +1,15 @@
+{
+  "name": "olympia-tv",
+  "private": true,
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "dev": "pnpm -r run dev",
+    "build": "pnpm -r run build",
+    "start": "pnpm --filter electron-app start",
+    "clean": "rimraf node_modules && rimraf */node_modules"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.5"
+  }
+}

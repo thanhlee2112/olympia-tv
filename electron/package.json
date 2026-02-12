@@ -1,0 +1,41 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "description": "Olympia TV Offline App",
+  "author": "Thanh",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.13.3"
+  },
+    "build": {
+      "appId": "com.olympia.tv",
+      "productName": "Olympia TV",
+      "directories": {
+        "output": "dist"
+      },
+      "files": [
+        "**/*"
+      ],
+      "asar": true,
+      "win": {
+        "target": [
+          {
+            "target": "portable",
+            "arch": ["x64"]
+          }
+        ]
+      },
+      "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true
+      },
+      "publish": null
+    }
+
+}

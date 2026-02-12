@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at center, #1e293b, #0f172a);
+  color: white;
+  overflow: hidden;
+}
+
+.mc-wrapper {
+  padding: 20px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.panel {
+  background: rgba(30,41,59,0.8);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 0 30px rgba(59,130,246,0.5);
+  transition: 0.3s;
+}
+
+.panel:hover {
+  transform: scale(1.02);
+}

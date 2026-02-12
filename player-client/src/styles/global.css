@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: black;
+  overflow: hidden;
+}
+.loading {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20vh;
+}
