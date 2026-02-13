@@ -1,8 +1,8 @@
 <template>
-    <audio ref="audioRef"></audio>
-  <div class="speed-mc" v-if="state.speedup">
+  <audio ref="audioRef"></audio>
+  <audio ref="countdownAudioRef"></audio>
+  <div v-if="state.speedup">
 
-    <!-- Chọn câu hỏi -->
     <div v-if="!state.speedup.currentQuestion">
       <button
         v-for="q in state.speedup.questions"
@@ -11,74 +11,83 @@
       >
         CÂU {{ q.id }}
       </button>
+      <div>
+      <button @click="setPhase('dashboard')">
+        Trở về Bảng Điều Khiển
+      </button>
+    </div>
     </div>
 
-    <!-- Câu hỏi -->
     <div v-else>
+
       <h2>{{ state.speedup.currentQuestion.text }}</h2>
       <h3>Đáp án: {{ state.speedup.currentQuestion.answer }}</h3>
 
+      <div class="timer">
+        ⏱ {{ localTime.toFixed(2) }}
+      </div>
+
       <button
-        v-if="!state.speedup.running && state.speedup.timer === 0"
+        v-if="!state.speedup.running && !state.speedup.locked"
         @click="startTimer"
       >
         BẮT ĐẦU
       </button>
 
-      <div v-if="state.speedup.running">
-        ⏱ {{ state.speedup.timer.toFixed(2) }}
-      </div>
-
       <button
-        v-if="!state.speedup.running && state.speedup.timer >= 30"
-        @click="showAnswers = true"
+        v-if="state.speedup.locked"
+        @click="showPlayerAnswers"
       >
         XEM CÂU TRẢ LỜI
       </button>
-    </div>
 
-    <!-- Danh sách trả lời -->
-    <div v-if="showAnswers">
-      <div
-        v-for="(ans, playerId) in state.speedup.answers"
-        :key="playerId"
-        class="answer-row"
-      >
-        <div>
+      <div v-if="state.speedup.showAnswers">
+        <div
+          v-for="(ans, playerId) in state.speedup.answers"
+          :key="playerId"
+        >
           {{ getName(playerId) }} —
           {{ ans.answer }}
           ({{ ans.time.toFixed(2) }}s)
+
+          <button @click="toggleCorrect(playerId)">
+            {{
+              state.speedup.correctPlayers.includes(playerId)
+                ? "BỎ"
+                : "ĐÚNG"
+            }}
+          </button>
         </div>
 
-        <button
-          @click="toggleCorrect(playerId)"
-        >
-          {{
-            state.speedup.correctPlayers.includes(playerId)
-              ? "BỎ"
-              : "ĐÚNG"
-          }}
+        <button @click="confirmScore">
+          XÁC NHẬN CỘNG ĐIỂM
         </button>
       </div>
-
-      <button
-        class="confirm"
-        @click="confirmScore"
-      >
-        XÁC NHẬN CỘNG ĐIỂM
-      </button>
     </div>
-
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue"
-import { socket, state } from "../socket"
+import { ref, watch } from "vue"
+import { socket, state,setPhase } from "../socket"
 
-const showAnswers = ref(false)
-const audioRef=ref(null)
+const localTime = ref(0)
+let interval = null
+const audioRef = ref(null)
+const countdownAudioRef= ref(null)
 
+async function selectQuestion(id) {
+  await play('/sounds/speedup_open_question.mp3')
+  socket.emit("mc:selectSpeedQuestion", id)
+}
+function showPlayerAnswers() {
+  socket.emit("mc:showSpeedAnswers")
+  play('/sounds/open_answer.mp3')
+}
+async function startTimer() {
+  socket.emit("mc:startSpeedTimer")
+  await play('/sounds/speedup_countdown.mp3', countdownAudioRef)
+}
 function play(src,ref = audioRef) {
   return new Promise((resolve, reject) => {
     const audio = ref.value
@@ -92,17 +101,26 @@ function play(src,ref = audioRef) {
     audio.play().catch(reject)
   })
 }
+watch(
+  () => state.speedup.startAt,
+  (startAt) => {
+    if (!startAt) return
 
-async function selectQuestion(id) {
-  socket.emit("mc:selectSpeedQuestion", id)
-await play('/sounds/speedup_open_question.mp3')
+    clearInterval(interval)
 
-}
+    interval = setInterval(() => {
+      const elapsed =
+        (Date.now() - startAt) / 1000
 
-async function startTimer() {
-  socket.emit("mc:startSpeedTimer")
-  play('sounds/speedup_countdown.mp3')
-}
+      localTime.value =
+        Math.min(elapsed, 30)
+
+      if (elapsed >= 30) {
+        clearInterval(interval)
+      }
+    }, 10)
+  }
+)
 
 function toggleCorrect(id) {
   if (state.speedup.correctPlayers.includes(id))
@@ -111,32 +129,12 @@ function toggleCorrect(id) {
     socket.emit("mc:markSpeedCorrect", id)
 }
 
-function confirmScore() {
+function confirmScore() {    
   socket.emit("mc:confirmSpeedScore")
 }
 
 function getName(id) {
-  const p = state.players.find(p => p.id === id)
+  const p = state.players.find(p => p.socketId === id)  
   return p?.name || ""
 }
 </script>
-
-<style scoped>
-.speed-mc {
-  padding: 20px;
-  background: #111;
-  color: white;
-}
-
-.answer-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-  padding: 6px;
-  background: #222;
-}
-.confirm {
-  margin-top: 10px;
-  padding: 8px 16px;
-}
-</style>

@@ -81,13 +81,13 @@
             <div class="answer-center">
               <button
                 class="score-btn"
-                @click="rowResult(true)"
+                @click="rowResult(true, playerId)"
               >
                 ĐÚNG
               </button>
               <button
                 class="score-btn"
-                @click="rowResult(false)"
+                @click="rowResult(false, playerId)"
               >
                 SAI
                 </button>
@@ -106,7 +106,7 @@
             <button @click="revealCorrectAnswer(currentRow.id)">
               HIỆN ĐÁP ÁN CHUẨN
             </button>
-            <button @click="closeRow">
+            <button @click="closeRow(currentRow.id)">
               KẾT THÚC HÀNG
             </button>
           </div>
@@ -199,7 +199,6 @@ async function selectRow(row) {
   if (row.disabled || row.revealed) return
   await play("/sounds/select_row_obstacle.mp3")
   socket.emit("mc:selectRow", row.id)
-  showAnswer.value = false
 }
 
 async function startTimer() {
@@ -207,14 +206,13 @@ async function startTimer() {
   await play("/sounds/obstacle_countdown.mp3", countdownAudioRef)
 }
 
-async function rowResult(correct) {
-  socket.emit("mc:rowResult", correct)
+async function rowResult(correct, playerId) {
+  socket.emit("mc:rowResult", correct, playerId)
   if (correct) {
     await play("/sounds/correct_answer_obstacle.mp3")
   } else {
     await play("/sounds/wrong_answer_obstacle.mp3")
   }
-  showAnswer.value = false
 }
 
 function obstacleResult(correct) {
@@ -225,7 +223,13 @@ function obstacleResult(correct) {
     play('sounds/wrong_answer_obstacle.mp3')
   }
 }
-
+function revealCorrectAnswer(rowId) {
+  socket.emit("mc:revealCorrectAnswer", rowId)
+  play('/sounds/open_image.mp3')
+}
+function closeRow(row) {
+  socket.emit("mc:closeRow", row)
+}
 function selectCenter() {
   if (!canSelectCenter.value) return
   socket.emit("mc:selectCenter")

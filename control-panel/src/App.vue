@@ -4,7 +4,7 @@
     <Kickoff v-if="state.phase === 'KhoiDong'" />
     <Obstacle v-else-if="state.phase === 'ChuongNgaiVat'" />
     <Speedup v-else-if="state.phase === 'TangToc'" />
-    <!-- <Final v-else-if="state.phase === 'VeDich'" /> -->
+    <Final v-else-if="state.phase === 'VeDich'" />
     <div v-else class="main-grid">
       <PhaseControl />
       <ScoreBoard />
@@ -17,7 +17,7 @@
 
 import Obstacle from "./views/Obstacle.vue"
 import Speedup from "./views/Speedup.vue"
-// import Final from "./views/Final.vue"
+import Final from "./views/Final.vue"
 import MCHeader from "./components/MCHeader.vue"
 import PhaseControl from "./components/PhaseControl.vue"
 import QuestionPanel from "./components/QuestionPanel.vue"
@@ -38,7 +38,7 @@ watch(
 
     const map = {
       KhoiDong: "public/sounds/start_kickoff.mp3",
-      ChuongNgaiVat: "public/sounds/start_obstacle.mp3",
+      ChuongNgaiVat: "public/sounds/obstacle_start.mp3",
       TangToc: "public/sounds/start_speedup.mp3",
       VeDich: "public/sounds/start_final.mp3"
     }

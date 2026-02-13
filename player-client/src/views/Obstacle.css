@@ -19,7 +19,7 @@
 .obstacle-player {
   padding: 20px;
   color: white;
-  background: #111;
+  background: #101c2c;
   min-height: 100vh;
 }
 .obstacle-hint{
@@ -46,7 +46,12 @@
   opacity: 0.5;
 }
 
-
+.obstacle-reveal-image{
+  width: 480px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 12px;
+}
 /* Circle default: blue background */
 .row-circle-char {
   width: 32px;

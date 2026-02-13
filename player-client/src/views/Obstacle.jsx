@@ -58,25 +58,31 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
 
       {/* Image overlay */}
       <div className="image-grid-overlay">
-        {state.image.parts.map((part, i) => (
-          <div
-            key={i}
-            className={`corner-box ${
-              part.revealed ? "revealed" : ""
-            } ${
-              i === 0
-                ? "corner-tl"
-                : i === 1
-                ? "corner-tr"
-                : i === 2
-                ? "corner-bl"
-                : "corner-br"
-            }`}
-          >
-            {part.revealed ? "MỞ" : i+1}
-          </div>
-        ))}
-
+        {/* The image to be revealed */}
+        <img
+          src={state.image.imageUrl}
+          alt="obstacle"
+          className="obstacle-reveal-image"
+        />
+        {/* 4 corner overlays, only show if not revealed */}
+        {state.image.parts.map((part, i) =>
+          !part.revealed ? (
+            <div
+              key={i}
+              className={`corner-box ${
+                i === 0
+                  ? "corner-tl"
+                  : i === 1
+                  ? "corner-tr"
+                  : i === 2
+                  ? "corner-bl"
+                  : "corner-br"
+              }`}
+            >
+              {i + 1}
+            </div>
+          ) : null
+        )}
         <div className="center-box-overlay">
           TRUNG TÂM
         </div>
@@ -98,7 +104,7 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
         state.currentRow && (
       <div className="question-section">
         <div className="question">
-          {state.rows.find(r=>r.id=state.currentRow).question}
+          {state.rows.find(r=>r.id===state.currentRow).question}
         </div>
       </div>
         )

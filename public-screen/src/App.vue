@@ -1,36 +1,44 @@
 <template>
-  <div>
-    <ScoreBoard :players="players" />
+  <div class="app">
 
-    <component :is="currentComponent" :data="roundData" />
+    <ScoreBoard :players="state.players" />
+
+    <component :is="currentComponent" />
+
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-import { io } from "socket.io-client"
+import { computed } from "vue"
+import { state } from "./socket"
 
-import ScoreBoard from './components/ScoreBoard.vue'
-import IntroScreen from './components/IntroScreen.vue'
-import ObstacleRound from './components/ObstacleRound.vue'
-import SpeedRound from './components/SpeedRound.vue'
-import FinishRound from './components/FinishRound.vue'
+import ScoreBoard from "./components/ScoreBoard.vue"
+import IntroScreen from "./components/IntroScreen.vue"
+import ObstacleRound from "./components/ObstacleRound.vue"
+import SpeedRound from "./components/SpeedRound.vue"
+import FinishRound from "./components/FinishRound.vue"
 
-const socket = io("http://localhost:3000")
+console.log(state);
 
-const players = ref([])
-const currentComponent = ref("IntroScreen")
-const roundData = ref({})
-
-onMounted(() => {
-  socket.on("updatePlayers", data => {
-    players.value = data
-  })
-
-  socket.on("changeRound", round => {
-    if (round === "obstacle") currentComponent.value = ObstacleRound
-    if (round === "speed") currentComponent.value = SpeedRound
-    if (round === "finish") currentComponent.value = FinishRound
-  })
+const currentComponent = computed(() => {
+  switch (state.phase) {
+    case "ChuongNgaiVat":
+      return ObstacleRound
+    case "TangToc":
+      return SpeedRound
+    case "VeDich":
+      return FinishRound
+    default:
+      return IntroScreen
+  }
 })
 </script>
+
+<style scoped>
+.app {
+  width: 100vw;
+  height: 100vh;
+  background: #7274e4;
+  color: white;
+}
+</style>

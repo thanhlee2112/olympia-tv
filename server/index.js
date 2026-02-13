@@ -7,6 +7,7 @@ const server = http.createServer(app)
 const kickoffQuestionBank = require("./data/questions/kickoff.json")
 const { v4: uuidv4 } = require("uuid")
 const { emit } = require("process")
+const { buzz } = require("../player-client/src/socket")
 const io = new Server(server, {
   cors: { origin: "*" }
 })
@@ -14,6 +15,45 @@ const io = new Server(server, {
 /* ======================
    GAME STATE
 ====================== */
+const SPEED_DURATION = 30000
+const FINAL_PACKAGES = {
+  40: [
+    [
+      { text: "Câu 1 - 10đ?", answer: "A", value: 10 },
+      { text: "Câu 2 - 10đ?", answer: "B", value: 10 },
+      { text: "Câu 3 - 20đ?", answer: "C", value: 20 }
+    ],
+    [
+      { text: "Câu 1 - 10đ?", answer: "D", value: 10 },
+      { text: "Câu 2 - 10đ?", answer: "E", value: 10 },
+      { text: "Câu 3 - 20đ?", answer: "F", value: 20 }
+    ]
+  ],
+  60: [
+    [
+      { text: "Câu 1 - 10đ?", answer: "A", value: 10 },
+      { text: "Câu 2 - 20đ?", answer: "B", value: 20 },
+      { text: "Câu 3 - 30đ?", answer: "C", value: 30 }
+    ],
+    [
+      { text: "Câu 1 - 10đ?", answer: "D", value: 10 },
+      { text: "Câu 2 - 20đ?", answer: "E", value: 20 },
+      { text: "Câu 3 - 30đ?", answer: "F", value: 30 }
+    ]
+  ],
+  80: [
+    [
+      { text: "Câu 1 - 20đ?", answer: "A", value: 20 },
+      { text: "Câu 2 - 30đ?", answer: "B", value: 30 },
+      { text: "Câu 3 - 30đ?", answer: "C", value: 30 }
+    ],
+    [
+      { text: "Câu 1 - 20đ?", answer: "D", value: 20 },
+      { text: "Câu 2 - 30đ?", answer: "E", value: 30 },
+      { text: "Câu 3 - 30đ?", answer: "F", value: 30 }
+    ]
+  ]
+}
 
 let gameState = {
   phase: "dashboard",
@@ -41,7 +81,7 @@ gameState.players.forEach(player => {
   )
 })
 gameState.obstacle = {
-  keyword: "CONSONG",
+  keyword: "XÔ VIẾT NGHỆ TĨNH",
   rowAnswers:{
       1: null,
       2: null,
@@ -51,29 +91,29 @@ gameState.obstacle = {
   rows: [
     {
       id: 1,
-      question: "Hàng ngang 1?",
-      answer: "SONG",
+      question: "5 tỉnh Bắc Trung Bộ bao gồm Thanh Hóa, Hà Tĩnh, Quảng Trị, Thừa Thiên Huế và tỉnh nào?",
+      answer: "NGHỆAN",
       revealed: false,
       disabled: false
     },
     {
       id: 2,
-      question: "Hàng ngang 2?",
-      answer: "NUOC",
+      question: "Hội nghị hợp nhất 3 tổ chức cộng sản thành lập Đảng Cộng sản Việt Nam được tổ chức vào năm nào?",
+      answer: "1930",
       revealed: false,
       disabled: false
     },
     {
       id: 3,
-      question: "Hàng ngang 3?",
-      answer: "BIEN",
+      question: "Khi chiếu 1 chùm sáng trắng qua lăng kính, tia sáng màu gì bị khúc xạ ít nhất?",
+      answer: "ĐỎ",
       revealed: false,
       disabled: false
     },
     {
       id: 4,
-      question: "Hàng ngang 4?",
-      answer: "HO",
+      question: "Tầng lớp chiếm tỷ lệ dân số cao ở các quốc gia nông nghiệp truyền thống là ai?",
+      answer: "NÔNGDÂN",
       revealed: false,
       disabled: false
     }
@@ -88,9 +128,10 @@ gameState.obstacle = {
     ],
     center: {
       revealed: false,
-      question: "Câu hỏi ô trung tâm?",
-      answer: "VIETNAM"
-    }
+      question: "Từ mượn tiếng Nga dùng để chỉ một hình thức “hội đồng” trong hệ thống chính trị?",
+      answer: "XÔVIẾT"
+    },
+    imageUrl: "http://10.16.31.80:3000/media/obstacle.png"
   },
   currentRow: null,
   timer: 0,
@@ -102,18 +143,31 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Câu hỏi 1?", answer: "A" },
-      { id: 2, text: "Câu hỏi 2?", answer: "B" },
-      { id: 3, text: "Câu hỏi 3?", answer: "C" },
-      { id: 4, text: "Câu hỏi 4?", answer: "D" }
+      { id: 1, text: "Điền số còn thiếu?", answer: "3",src:"http://10.16.31.80:3000/media/tang_toc_1.png", type:"image" },
+      { id: 2, text: "Đây là nguyên tố nào?", answer: "Niken", src:"http://10.16.31.80:3000/media/tang_toc_2.mp4", type:"video" },
+      { id: 3, text: "Câu hỏi 3?", answer: "CBAD", src:"http://10.16.31.80:3000/media/tang_toc_3.png", type:"image" },
+      { id: 4, text: "Câu hỏi 4?", answer: "D", src:"http://10.16.31.80:3000/media/tang_toc_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
+    showAnswers: false,
     running: false,
     locked: false,
     answers: {},
     correctPlayers: []
 }
+gameState.final = {
+  activePlayer: null,
+  packageValue: null,
+  questions: [],
+  currentIndex: 0,
+  showContent: false,
+  running: false,
+  star: false,
+  buzzWindow: false,
+  buzzPlayer: null
+}
+
 let timerInterval = null
 
 /* ======================
@@ -245,36 +299,52 @@ socket.on("mc:selectSpeedQuestion", (id) => {
   emitState()
 })
 
-socket.on("mc:startSpeedTimer", () => {
-  if (!gameState.speedup.currentQuestion) return
-  gameState.speedup.running = true
-  gameState.speedup.timer = 0
-  gameState.speedup.locked = false
-  const interval = setInterval(() => {
-    gameState.speedup.timer += 0.01
-    gameState.speedup.timer =
-      Number(gameState.speedup.timer.toFixed(2))
-    if (gameState.speedup.timer >= 30) {
-      clearInterval(interval)
+  socket.on("mc:startSpeedTimer", () => {
+    if (!gameState.speedup.currentQuestion) return
+
+    const startAt = Date.now()
+
+    gameState.speedup.startAt = startAt
+    gameState.speedup.running = true
+    gameState.speedup.locked = false
+
+    emitState()
+
+    // Tự động dừng sau 30s
+    setTimeout(() => {
       gameState.speedup.running = false
       gameState.speedup.locked = true
-    }
-    emitState()
-  }, 10)
-})
-  socket.on("player:speedAnswer", (answer) => {
+      emitState()
+    }, SPEED_DURATION)
+  })
+
+  // Player gửi đáp án
+  socket.on("player:speedAnswer", ({ answer, time }) => {
     if (!gameState.speedup.running) return
+
+    const serverNow = Date.now()
+    const serverElapsed =
+      (serverNow - gameState.speedup.startAt) / 1000
+
+    // Kiểm tra sai lệch > 0.5s thì dùng serverElapsed
+    const safeTime =
+      Math.abs(serverElapsed - time) > 0.5
+        ? Number(serverElapsed.toFixed(2))
+        : Number(time.toFixed(2))
 
     gameState.speedup.answers[socket.id] = {
       answer,
-      time: gameState.speedup.timer
+      time: safeTime
     }
 
     emitState()
   })
-
+  socket.on("mc:showSpeedAnswers", () => {
+    gameState.speedup.showAnswers = true
+    emitState()
+  })
   socket.on("mc:markSpeedCorrect", (playerId) => {
-    if (!gameState.speedup.correctPlayers.includes(playerId)) {
+    if (!gameState.speedup.correctPlayers.find(p => p.id === playerId)) {
       gameState.speedup.correctPlayers.push(playerId)
     }
     emitState()
@@ -297,7 +367,7 @@ socket.on("mc:startSpeedTimer", () => {
       .sort((a, b) => a.time - b.time)
 
     sorted.forEach((p, index) => {
-      const player = gameState.players.find(pl => pl.id === p.id)
+      const player = gameState.players.find(pl => pl.socketId === p.id)
       if (!player) return
 
       if (index === 0) player.score += 40
@@ -307,6 +377,8 @@ socket.on("mc:startSpeedTimer", () => {
     })
 
     gameState.speedup.locked = true
+    gameState.speedup.currentQuestion = null
+    gameState.speedup.showAnswers = false
     emitState()
   })
 socket.on("mc:answer", (correct) => {
@@ -333,7 +405,6 @@ socket.on("mc:selectRow", (rowId) => {
 
   const row = gameState.obstacle.rows.find(r => r.id === rowId)
   if (!row || row.disabled) return
-
   gameState.obstacle.currentRow = rowId
   gameState.obstacle.timer = 15
   gameState.obstacle.acceptingAnswer = false
@@ -356,7 +427,7 @@ socket.on("mc:startRowTimer", () => {
     emitState()
   }, 1000)
 })
-socket.on("mc:rowResult", (correct) => {
+socket.on("mc:rowResult", (correct, playerId) => {
   if (socket.role !== "mc") return
 
   const row = gameState.obstacle.rows.find(
@@ -364,14 +435,32 @@ socket.on("mc:rowResult", (correct) => {
   )
 
   if (!row) return
-
+    // Add 10 points to the player who answered correctly
+    const player = gameState.players.find(p => p.id == playerId)
   if (correct) {
-    row.revealed = true
-    gameState.obstacle.image.parts[row.id - 1].revealed = true
+    if (player) player.score += 10
   } else {
-    row.disabled = true
   }
 
+  emitState()
+})
+socket.on("mc:revealCorrectAnswer", (rowId) => {
+  if (socket.role !== "mc") return
+
+  const row = gameState.obstacle.rows.find(r => r.id === rowId)
+  if (!row) return
+
+  row.revealed = true
+  gameState.obstacle.image.parts[row.id - 1].revealed = true
+  gameState.obstacle.currentRow = null
+  emitState()
+})
+socket.on("mc:closeRow", () => {
+  if (socket.role !== "mc") return
+  const row = gameState.obstacle.rows.find(r => r.id === gameState.obstacle.currentRow)
+  if (!row) return
+  row.revealed = false
+  row.disabled = true
   gameState.obstacle.currentRow = null
   emitState()
 })
@@ -432,7 +521,144 @@ socket.on("mc:centerResult", (correct) => {
   gameState.obstacle.buzzPlayer = null
   emitState()
 })
+socket.on("mc:startFinal", (playerId) => {
+  gameState.final.activePlayer = playerId
+  gameState.final.packageValue = null
+  gameState.final.questions = []
+  gameState.final.currentIndex = 0
+  gameState.final.star = false
+  emitState()
+})
+socket.on("mc:selectPackage", (value) => {
+  gameState.final.packageValue = value
+  gameState.final.questions = FINAL_PACKAGES[value][gameState.final.activePlayer-1]
+  gameState.final.currentIndex = 0
+  emitState()
+})
+socket.on("mc:showFinalContent", () => {
+  gameState.final.showContent = true
+  emitState()
+})
+socket.on("mc:toggleStar", () => {
+  gameState.final.star = !gameState.final.star
+  emitState()
+})
+socket.on("mc:startFinalTimer", () => {
+  const q = gameState.final.questions[
+    gameState.final.currentIndex
+  ]
+  if (!q) return
 
+  gameState.final.running = true
+
+  const duration =
+    q.value === 10 ? 10000 :
+    q.value === 20 ? 15000 :
+    20000
+
+  setTimeout(() => {
+    gameState.final.running = false
+    emitState()
+  }, duration)
+
+  emitState()
+})
+socket.on("mc:finalCorrect", () => {
+  const f = gameState.final
+  const q = f.questions[f.currentIndex]
+  const player = gameState.players.find(
+    p => p.id === f.activePlayer
+  )
+
+  let score = q.value
+  if (f.star) score *= 2
+
+  player.score += score
+  emitState()
+})
+
+socket.on("mc:finalNext", () => {
+  const f = gameState.final
+  f.currentIndex++
+  f.star = false
+  f.showContent = false
+  emitState()
+})
+socket.on("mc:finalWrong", () => {
+  const f = gameState.final
+  const q = f.questions[f.currentIndex]
+  const active = gameState.players.find(
+    p => p.id === f.activePlayer
+  )
+
+  if (f.star) {
+    active.score -= q.value
+  }
+
+  f.buzzWindow = true
+  f.buzzPlayer = null
+
+  emitState()
+
+  setTimeout(() => {
+    f.buzzWindow = false
+    emitState()
+  }, 5000)
+})
+socket.on("player:finalBuzz", () => {
+  const f = gameState.final
+  if (!f.buzzWindow) return
+  if (f.buzzPlayer) return
+
+  if (socket.id === f.activePlayer) return
+
+  f.buzzPlayer = socket.id
+  f.buzzWindow = false
+  emitState()
+})
+socket.on("mc:finalBuzzCorrect", () => {
+  const f = gameState.final
+  const q = f.questions[f.currentIndex]
+
+  const buzzer = gameState.players.find(
+    p => p.socketId === f.buzzPlayer
+  )
+  const active = gameState.players.find(
+    p => p.id === f.activePlayer
+  )
+
+  buzzer.score += q.value
+
+  if (!f.star) {
+    active.score -= q.value
+  }
+  f.buzzPlayer = null
+
+  emitState()
+})
+
+socket.on("mc:finalBuzzWrong", () => {
+  const f = gameState.final
+  const q = f.questions[f.currentIndex]
+
+  const buzzer = gameState.players.find(
+    p => p.id === f.buzzPlayer
+  )
+
+  buzzer.score -= q.value / 2
+  f.buzzPlayer = null
+
+  emitState()
+})
+socket.on("mc:endFinal", () => {
+  gameState.final.activePlayer = null
+  gameState.final.packageValue = null
+  gameState.final.questions = []
+  gameState.final.currentIndex = 0
+  gameState.final.showContent = false
+  gameState.final.star = false
+  emitState()
+})
 })
 function emitState() {
   io.sockets.sockets.forEach((s) => {
@@ -441,7 +667,12 @@ function emitState() {
         s.emit("state:update", buildKickoffPlayerState(s))
       } else if(gameState.phase === "ChuongNgaiVat") {
         s.emit("state:update", buildObstaclePlayerState(s))
-      }else{
+      }else if(gameState.phase === "TangToc") {
+        s.emit("state:update", buildSpeedupPlayerState(s))
+      }else if(gameState.phase === "VeDich") {
+        s.emit("state:update", buildFinalPlayerState(s))
+      }
+      else{
         s.emit("state:update", buildPlayerState(s))
       }
     } else {
@@ -498,6 +729,25 @@ function buildKickoffPlayerState(socket) {
   }
 }
 
+function buildFinalPlayerState(socket) {
+  const player = gameState.players.find(
+    p => p.id === socket.playerId
+  )
+  console.log(gameState.final);
+  
+  return{
+    phase: gameState.phase,
+    name: player?.name || "Unknown",
+    score: player?.score || 0,
+    players: gameState.players,
+    activePlayer: gameState.final.activePlayer,
+    question: gameState.final.questions[gameState.final.currentIndex]?.text || null,
+    buzzWindow: gameState.final.buzzWindow,
+    buzzPlayer: gameState.final.buzzPlayer,
+    showContent: gameState.final.showContent
+
+  }
+}
 function startTimer() {
   clearInterval(timerInterval)
   timerInterval = setInterval(() => {
@@ -535,7 +785,29 @@ function buildObstaclePlayerState(socket) {
     locked: gameState.obstacle.lockedPlayers.includes(socket.playerId)
   }
 }
-
+function buildSpeedupPlayerState(socket) {
+  const player = gameState.players.find(
+    p => p.id === socket.playerId
+  )
+  if(!gameState.speedup.currentQuestion){
+    return {
+      phase: gameState.phase,
+      score: player?.score || 0,
+    }
+  }  
+  return {
+    phase: gameState.phase,
+    score: player?.score || 0,
+    currentQuestion: {
+      id: gameState.speedup.currentQuestion.id,
+      text: gameState.speedup.currentQuestion.text,
+      src: gameState.speedup.currentQuestion.src,
+      type: gameState.speedup.currentQuestion.type
+    },
+    startAt: gameState?.speedup?.startAt,
+    running: gameState?.speedup?.running
+  }
+}
 function endKickoff() {
   clearInterval(timerInterval)
   gameState.kickoff.running = false
@@ -546,6 +818,7 @@ const PORT = 3000
 app.use("/player", express.static(path.join(__dirname, "../player-client/dist")))
 app.use("/public", express.static(path.join(__dirname, "../public-screen/dist")))
 app.use("/control", express.static(path.join(__dirname, "../control-panel/dist")))
+app.use("/media", express.static(path.join(__dirname, "media")))
 server.listen(PORT, "0.0.0.0", () => {
   console.log("Server running on port " + PORT)
 })
