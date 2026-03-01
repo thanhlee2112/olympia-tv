@@ -5,9 +5,9 @@
     <Obstacle v-else-if="state.phase === 'ChuongNgaiVat'" />
     <Speedup v-else-if="state.phase === 'TangToc'" />
     <Final v-else-if="state.phase === 'VeDich'" />
+    <ScoreBoard v-else-if="state.phase === 'scoreboard'" />
     <div v-else class="main-grid">
       <PhaseControl />
-      <ScoreBoard />
     </div>
   <audio ref="audioRef"></audio>
   </div>
@@ -20,14 +20,10 @@ import Speedup from "./views/Speedup.vue"
 import Final from "./views/Final.vue"
 import MCHeader from "./components/MCHeader.vue"
 import PhaseControl from "./components/PhaseControl.vue"
-import QuestionPanel from "./components/QuestionPanel.vue"
-import TimerCircle from "./components/TimerCircle.vue"
-import ScoreBoard from "./components/ScoreBoard.vue"
-import SoundPanel from "./components/SoundPanel.vue"
+import ScoreBoard from "./views/ScoreBoard.vue"
 import { state } from "./socket"
 import Kickoff from "./views/Kickoff.vue"
 import { watch } from "vue"
-import { playPhaseSound } from "./utils/sound"
 import { ref } from "vue"
 const audioRef = ref(null)
 
@@ -53,6 +49,6 @@ watch(
       console.log("Audio error:", err)
     })
   }
-)
 
+)
 </script>

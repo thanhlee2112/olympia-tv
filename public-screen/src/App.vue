@@ -15,19 +15,24 @@ import { state } from "./socket"
 import ScoreBoard from "./components/ScoreBoard.vue"
 import IntroScreen from "./components/IntroScreen.vue"
 import ObstacleRound from "./components/ObstacleRound.vue"
+import KickoffRound from "./components/KickoffRound.vue"
 import SpeedRound from "./components/SpeedRound.vue"
 import FinishRound from "./components/FinishRound.vue"
-
+import SummarizeScore from "./components/SummarizeScore.vue"
 console.log(state);
 
 const currentComponent = computed(() => {
-  switch (state.phase) {
+   switch (state.phase) {
+    case "KhoiDong":
+      return KickoffRound
     case "ChuongNgaiVat":
       return ObstacleRound
     case "TangToc":
       return SpeedRound
     case "VeDich":
       return FinishRound
+    case "scoreboard":
+      return SummarizeScore
     default:
       return IntroScreen
   }

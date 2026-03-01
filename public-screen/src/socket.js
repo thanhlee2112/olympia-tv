@@ -2,7 +2,7 @@
 import { io } from "socket.io-client"
 import { reactive } from "vue";
 
-const socket = io("http://10.16.31.80:3000", {
+export const socket = io("http://192.168.0.183:3000", {
   auth: {
     role: "public",
   },
@@ -12,7 +12,11 @@ export const state = reactive({
   phase: "dashboard",
   obstacle: {},
   speedup: {},
-  final: {}
+  final: {},
+  scoreboard:{
+    revealed: []
+  },
+  summarizingScores: false,
 })
 
 socket.on("state:update", (newState) => {

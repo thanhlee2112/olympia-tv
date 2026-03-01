@@ -43,15 +43,22 @@
       <div class="corner-box corner-br" :class="{ revealed: state.obstacle.image.parts[3]?.revealed }">
         {{ state.obstacle.image.parts[3]?.revealed ? "MỞ" : "4" }}
       </div>
-      <div class="center-box-overlay" :class="{ enabled: canSelectCenter }" @click="selectCenter">
-        TRUNG TÂM
+      <div class="center-box-overlay" :class="{ enabled: canSelectCenter, revealed: state.obstacle.image.center.revealed }" @click="selectCenter">
+        {{ state.obstacle.image.center.revealed ? "MỞ" : "TRUNG TÂM" }}
       </div>
     </div>
      </div>
     
     <!-- ❓ CÂU HỎI -->
-    <div v-if="currentRow" class="question-box">
+    <div v-if="currentRow  || state.obstacle.centerSelected" class="question-box">
+      <div v-if="!state.obstacle.centerSelected" class="question">
       <h3>{{ currentRow.question }}</h3>
+      <h2>{{ currentRow.answer }}</h2>
+      </div>
+       <div v-else-if="!state.obstacle.centerAnswered" class="center-question">
+        <h3>{{ state.obstacle.image.center.question }}</h3>
+        <h2>{{ state.obstacle.image.center.answer }}</h2>
+      </div>
       <button v-if="!state.obstacle.acceptingAnswer"
               @click="startTimer">
         BẮT ĐẦU ĐẾM NGƯỢC
@@ -65,7 +72,7 @@
       >
         XEM CÂU TRẢ LỜI
       </button>
-        <div v-if="showAnswer">
+        <div v-if="state.obstacle.showAnswers" class="player-answers">
           <h4>CÂU TRẢ LỜI THÍ SINH</h4>
         
           <div
@@ -92,26 +99,22 @@
                 SAI
                 </button>
             </div>
-            <div v-if="state.obstacle.rows.find(r => r.id === state.obstacle.currentRow).revealed" class="answer-right">
-              <button
-                class="score-btn"
-                @click="addScore(playerId)"
-              >
-                +10
-              </button>
-            </div>
           </div>
-      
           <div class="row-final-actions">
-            <button @click="revealCorrectAnswer(currentRow.id)">
+            <button v-if="!state.obstacle.centerSelected" @click="revealCorrectAnswer(currentRow.id)">
               HIỆN ĐÁP ÁN CHUẨN
             </button>
+            <button v-else @click="revealCorrectAnswer()">
+              HIỆN ĐÁP ÁN CHUẨN
+              </button>  
             <button @click="closeRow(currentRow.id)">
               KẾT THÚC HÀNG
             </button>
+            <button v-if="canSelectCenter" @click="activateCountdown">
+               ĐẾM NGƯỢC THỜI GIAN BẤM CHUÔNG
+             </button>
           </div>
         </div>
-
     </div>
     <!-- 🔔 BUZZ -->
     <div v-if="state.obstacle.buzzPlayer" class="buzz-box-rect">
@@ -122,9 +125,9 @@
         <button @click="obstacleResult(false)">SAI</button>
       </div>
     </div>
-    <div>
-      <button v-if="state.obstacle.obstacleClear" @click="returnToDashboard">Trở về màn hình chính</button>
-    </div>
+      <button @click="openScoreboard">
+  Tổng kết điểm
+</button>
   </div>
 </template>
 
@@ -143,7 +146,7 @@ const currentRow = computed(() => {
 const rowAnswers = computed(() => {
   const rowId = state.obstacle.currentRow
   if (!rowId) return {}
-  return state.obstacle.rowAnswers?.[rowId] || {}
+  return state.obstacle.rowAnswers?.[rowId] || state.obstacle.rowAnswers?.center || {}
 })
 watch(
   () => state.obstacle.buzzPlayer,
@@ -170,7 +173,7 @@ const canSelectCenter = computed(() =>
 )
 
 async function showPlayerAnswer(){
-  showAnswer.value = true
+  socket.emit("mc:showAnswersObstacle")
   await play('/sounds/reveal_player_answer.mp3')
 }
 
@@ -194,6 +197,9 @@ function play(src,ref = audioRef) {
 
     audio.play().catch(reject)
   })
+}
+function openScoreboard() {
+  socket.emit("mc:openScoreboard")
 }
 async function selectRow(row) {
   if (row.disabled || row.revealed) return
@@ -223,7 +229,7 @@ function obstacleResult(correct) {
     play('sounds/wrong_answer_obstacle.mp3')
   }
 }
-function revealCorrectAnswer(rowId) {
+function revealCorrectAnswer(rowId = null) {
   socket.emit("mc:revealCorrectAnswer", rowId)
   play('/sounds/open_image.mp3')
 }

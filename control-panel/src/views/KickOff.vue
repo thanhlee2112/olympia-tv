@@ -8,7 +8,6 @@
     <!-- 1. CHƯA CHỌN NGƯỜI CHƠI -->
     <!-- ========================= -->
     <div v-if="!state.kickoff.running">
-
       <h2>Chọn người chơi</h2>
 
       <div class="players">
@@ -23,6 +22,9 @@
         </div>
       </div>
       <div>
+        <button @click="openScoreboard">
+           TỔNG KẾT ĐIỂM
+        </button>
         <button @click="endKickoff">Kết thúc phần thi khởi động</button>
       </div>
     </div>
@@ -52,6 +54,9 @@
         <button @click="answerQuestions(false)">
           Sai
         </button>
+        <button @click="endKickoffPlayer">
+          Kết thúc phần thi khởi động
+        </button>
       </div>
     
     </div>
@@ -62,7 +67,7 @@
 
 <script setup>
 import { computed } from "vue"
-import { state, startKickoff, answer,showQuestion,setPhase } from "../socket"
+import { state, startKickoff, answer,showQuestion,setPhase, socket } from "../socket"
 import { watch } from "vue"
 import { ref } from "vue"
 const audioRef = ref(null)
@@ -95,10 +100,7 @@ function start(playerId) {
   })
 }
 async function MCshowQuestion() {
-  await play("/sounds/open_questions.mp3")
   showQuestion()
-  await play("/sounds/kickoff_countdown.mp3",countdownRef)
-
 }
 const currentPlayer = computed(() =>
   state.players.find(p => p.id === state.currentPlayer)
@@ -107,18 +109,24 @@ const currentPlayer = computed(() =>
 const currentQuestion = computed(() =>
   state.kickoff.questions?.[state.kickoff.currentIndex]
 )
-watch(
-  () => state.kickoff.running,
-  (newRunning, oldRunning) => {
-    if(oldRunning === true && newRunning === false) {
-      // Vòng thi kết thúc, phát âm thanh kết thúc
-      play("/sounds/player_finish_kickoff.mp3").catch(err => {
-        console.log("Audio error:", err)
-      })
-      return
-    }
-  }
-)
+function summarizeScores() {
+  socket.emit("mc:summarizeScores")
+  play("/sounds/summarize_scores.mp3").catch(err => {
+    console.log("Audio error:", err)
+  })
+}
+function openScoreboard() {
+  socket.emit("mc:openScoreboard")
+}
+function endKickoffPlayer() {
+  // Kết thúc phần thi khởi động của người chơi hiện tại
+  // Có thể gửi sự kiện đến server để kết thúc phần thi của người chơi
+  // Ví dụ: endKickoffPlayer()
+  socket.emit("mc:endKickoffPlayer")
+  play("/sounds/player_finish_kickoff.mp3").catch(err => {
+    console.log("Audio error:", err)
+  })
+}
 function endKickoff() {
   // Kết thúc vòng thi khởi động
   // Có thể gửi sự kiện đến server để kết thúc vòng thi

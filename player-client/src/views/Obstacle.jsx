@@ -83,9 +83,11 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
             </div>
           ) : null
         )}
-        <div className="center-box-overlay">
-          TRUNG TÂM
-        </div>
+        {!state.image.center.revealed ? (
+          <div className="center-box-overlay">
+            TRUNG TÂM
+          </div>
+        ) : null}
       </div>
       </div>
       
@@ -101,10 +103,10 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
 
       {/* Ô nhập đáp án */}
       {
-        state.currentRow && (
+        state.currentRow || state.centerSelected && (
       <div className="question-section">
         <div className="question">
-          {state.rows.find(r=>r.id===state.currentRow).question}
+          {state.rows.find(r=>r.id===state.currentRow)?.question || state.image.center.question}
         </div>
       </div>
         )

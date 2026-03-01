@@ -1,6 +1,6 @@
 <template>
   <div class="intro">
-    <h1>CHƯƠNG TRÌNH BẮT ĐẦU</h1>
+    <h1>ĐƯỜNG LÊN ĐỈNH OLYMPIA</h1>
   </div>
 </template>
 

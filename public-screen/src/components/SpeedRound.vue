@@ -1,315 +1,285 @@
 <template>
   <div class="speedup-root">
-    <div class="timer-bar-vertical">
-      <div
-        class="fill"
-        :style="{
-          height: progress + '%',
-          transition: 'height 0.2s linear'
-        }"
-      />
-    </div>
-    <div class="center-content">
-      <h1>TĂNG TỐC</h1>
-      <div v-if="state.speedup.currentQuestion && !state.speedup.showAnswers" class="media-block">
-        <h2>{{ state.speedup.currentQuestion.text }}</h2>
-        <video
-          v-if="state.speedup.currentQuestion.type === 'video'"
-          ref="videoRef"
-          class="media"
-          controls="false"
-        >
-          <source
-            :src="state.speedup.currentQuestion.src"
-            type="video/mp4"
-          />
-        </video>
-        <img
-          v-else-if="state.speedup.currentQuestion.type === 'image'"
-          :src="state.speedup.currentQuestion.src"
-          class="media"
-        />
-      </div>
-      <div v-else-if="state.speedup.showAnswers">
-          <!-- Olympia style answer block -->
-          <div class="olympia-answer-list">
-            <div
-              v-for="player in sortedPlayers"
-              :key="'olympia-' + player.id"
-              class="olympia-answer-item"
-            >
-              <div class="olympia-row">
-                <div class="olympia-time">{{ getPlayerTime(player.id) }}</div>
-                <div class="olympia-dot"></div>
-                <div class="olympia-name">{{ player.name }}</div>
-              </div>
-              <div class="olympia-answer-text">{{ getPlayerAnswer(player.id) }}</div>
+    <div v-if="state.speedup.currentQuestion && !state.speedup.showAnswers" class="olympia-container">
+      
+      <div class="olympia-layout">
+        <div class="main-content-area">
+          <div class="media-unfold-wrapper">
+            <div class="media-box">
+               <h2 class="question-text">{{ state.speedup.currentQuestion.text }}</h2>
+               <div class="media-wrapper">
+                  <video
+                    v-show="state.speedup.currentQuestion.type === 'video' && state.speedup.startAt"
+                    ref="videoRef"
+                    class="media"
+                    preload="auto"
+                    @ended="onVideoEnded"
+                  >
+                    <source :src="state.speedup.currentQuestion.src" type="video/mp4" />
+                  </video>
+                  <img
+                    v-show="state.speedup.currentQuestion.type === 'image'"
+                    :src="state.speedup.currentQuestion.src"
+                    class="media"
+                  />
+               </div>
             </div>
           </div>
+
+          <div class="olympia-base-bar">
+            <div class="wood-slider"></div>
+            <div class="question-tag">CÂU {{ state.speedup.currentQuestion.id }}</div>
+          </div>
+        </div>
+
+        <div class="timer-unfold-wrapper">
+          <div class="timer-vertical">
+             <div class="fill" :style="{ height: progress + '%' }"></div>
+          </div>
+        </div>
       </div>
+
+    </div>
+
+    <div v-else-if="state.speedup.showAnswers" class="answer-overlay">
+       <div class="olympia-answer-list">
+          <div v-for="player in sortedPlayers" :key="player.id" class="olympia-answer-item">
+            <div class="olympia-time">{{ getPlayerTime(player.socketId) }}</div>
+            <div class="olympia-dot"></div>
+            <div class="olympia-name-ans">
+              <div class="olympia-name">{{ player.name }}</div>
+              <div class="olympia-answer-text">{{ getPlayerAnswer(player.socketId) }}</div>
+            </div>
+          </div>
+       </div>
     </div>
   </div>
 </template>
 
+<style scoped>
+/* Định nghĩa biến để dễ quản lý chiều cao đồng bộ */
+:root {
+  --olympia-height: 550px; 
+}
+
+.speedup-root {
+  width: 100vw;
+  height: 100vh;
+  background: #050a10;
+  position: relative;
+  perspective: 2500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.olympia-container {
+  position: absolute;
+  bottom: 100px; 
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.olympia-layout {
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.main-content-area {
+  display: flex;
+  flex-direction: column;
+}
+
+/* THANH NGANG ĐẾ */
+.olympia-base-bar {
+  position: relative;
+  width: 900px;
+  height: 45px;
+  background: #000;
+  border-top: 1px solid #444;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  z-index: 10;
+}
+
+.wood-slider {
+  position: absolute;
+  top: 0;
+  right: 150px;
+  width: 65%;
+  height: 16px;
+  background: linear-gradient(to bottom, #8b4513, #4d260b);
+  animation: slideInWood 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.question-tag {
+  position: absolute;
+  right: 0;
+  width: 150px;
+  height: 100%;
+  background: #f1c40f;
+  color: #000;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+/* KHUNG MEDIA CỐ ĐỊNH CHIỀU CAO */
+.media-unfold-wrapper {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+  opacity: 0;
+  animation: unfold3D 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.5s;
+}
+
+.media-box {
+  width: 900px;
+  /* CỐ ĐỊNH: Luôn bằng chiều cao timer */
+  height: 550px; 
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid #333;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.media-wrapper {
+  flex: 1; /* Chiếm hết phần còn lại của box */
+  width: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.question-text {
+  color: #fff;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  text-align: center;
+  min-height: 2.4rem; /* Giữ chỗ cho text */
+}
+
+/* TIMER DỰNG ĐỨNG */
+.timer-unfold-wrapper {
+  transform-origin: bottom;
+  transform: rotateX(-90deg);
+  opacity: 0;
+  animation: unfold3D 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 0.8s;
+}
+
+.timer-vertical {
+  width: 40px;
+  /* CỐ ĐỊNH: Chiều cao chuẩn */
+  height: 550px; 
+  background: #000;
+  border: 1px solid #333;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.timer-vertical .fill {
+  width: 100%;
+  background: linear-gradient(to top, #00ff88, #008855);
+}
+
+@keyframes unfold3D {
+  0% { transform: rotateX(-90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+@keyframes slideInWood {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+.answer-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+</style>
+
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from "vue"
+import { ref, watch, onMounted, onUnmounted, computed } from "vue"
 import { state } from "../socket"
+
 const videoRef = ref(null)
-watch(
-  () => state.speedup.currentQuestion,
-  (q) => {
-    if (q?.media?.type === "video" && videoRef.value) {
-      videoRef.value.load()
-      videoRef.value.play()
-    }
-  }
-)
 const progress = ref(0)
 let timer = null
-function updateProgress() {
-  if (!state.speedup.startAt) {
-    progress.value = 0
-    return
+
+function onVideoEnded() { 
+  if (videoRef.value) {
+    videoRef.value.pause();
+    // Cưỡng bức video dừng ở giây cuối cùng để tránh hiện thumbnail load lại
+    videoRef.value.currentTime = videoRef.value.duration;
+  } 
+}
+watch(
+
+  () => state.speedup.currentQuestion,
+
+  (q) => {
+
+    if (q?.type === "video" && videoRef.value) {
+
+      videoRef.value.load()
+
+    }
+
   }
+
+)
+
+watch(
+
+  () => state.speedup.startAt,
+
+  (startAt) => {
+
+    if (startAt && videoRef.value) {
+
+      videoRef.value.currentTime = 0
+
+      videoRef.value.play()
+
+    }
+
+  }
+
+)
+function updateProgress() {
+  if (!state.speedup.startAt) { progress.value = 0; return }
   const elapsed = (Date.now() - state.speedup.startAt) / 1000
   progress.value = Math.min((elapsed / 30) * 100, 100)
 }
-onMounted(() => {
-  timer = setInterval(updateProgress, 50)
-})
-onUnmounted(() => {
-  if (timer) clearInterval(timer)
-})
-watch(
-  () => state.speedup.startAt,
-  () => {
-    updateProgress()
-  }
-)
 
-import { computed } from "vue"
+onMounted(() => { timer = setInterval(updateProgress, 50) })
+onUnmounted(() => { if (timer) clearInterval(timer) })
 
 const sortedPlayers = computed(() => {
   if (!state.players) return []
-  // Map each player to their answer/time (if any)
-  return [...state.players].map(player => {
-    const ans = state.speedup.answer?.find(a => a.id === player.id)
-    return {
-      ...player,
-      answer: ans?.answer,
-      time: ans?.time ?? 0
-    }
-  }).sort((a, b) => a.time - b.time)
+  return [...state.players].map(p => ({
+    ...p,
+    time: state.speedup.answers?.[p.socketId]?.time ?? 0
+  })).sort((a, b) => a.time - b.time)
 })
 
-function getPlayerTime(id) {
-  const ans = state.speedup.answer?.find(a => a.id === id)
-  return ans ? ans.time.toFixed(2) : '0.00'
-}
-function getPlayerAnswer(id) {
-  const ans = state.speedup.answer?.find(a => a.id === id)
-  return ans ? ans.answer : ''
-}
+function getPlayerTime(id) { return state.speedup.answers[id]?.time.toFixed(2) || '0.00' }
+function getPlayerAnswer(id) { return state.speedup.answers[id]?.answer || '' }
 </script>
-
-<style scoped>
-/* Layout and timer bar */
-.speedup-root {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: #101c2c;
-}
-.timer-bar-vertical {
-  width: 32px;
-  height: 60vh;
-  background: #333;
-  border-radius: 16px;
-  margin-right: 48px;
-  display: flex;
-  flex-direction: column-reverse;
-  overflow: hidden;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
-}
-.timer-bar-vertical .fill {
-  width: 100%;
-  background: linear-gradient(180deg, #00e676 0%, #2196f3 100%);
-  border-radius: 0 0 16px 16px;
-  transition: height 0.2s linear;
-}
-.center-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-}
-.media-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-h1 {
-  color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  letter-spacing: 2px;
-}
-.media {
-  max-width: 1280px;
-  max-height: 720px;
-  margin-bottom: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px 0 rgba(33,150,243,0.10);
-  background: #222;
-}
-h2 {
-  color: #fff;
-  font-size: 1.7rem;
-  margin-top: 1rem;
-  text-align: center;
-  background: rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 0.7rem 1.5rem;
-}
-@media (max-width: 700px) {
-  .speedup-root {
-    flex-direction: column;
-    padding: 16px 0;
-  }
-  .timer-bar-vertical {
-    width: 90vw;
-    height: 24px;
-    margin: 0 0 32px 0;
-    flex-direction: row;
-  }
-  .timer-bar-vertical .fill {
-    height: 100%;
-    width: auto;
-    transition: width 0.2s linear;
-  }
-}
-
-/* Player answers list */
-.player-answers-list {
-  margin-top: 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.player-answer-item {
-  background: rgba(33,150,243,0.10);
-  border-radius: 10px;
-  margin-bottom: 18px;
-  padding: 16px 32px 12px 32px;
-  min-width: 260px;
-  box-shadow: 0 2px 8px 0 rgba(33,150,243,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 1;
-}
-.player-time {
-  color: #00e676;
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-.player-name {
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.player-answer {
-  color: #2196f3;
-  font-size: 1.1rem;
-  margin-top: 2px;
-  word-break: break-word;
-}
-
-/* Slide-down animation for transition-group */
-.slide-down-enter-active {
-  transition: all 0.5s cubic-bezier(.23,1.01,.32,1);
-}
-.slide-down-leave-active {
-  transition: all 0.3s cubic-bezier(.23,1.01,.32,1);
-}
-.slide-down-enter-from {
-  opacity: 0;
-  transform: translateY(-40px);
-}
-.slide-down-enter-to {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide-down-leave-from {
-  opacity: 1;
-  transform: translateY(0);
-}
-.slide-down-leave-to {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-/* Olympia answer style */
-.olympia-answer-list {
-  margin-top: 2rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.olympia-answer-item {
-  background: #232323;
-  border-radius: 8px;
-  margin-bottom: 12px;
-  min-width: 320px;
-  box-shadow: 0 2px 8px 0 rgba(33,150,243,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-}
-.olympia-row {
-  display: flex;
-  align-items: center;
-  padding: 0 0 0 0;
-}
-.olympia-time {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-right: 12px;
-  min-width: 70px;
-  text-align: right;
-}
-.olympia-dot {
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(180deg, #2196f3 0%, #00e676 100%);
-  border-radius: 50%;
-  margin-right: 8px;
-  box-shadow: 0 2px 8px 0 rgba(33,150,243,0.18);
-}
-.olympia-name {
-  color: #ffeb3b;
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px #000;
-  margin-right: 8px;
-}
-.olympia-answer-text {
-  color: #fff;
-  font-size: 1.7rem;
-  font-weight: 600;
-  margin-left: 70px;
-  margin-top: 2px;
-  margin-bottom: 8px;
-  text-shadow: 1px 1px 2px #000;
-}
-</style>

@@ -4,6 +4,9 @@
   <div v-if="!state.final.activePlayer">
     <div>
     <button @click="playerGoToFinal()">Final</button>
+    <button @click="openScoreboard">
+  Tổng kết điểm
+</button>
   </div>
     <div
       v-for="p in state.players"
@@ -54,12 +57,14 @@
     </div>
 
   </div>
-
+  <div>
+    <button @click="endFinalAll">Kết thúc Về đích</button>
+  </div>
 </div>
 </template>
 
 <script setup>
-import { socket, state } from "../socket"
+import { setPhase, socket, state } from "../socket"
 import { ref, watch } from "vue"
 const audioRef = ref(null)
 function play(src,ref = audioRef) {
@@ -87,6 +92,9 @@ watch(
     }
   }
 )
+function openScoreboard() {
+  socket.emit("mc:openScoreboard")
+}
 function showQuestion(){
   socket.emit("mc:showFinalContent")
   play('/sounds/final_open_question.mp3')
@@ -147,5 +155,8 @@ function getName(id){
 function endFinal(){
   socket.emit("mc:endFinal")
   play('/sounds/player_finish_final.mp3')
+}
+function endFinalAll(){
+  setPhase("dashboard")
 }
 </script>
