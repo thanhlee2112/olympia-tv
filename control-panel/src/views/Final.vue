@@ -41,6 +41,7 @@
         }}
       </h2>
       <button @click="showQuestion">Hiển thị câu hỏi</button>
+      <button @click="gapSound">...</button>
       <button @click="toggleStar">⭐</button>
       <button @click="startTimer">Start</button>
       <button @click="correct">ĐÚNG</button>
@@ -99,6 +100,9 @@ function showQuestion(){
   socket.emit("mc:showFinalContent")
   play('/sounds/final_open_question.mp3')
 }
+function gapSound(){
+  play('/sounds/gap.mp3')
+}
 function playerGoToFinal(id){
     play('/sounds/player_start_final.mp3')
 }
@@ -149,7 +153,7 @@ function buzzWrong(){
   play('/sounds/final_wrong_answer.mp3')
 }
 function getName(id){
-  const p = state.players.find(p=>p.id===id)
+  const p = state.players.find(p=>p.socketId===id)
   return p?.name
 }
 function endFinal(){

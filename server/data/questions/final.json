@@ -35,8 +35,18 @@
         "value": 10
     },
     {
+        "text": "Trong hệ đếm La Mã, giá trị 500 được ký hiệu bằng chữ cái nào?",
+        "answer": "D",
+        "value": 10
+    },
+    {
         "text": "Sương mù quang hóa ở đô thị được tạo thành khi khí thải giao thông phản ứng với cái gì?",
         "answer": "Ánh sáng mặt trời (tia UV)",
+        "value": 10
+    },
+    {
+        "text":"(3,5), (5,7), (11,13),... được gọi là những cặp số nguyên tố gì?",
+        "answer":"Cặp số nguyên tố sinh đôi (twin primes)",
         "value": 10
     },
     {
@@ -85,6 +95,12 @@
         "value": 20
     },
     {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Global Warming",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_4.mp4"
+    },
+    {
         "text": "Trong nước ngầm khai thác lên từ lòng đất thường chứa cation Fe2+ dưới dạng Fe(HCO3)2. Để loại bỏ cation Fe2+, cách rẻ nhất, hiệu quả nhất được dùng là gì?",
         "answer": "Sục khí O2 vào nước ngầm hoặc phun nước trong không khí để oxy hóa Fe2+ thành Fe3+, sau đó kết tủa thành Fe(OH)3 và dễ dàng lọc bỏ",
         "value": 20
@@ -98,6 +114,12 @@
         "text": "Nguyên nhân chính gây xâm nhập mặn ở Đồng bằng sông Cửu Long hiện nay là gì?",
         "answer": "Nước biển dâng cao và lưu lượng nước từ thượng nguồn sông Mê Kông giảm",
         "value": 20
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "200 grams",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_2.mp4"
     },
     {
         "text": "Bạn Nam muốn tổ chức một bữa tiệc cho lớp học của mình có số học sinh từ 40 đến 50. Nếu mỗi bàn tiệc có 5 chỗ ngồi thì sẽ có 2 bạn không có chỗ ngồi, nếu mỗi bàn tiệc có 6 chỗ ngồi thì tất cả các bạn đều có chỗ ngồi. Hỏi số học sinh của lớp Nam là bao nhiêu?",
@@ -114,6 +136,18 @@
         "answer": "Nhà thờ Đức Bà Paris (Notre-Dame)",
         "value": 20
     },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Kiến trúc sư Ngô Viết Thụ",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_3.mp4"
+    },
+    {
+        "text": "Dũng và Huy mỗi người có 1 số tiền. Họ muốn mua 1 quyển sách toán. Mỗi người thiếu lần lượt 52.000 đồng và 2.000 đồng nhưng khi góp chung tiền lại họ vẫn không mua được quyển sách đó. Hỏi giá quyển sách bao nhiêu tiền, biết giá của quyển sách tính chẵn theo nghìn đồng?",
+        "answer": "53.000 đồng (vì nếu giá sách là 53.000 đồng, Dũng thiếu 52.000 đồng nên có 1.000 đồng, Huy thiếu 2.000 đồng nên có 51.000 đồng, khi góp chung họ chỉ có 52.000 đồng nên không đủ tiền mua sách)",
+        "value": 20
+    },
+
     {
         "text": "Tại sao không nên sử dụng xà phòng để giặt quần áo trong nước cứng?",
         "answer": "Xà phòng phản ứng với ion Ca2+ và Mg2+ tạo kết tủa không tan, làm giảm hiệu quả giặt rửa",
@@ -136,8 +170,14 @@
         "value": 20
     },
     {
-        "text": "Tại sao thân máy bay thường được sơn màu trắng hoặc màu sáng?",
-        "answer": "Để giảm hấp thụ bức xạ nhiệt từ mặt trời, giúp làm mát cabin và tiết kiệm nhiên liệu cho hệ thống điều hòa",
+        "text": "Tại sao đồng phục ở các trường học ở Việt Nam thường có màu trắng đối với đồng phục mùa hè và màu đen đối với đồng phục mùa đông?",
+        "answer": "Màu trắng phản xạ ánh sáng mặt trời, giúp học sinh cảm thấy mát mẻ hơn trong mùa hè, trong khi màu đen hấp thụ nhiệt, giúp giữ ấm hơn trong mùa đông",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia?",
+        "answer": "Tác phẩm \"Kính gửi cụ Nguyễn Du\" của nhà thơ Tố Hữu",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_4.mp4",
         "value": 30
     },
     {
@@ -151,7 +191,7 @@
         "value": 30
     },
     {
-        "text": "Điền từ còn trống trong các câu thơ sau: \"Mẹ Việt Nam tuổi bốn mươi thế kỷ.Gót Cà Mau đầu tận ải .... ...Giang, buông dài làn sóng tóc.Dựa ..., đứng gác Thái Bình Dương.\"",
+        "text": "Điền từ còn trống trong các câu thơ sau: \"Mẹ Việt Nam tuổi bốn mươi thế kỷ.Gót Cà Mau đầu tận ải ..../...Giang, buông dài làn sóng tóc.Dựa ..., đứng gác Thái Bình Dương.\"",
         "answer": "Nam Quan, Cửu Long, Trường Sơn",
         "value": 30
     },
@@ -182,9 +222,10 @@
         "value": 30
     },
     {
-        "text": "Đây là một danh tướng dưới thời Trần. Ông sinh ở Làng Hạ Bì, xã Yết Kiêu, huyện Gia Lộc, tỉnh Hải Dương. Ông đã được tuyển mộ vào quân đội nhà Trần trong lực lượng thủy binh. Ông cùng với Dã Tượng đã lập nhiều chiến công cho nhà Trần. Bạn hãy cho biết, ông là ai?",
-        "answer": "Yết Kiêu",
-        "value": 30
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Từ Dụ (Từ Dũ)",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_6.mp4"
     },
     {
         "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia?",
@@ -196,6 +237,12 @@
     {
         "text": "Tìm các số có 2 chữ số giống nhau chia 3 dư 1?",
         "answer": "22, 55, 88",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Nhu Nguyet River (Cau River, Thi Cau River)",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_5.mp4",
         "value": 30
     },
     {

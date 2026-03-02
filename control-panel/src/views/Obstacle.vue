@@ -63,6 +63,7 @@
               @click="startTimer">
         BẮT ĐẦU ĐẾM NGƯỢC
       </button>
+      <button @click="gapSound">...</button>
       <div v-if="state.obstacle.acceptingAnswer">
         ⏳ {{ state.obstacle.timer }}
       </div>
@@ -160,7 +161,9 @@ function getPlayerName(id) {
   const p = state.players.find(p => p.id === id)
   return p?.name || ""
 }
-
+function gapSound(){
+  play('/sounds/gap.mp3')
+}
 const buzzName = computed(() => {
   const p = state.players.find(
     p => p.id === state.obstacle.buzzPlayer
@@ -204,6 +207,7 @@ function openScoreboard() {
 async function selectRow(row) {
   if (row.disabled || row.revealed) return
   await play("/sounds/select_row_obstacle.mp3")
+  play ("/sounds/open_question_obstacle.mp3")
   socket.emit("mc:selectRow", row.id)
 }
 

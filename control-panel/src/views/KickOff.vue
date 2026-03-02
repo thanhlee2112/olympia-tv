@@ -54,6 +54,9 @@
         <button @click="answerQuestions(false)">
           Sai
         </button>
+        <button @click="gapSound">
+          ...
+        </button>
         <button @click="endKickoffPlayer">
           Kết thúc phần thi khởi động
         </button>
@@ -112,6 +115,11 @@ const currentQuestion = computed(() =>
 function summarizeScores() {
   socket.emit("mc:summarizeScores")
   play("/sounds/summarize_scores.mp3").catch(err => {
+    console.log("Audio error:", err)
+  })
+}
+function gapSound(){
+  play('/sounds/gap.mp3').catch(err => {
     console.log("Audio error:", err)
   })
 }

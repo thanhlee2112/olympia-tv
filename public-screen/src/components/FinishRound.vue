@@ -36,7 +36,7 @@
               <div class="players-strip">
                 <div v-for="p in state.players" :key="p.id" class="player-strip-item" :class="{
                   active: p.id === state.final.activePlayer,
-                  buzzer: p.id === state.final.buzzPlayer
+                  buzzer: p.socketId === state.final.buzzPlayer && state.final.buzzPlayer != null
                 }">
                   {{ p.name }} ({{ p.score }})
                 </div>

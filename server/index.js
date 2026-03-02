@@ -19,76 +19,79 @@ const SPEED_DURATION = 30000
 const fs = require('fs');
 
 // 1. Đọc nội dung từ file final.json
-const finalQuestionBank = require("./data/questions/final.json")
-// const fs = require('fs');
+const finalQuestionBank = require("./data/questions/final.json");
 
-// 1. Đọc dữ liệu từ file final.json
-let allQuestions = [...finalQuestionBank]; // Copy để tránh sửa trực tiếp vào mảng gốc nếu cần
+// 1. Khởi tạo ngân hàng câu hỏi
+let allQuestions = [...finalQuestionBank];
 
-// 2. Hàm để lấy câu hỏi ngẫu nhiên và loại bỏ nó khỏi danh sách gốc
-function getUniqueQuestionsByValue(value, count) {
-  const filtered = allQuestions.filter(q => q.value === value);
-  
-  if (filtered.length < count) {
-    throw new Error(`Không đủ câu hỏi có value=${value} trong file JSON!`);
+/**
+ * Hàm bốc 1 câu duy nhất dựa trên giá trị và điều kiện src
+ */
+function pickOne(value, alreadyHasSrc) {
+  // Tìm tất cả ứng viên có mức điểm phù hợp còn lại trong mảng gốc
+  let candidates = allQuestions.filter(q => q.value === value);
+
+  if (candidates.length === 0) {
+    throw new Error(`Cạn kiệt câu hỏi mức điểm ${value} trong ngân hàng!`);
   }
 
-  const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, count);
+  // Xáo trộn danh sách ứng viên để lấy ngẫu nhiên
+  candidates.sort(() => 0.5 - Math.random());
 
-  // Xóa các câu đã chọn khỏi mảng gốc allQuestions
-  selected.forEach(q => {
-    const index = allQuestions.findIndex(item => item.text === q.text);
-    if (index !== -1) allQuestions.splice(index, 1);
-  });
+  for (let i = 0; i < candidates.length; i++) {
+    const candidate = candidates[i];
 
-  return selected;
+    // KIỂM TRA ĐIỀU KIỆN SRC:
+    // Nếu câu này có 'src' MÀ trong gói hiện tại đã có 1 câu 'src' rồi -> Bỏ qua, tìm câu khác
+    if (candidate.src && alreadyHasSrc) {
+      continue;
+    }
+
+    // Nếu hợp lệ, xóa câu này khỏi mảng gốc allQuestions ngay lập tức
+    const originalIndex = allQuestions.findIndex(q => q.text === candidate.text);
+    allQuestions.splice(originalIndex, 1);
+
+    return candidate;
+  }
+
+  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Có thể do tất cả câu còn lại đều có SRC)`);
 }
 
-// 3. Hàm tạo một bộ câu hỏi (1 set) với kiểm tra điều kiện 'src'
-function createSet(q10Count, q20Count, q30Count) {
+/**
+ * Hàm tạo một bộ câu hỏi (1 set) theo thứ tự điểm cố định
+ */
+function createSet(pointsSequence) {
   let set = [];
-  let attempts = 0;
-  const maxAttempts = 100; // Tránh vòng lặp vô hạn nếu dữ liệu không đủ
+  let hasSrcInSet = false;
 
-  while (attempts < maxAttempts) {
-    // Tạm thời lấy các câu hỏi theo yêu cầu
-    const tempSet = [
-      ...getUniqueQuestionsByValue(10, q10Count),
-      ...getUniqueQuestionsByValue(20, q20Count),
-      ...getUniqueQuestionsByValue(30, q30Count)
-    ];
-
-    // Đếm số câu hỏi có thuộc tính src
-    const srcCount = tempSet.filter(q => q.src).length;
-
-    // Kiểm tra điều kiện: không quá 1 câu có src
-    if (srcCount <= 1) {
-      set = tempSet;
-      break;
-    } else {
-      // Nếu thỏa srcCount > 1, trả các câu hỏi lại mảng chính và thử lại
-      allQuestions.push(...tempSet);
-      attempts++;
+  pointsSequence.forEach(point => {
+    const picked = pickOne(point, hasSrcInSet);
+    
+    if (picked.src) {
+      hasSrcInSet = true;
     }
-  }
-
-  if (set.length === 0) {
-    throw new Error("Không thể tạo bộ câu hỏi thỏa mãn điều kiện tối đa 1 câu có hình ảnh/video!");
-  }
+    
+    set.push(picked);
+  });
 
   return set;
 }
 
-// 4. Xây dựng cấu trúc FINAL_PACKAGES
+// 4. Xây dựng cấu trúc FINAL_PACKAGES với thứ tự câu hỏi nghiêm ngặt
 const FINAL_PACKAGES = {
-  // Gói 40: 2 câu 10, 1 câu 20 (x4)
-  40: [createSet(2, 1, 0), createSet(2, 1, 0), createSet(2, 1, 0), createSet(2, 1, 0)],
-  // Gói 60: 1 câu 10, 1 câu 20, 1 câu 30 (x4)
-  60: [createSet(1, 1, 1), createSet(1, 1, 1), createSet(1, 1, 1), createSet(1, 1, 1)],
-  // Gói 80: 1 câu 20, 2 câu 30 (x4)
-  80: [createSet(0, 1, 2), createSet(0, 1, 2), createSet(0, 1, 2), createSet(0, 1, 2)],
+  // Gói 40: 10 -> 10 -> 20
+  40: Array.from({ length: 3 }, () => createSet([10, 10, 20])),
+  
+  // Gói 60: 10 -> 20 -> 30
+  60: Array.from({ length: 3 }, () => createSet([10, 20, 30])),
+  
+  // Gói 80: 20 -> 30 -> 30
+  80: Array.from({ length: 3 }, () => createSet([20, 30, 30]))
 };
+
+console.log("Đã tạo xong gói câu hỏi với thứ tự điểm cố định và tối đa 1 câu SRC mỗi gói.");
+console.log(JSON.stringify(FINAL_PACKAGES, null, 2));
+
 
 let gameState = {
   phase: "dashboard",
@@ -676,8 +679,10 @@ socket.on("mc:finalWrong", () => {
     p => p.id === f.activePlayer
   )
 
-  if (f.star) {
+  if (f.star && active.score - q.value >= 0) {
     active.score -= q.value
+  }else{
+      active.score = 0
   }
 
   f.buzzWindow = true
@@ -714,8 +719,10 @@ socket.on("mc:finalBuzzCorrect", () => {
 
   buzzer.score += q.value
 
-  if (!f.star) {
+  if (!f.star && active.score - q.value >= 0) {
     active.score -= q.value
+  }else{
+      active.score = 0
   }
   f.buzzPlayer = null
 
@@ -734,8 +741,11 @@ socket.on("mc:finalBuzzWrong", () => {
   const buzzer = gameState.players.find(
     p => p.socketId === f.buzzPlayer
   )
-
-  buzzer.score -= q.value / 2
+  if(buzzer.score - q.value / 2 >= 0){
+    buzzer.score -= q.value / 2
+  }else{
+    buzzer.score = 0
+  }
   f.buzzPlayer = null
 
   emitState()
