@@ -76,6 +76,14 @@ async function openQuestion() {
   startTimer()
   await play("/sounds/kickoff_countdown.mp3",countdownRef)
 }
+watch(
+  () => state.currentPlayer,
+  (newVal) => {
+    if (!newVal) {
+      countdownRef.value.pause()
+    }
+  }
+)
 function startTimer() {
   // Placeholder if needed
     if(!state.kickoff.running) return

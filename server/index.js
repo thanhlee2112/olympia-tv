@@ -20,52 +20,75 @@ const fs = require('fs');
 
 // 1. Đọc nội dung từ file final.json
 const finalQuestionBank = require("./data/questions/final.json")
-//const rawData = fs.readFileSync(finalQuestionBank);
-// const allQuestions = JSON.parse(rawData);
+// const fs = require('fs');
 
-// 2. Hàm để lấy ngẫu nhiên X câu hỏi từ danh sách các câu hỏi có giá trị Y
-function getQuestionsByValue(questionsArray, value, count) {
-  const filtered = questionsArray.filter(q => q.value === value);
+// 1. Đọc dữ liệu từ file final.json
+let allQuestions = [...finalQuestionBank]; // Copy để tránh sửa trực tiếp vào mảng gốc nếu cần
+
+// 2. Hàm để lấy câu hỏi ngẫu nhiên và loại bỏ nó khỏi danh sách gốc
+function getUniqueQuestionsByValue(value, count) {
+  const filtered = allQuestions.filter(q => q.value === value);
+  
+  if (filtered.length < count) {
+    throw new Error(`Không đủ câu hỏi có value=${value} trong file JSON!`);
+  }
+
   const shuffled = [...filtered].sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
+  const selected = shuffled.slice(0, count);
+
+  // Xóa các câu đã chọn khỏi mảng gốc allQuestions
+  selected.forEach(q => {
+    const index = allQuestions.findIndex(item => item.text === q.text);
+    if (index !== -1) allQuestions.splice(index, 1);
+  });
+
+  return selected;
 }
 
-// 3. Hàm tạo một bộ câu hỏi (1 set) theo cấu trúc yêu cầu
+// 3. Hàm tạo một bộ câu hỏi (1 set) với kiểm tra điều kiện 'src'
 function createSet(q10Count, q20Count, q30Count) {
-  return [
-    ...getQuestionsByValue(finalQuestionBank, 10, q10Count),
-    ...getQuestionsByValue(finalQuestionBank, 20, q20Count),
-    ...getQuestionsByValue(finalQuestionBank, 30, q30Count)
-  ];
+  let set = [];
+  let attempts = 0;
+  const maxAttempts = 100; // Tránh vòng lặp vô hạn nếu dữ liệu không đủ
+
+  while (attempts < maxAttempts) {
+    // Tạm thời lấy các câu hỏi theo yêu cầu
+    const tempSet = [
+      ...getUniqueQuestionsByValue(10, q10Count),
+      ...getUniqueQuestionsByValue(20, q20Count),
+      ...getUniqueQuestionsByValue(30, q30Count)
+    ];
+
+    // Đếm số câu hỏi có thuộc tính src
+    const srcCount = tempSet.filter(q => q.src).length;
+
+    // Kiểm tra điều kiện: không quá 1 câu có src
+    if (srcCount <= 1) {
+      set = tempSet;
+      break;
+    } else {
+      // Nếu thỏa srcCount > 1, trả các câu hỏi lại mảng chính và thử lại
+      allQuestions.push(...tempSet);
+      attempts++;
+    }
+  }
+
+  if (set.length === 0) {
+    throw new Error("Không thể tạo bộ câu hỏi thỏa mãn điều kiện tối đa 1 câu có hình ảnh/video!");
+  }
+
+  return set;
 }
 
-// 4. Xây dựng cấu trúc FINAL_PACKAGES với 4 bộ mỗi gói
+// 4. Xây dựng cấu trúc FINAL_PACKAGES
 const FINAL_PACKAGES = {
-  // Gói 40: 2 câu 10, 1 câu 20
-  40: [
-    createSet(2, 1, 0),
-    createSet(2, 1, 0),
-    createSet(2, 1, 0),
-    createSet(2, 1, 0)
-  ],
-  // Gói 60: 1 câu 10, 1 câu 20, 1 câu 30
-  60: [
-    createSet(1, 1, 1),
-    createSet(1, 1, 1),
-    createSet(1, 1, 1),
-    createSet(1, 1, 1)
-  ],
-  // Gói 80: 1 câu 20, 2 câu 30
-  80: [
-    createSet(0, 1, 2),
-    createSet(0, 1, 2),
-    createSet(0, 1, 2),
-    createSet(0, 1, 2)
-  ]
+  // Gói 40: 2 câu 10, 1 câu 20 (x4)
+  40: [createSet(2, 1, 0), createSet(2, 1, 0), createSet(2, 1, 0), createSet(2, 1, 0)],
+  // Gói 60: 1 câu 10, 1 câu 20, 1 câu 30 (x4)
+  60: [createSet(1, 1, 1), createSet(1, 1, 1), createSet(1, 1, 1), createSet(1, 1, 1)],
+  // Gói 80: 1 câu 20, 2 câu 30 (x4)
+  80: [createSet(0, 1, 2), createSet(0, 1, 2), createSet(0, 1, 2), createSet(0, 1, 2)],
 };
-
-// Hiển thị kết quả
-console.log(JSON.stringify(FINAL_PACKAGES, null, 2));
 
 let gameState = {
   phase: "dashboard",
@@ -87,16 +110,17 @@ let gameState = {
 }
 
 gameState.players = [
-  { id: "1", name: "Bùi Lê Minh Quang", score: 190, token: uuidv4(), socketId: null },
-  { id: "2", name: "Trần Duy Anh", score: 220, token: uuidv4(), socketId: null },
+  { id: "1", name: "Trần Duy Anh", score: 0, token: uuidv4(), socketId: null },
+  { id: "2", name: "Bùi Lê Minh Quang", score: 0, token: uuidv4(), socketId: null },
+  { id: "3", name: "Trương Hà Huỳnh Thái", score: 0, token: uuidv4(), socketId: null },
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://192.168.0.183:5174/?token=${player.token}`
+    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
-  keyword: "XÔ VIẾT NGHỆ TĨNH",
+  keyword: "HỆ TUẦN HOÀN",
   rowAnswers:{
       1: null,
       2: null,
@@ -106,29 +130,29 @@ gameState.obstacle = {
   rows: [
     {
       id: 1,
-      question: "5 tỉnh Bắc Trung Bộ bao gồm Thanh Hóa, Hà Tĩnh, Quảng Trị, Thừa Thiên Huế và tỉnh nào?",
-      answer: "NGHỆAN",
+      question: "Nguyên tố nào chiếm tỷ lệ cao nhất trong vỏ Trái Đất?",
+      answer: "OXY",
       revealed: false,
       disabled: false
     },
     {
       id: 2,
-      question: "Hội nghị hợp nhất 3 tổ chức cộng sản thành lập Đảng Cộng sản Việt Nam được tổ chức vào năm nào?",
-      answer: "1930",
+      question: "Biểu tượng của tình yêu trong văn học và nghệ thuật thường là gì?",
+      answer: "TIM",
       revealed: false,
       disabled: false
     },
     {
       id: 3,
-      question: "Khi chiếu 1 chùm sáng trắng qua lăng kính, tia sáng màu gì bị khúc xạ ít nhất?",
-      answer: "ĐỎ",
+      question: "Người ta thường gọi diễn viên nữ đóng các vai tuồng là đào. Vậy diễn viên nam đóng các vai tuồng được gọi là gì?",
+      answer: "KÉP",
       revealed: false,
       disabled: false
     },
     {
       id: 4,
-      question: "Tầng lớp chiếm tỷ lệ dân số cao ở các quốc gia nông nghiệp truyền thống là ai?",
-      answer: "NÔNGDÂN",
+      question: "Điền vào chỗ trống: \"Hỡi anh em binh sĩ, tự vệ, dân quân!Giờ cứu quốc đã đến. Ta phải hy sinh đến giọt ... cuối cùng, để giữ gìn đất nước.Dù phải gian khổ kháng chiến, nhưng với một lòng kiên quyết hy sinh, thắng lợi nhất định về dân tộc ta!\"",
+      answer: "MÁU",
       revealed: false,
       disabled: false
     }
@@ -143,10 +167,10 @@ gameState.obstacle = {
     ],
     center: {
       revealed: false,
-      question: "Từ mượn tiếng Nga dùng để chỉ một hình thức “hội đồng” trong hệ thống chính trị?",
-      answer: "XÔVIẾT"
+      question: "... điện là một tập hợp các linh kiện điện (như nguồn điện, dây dẫn, bóng đèn, điện trở, tụ điện...) được kết nối với nhau bằng dây dẫn thành một vòng kín, qua đó dòng điện có thể chạy qua.",
+      answer: "MẠCH"
     },
-    imageUrl: "http://192.168.0.183:3000/media/obstacle.png"
+    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -160,10 +184,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Điền số còn thiếu?", answer: "3",src:"http://192.168.0.183:3000/media/tang_toc_1.png", type:"image" },
-      { id: 2, text: "Đây là nguyên tố nào?", answer: "Niken", src:"http://192.168.0.183:3000/media/tang_toc_2.mp4", type:"video" },
-      { id: 3, text: "Câu hỏi 3?", answer: "CBAD", src:"http://192.168.0.183:3000/media/tang_toc_3.png", type:"image" },
-      { id: 4, text: "Câu hỏi 4?", answer: "D", src:"http://192.168.0.183:3000/media/tang_toc_4.mp4", type:"video" }
+      { id: 1, text: "Điền số còn thiếu vào chỗ trống?", answer: "3",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là cây cầu nào?", answer: "Mỹ Thuận", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp các bước sau để vẽ một nụ cười", answer: "EBDFCA", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là số nào?", answer: "11", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -808,6 +832,7 @@ function buildFinalPlayerState(socket) {
     players: gameState.players,
     activePlayer: gameState.final.activePlayer,
     question: gameState.final.questions[gameState.final.currentIndex]?.text || null,
+    src: gameState.final.questions[gameState.final.currentIndex]?.src || null,
     buzzWindow: gameState.final.buzzWindow,
     buzzPlayer: gameState.final.buzzPlayer,
     showContent: gameState.final.showContent

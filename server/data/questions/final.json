@@ -5,8 +5,13 @@
         "value": 10
     },
     {
-        "text": "Câu tục ngữ 'Nhất nước, nhì phân, tam cần, tứ giống' xếp hạng yếu tố nào là quan trọng nhất?",
-        "answer": "Nước (trong quy trình canh tác lúa nước)",
+        "text": "Pin mặt trời là ứng dụng của hiện tượng nào?",
+        "answer": "Hiện tượng quang điện trong (photoelectric effect)",
+        "value": 10
+    },
+    {
+        "text":"Tại sao bé Thu trong truyện \"Chiếc lược ngà\" của Nguyễn Quang Sáng lại không nhận ông Sáu là ba?",
+        "answer":"Vì sau khi chiến đấu trở về, ông Sáu có vết sẹo dài trên mặt, khác với tấm ảnh mà bé Thu thường hay thấy, khiến bé Thu sợ hãi và không nhận ra ông là ba mình",
         "value": 10
     },
     {
@@ -15,8 +20,8 @@
         "value": 10
     },
     {
-        "text": "Quốc gia nào ở Đông Nam Á có thủ đô dự kiến chuyển từ Jakarta sang Nusantara?",
-        "answer": "Indonesia",
+        "text": "Thành phố nào ở nước ta có tên gồm bốn từ?",
+        "answer": "Phan Rang - Tháp Chàm",
         "value": 10
     },
     {
@@ -25,8 +30,8 @@
         "value": 10
     },
     {
-        "text": "Trong tác phẩm 'Chí Phèo', hình ảnh nào của nhân vật Chí Phèo phản ánh sự tha hóa của người nông dân?",
-        "answer": "Tiếng chửi (khởi đầu tác phẩm)",
+        "text": "Vào năm 2011, tòa thành nào ở nước ta được UNESCO công nhận là Di sản Văn hóa Thế giới với nhiều giá trị đặc sắc trong kiến trúc và lối kỹ thuật xây dựng bằng đá lớn?",
+        "answer": "Thành nhà Hồ",
         "value": 10
     },
     {
@@ -35,18 +40,28 @@
         "value": 10
     },
     {
-        "text": "Việc cấm kinh doanh trên vỉa hè nhằm mục đích gì trong quản lý đô thị?",
-        "answer": "Đảm bảo an toàn giao thông và cảnh quan đô thị",
+        "text": "Trong dịp tết Nguyên Đán, để đuổi tà ma, dân ta dựng cây gì trước sân nhà?",
+        "answer": "Cây nêu",
         "value": 10
     },
     {
-        "text": "Loại sơn nào được dùng để chống lại sự ăn mòn và sinh vật biển bám vào tàu?",
-        "answer": "Sơn chống hà (hoặc sơn chống ăn mòn)",
+        "text": "Tác phẩm nào của nhà văn Nam Cao mô tả cuộc sống vô ích, vô nghĩa, \"chết mà chưa làm gì cả chết mà chưa sống\", \"chết ngay trong lúc sống\" của người trí thức nghèo?",
+        "answer": "Tác phẩm \"Sống mòn\"",
         "value": 10
     },
     {
-        "text": "Triều đại nào trong lịch sử Việt Nam nổi tiếng với ba lần đánh bại quân Nguyên Mông vào thế kỷ 13?",
-        "answer": "Nhà Trần",
+        "text": "Một dạng kết hợp giữa nấm và tảo trong quan hệ cộng sinh được gọi là gì?",
+        "answer": "Địa Y",
+        "value": 10
+    },
+    {
+        "text": "Sự kiện nào đã dẫn đến việc Mỹ trực tiếp tham chiến ở Việt Nam vào năm 1965?",
+        "answer": "Sự kiện Vịnh Bắc Bộ (Gulf of Tonkin Incident)",
+        "value": 10
+    },
+    {
+        "text": "\"Ta thường nửa đêm vỗ gối, ruột đau như cắt, nước mắt đầm đìa,...\" là những câu trong tác phẩm nào? Tác giả là ai",
+        "answer": "Tác phẩm \"Hịch tướng sĩ\" của Trần Hưng Đạo",
         "value": 10
     },
     {
@@ -55,8 +70,8 @@
         "value": 20
     },
     {
-        "text": "Sự kiện quân sự nào năm 1972 được gọi là 'Điện Biên Phủ trên không'?",
-        "answer": "Chiến dịch 12 ngày đêm đánh bại cuộc tập kích bằng B-52 của Mỹ vào Hà Nội, Hải Phòng",
+        "text": "Những câu thơ \"56 ngày đêm khoét núi, ngủ hầm, mưa dầm cơm vắt. Máu trộn bùn non, gan không núng, chí không mòn\" nói về chiến dịch nào?Xảy ra vào khoảng thời gian nào? Do ai chỉ huy?",
+        "answer": "Chiến dịch Điện Biên Phủ, diễn ra từ 13 tháng 3 đến 7 tháng 5 năm 1954, do Đại tướng Võ Nguyên Giáp chỉ huy",
         "value": 20
     },
     {
@@ -65,18 +80,18 @@
         "value": 20
     },
     {
-        "text": "Cảm biến nào được dùng trong đèn đường để tự động bật khi trời tối?",
-        "answer": "Cảm biến quang (LDR - Light Dependent Resistor)",
+        "text": "Hiện tượng gì là nguyên nhân chủ yếu gây ra sự ô nhiễm không khí ở Hà Nội, đặc biệt vào mùa đông?",
+        "answer": "Hiện tượng nghịch nhiệt (inversion) làm giữ lại khói bụi gần mặt đất",
         "value": 20
     },
     {
-        "text": "Hình ảnh 'con tàu' trong bài thơ của Chế Lan Viên tượng trưng cho điều gì?",
-        "answer": "Hành trình thực tế của văn nghệ sĩ đến với nhân dân Tây Bắc để tìm cảm hứng nghệ thuật",
+        "text": "Trong nước ngầm khai thác lên từ lòng đất thường chứa cation Fe2+ dưới dạng Fe(HCO3)2. Để loại bỏ cation Fe2+, cách rẻ nhất, hiệu quả nhất được dùng là gì?",
+        "answer": "Sục khí O2 vào nước ngầm hoặc phun nước trong không khí để oxy hóa Fe2+ thành Fe3+, sau đó kết tủa thành Fe(OH)3 và dễ dàng lọc bỏ",
         "value": 20
     },
     {
-        "text": "Nguyên lý khúc xạ ánh sáng qua thấu kính nào được áp dụng cho kính lúp?",
-        "answer": "Khúc xạ qua thấu kính hội tụ (tạo ảnh ảo, lớn hơn vật)",
+        "text": "Các khí sau bị lẫn hơi nước: CO2, H2S, NH3, SO3, SO2, Cl2. Những khí nào có thể làm khô bằng H2SO4 đặc 98%?",
+        "answer": "CO2, SO2, Cl2 (vì chúng không phản ứng với H2SO4 đặc)",
         "value": 20
     },
     {
@@ -85,8 +100,13 @@
         "value": 20
     },
     {
-        "text": "Trong một tam giác vuông, nếu hai cạnh góc vuông lần lượt là 3cm và 4cm, cạnh huyền dài bao nhiêu cm?",
-        "answer": "5 cm",
+        "text": "Bạn Nam muốn tổ chức một bữa tiệc cho lớp học của mình có số học sinh từ 40 đến 50. Nếu mỗi bàn tiệc có 5 chỗ ngồi thì sẽ có 2 bạn không có chỗ ngồi, nếu mỗi bàn tiệc có 6 chỗ ngồi thì tất cả các bạn đều có chỗ ngồi. Hỏi số học sinh của lớp Nam là bao nhiêu?",
+        "answer": "42 học sinh (vì 42 chia cho 5 dư 2, và 42 chia cho 6 không dư)",
+        "value": 20
+    },
+    {
+        "text": "Hiện nay tổng số tuổi của 4 anh em Kiệt, Thảo, Dùng Hà kém mẹ 15 tuổi. Hỏi sau bao nhiêu năm tổng số tuổi của 4 anh em bằng số tuổi của mẹ?",
+        "answer": "Sau 5 năm (vì sau x năm, tổng số tuổi của 4 anh em là 4x + 15, và số tuổi của mẹ là x + 15. Đặt 4x + 15 = x + 15 giải ra x = 5)",
         "value": 20
     },
     {
@@ -100,53 +120,98 @@
         "value": 20
     },
     {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia?",
+        "answer": "Khi ta vắt nước quất vào nước đậu thì axit có trong nước quất sẽ tạo môi trường có độ pH thấp, làm cho protein trong nước đậu bị đông tụ lại thành mảng.",
+        "value": 20,
+        "src":"http://10.16.31.53:3000/media/ve_dich_20_diem_1.mp4"
+    },
+    {
+        "text": "Cơ thể người có 4 loại mô là mô biểu bì, mô cơ và hai loại mô nào nữa?",
+        "answer": "Mô liên kết và mô thần kinh",
+        "value": 20
+    },
+    {
+        "text": "Có thể dùng cầu chì loại 0.5A cho bóng đèn loại 220V - 75W không? Tại sao?",
+        "answer": "Có, vì dòng điện của bóng đèn là I = P/V = 75/220 ≈ 0.34A, nhỏ hơn 0.5A nên cầu chì sẽ không bị đứt khi bóng đèn hoạt động bình thường",
+        "value": 20
+    },
+    {
         "text": "Tại sao thân máy bay thường được sơn màu trắng hoặc màu sáng?",
         "answer": "Để giảm hấp thụ bức xạ nhiệt từ mặt trời, giúp làm mát cabin và tiết kiệm nhiên liệu cho hệ thống điều hòa",
         "value": 30
     },
     {
-        "text": "Trong quá trình mạ điện niken lên sắt, vật bằng sắt đóng vai trò gì?",
-        "answer": "Vật bằng sắt đóng vai trò là catot (cực âm) trong bình điện phân",
+        "text": "Một dây phơi quần áo gồm một đoạn dây đồng nối với một đoạn dây thép. Hiện tượng nào xảy ra ở chỗ nối hai đoạn dây khi để lâu ngày?",
+        "answer": "Hai đoạn dây đóng vai trò như 2 điện cực. Khi tiếp xúc với hơi nước trong không khí tạo ra sự ăn mòn điện hóa ở chỗ nối khiến sắt trong thép bị ăn mòn, dẫn đến đứt dây ở chỗ nối sau một thời gian sử dụng",
         "value": 30
     },
     {
-        "text": "Ý nghĩa triết lý của câu ca dao 'Đời người như bóng câu qua cửa sổ' là gì?",
-        "answer": "Cuộc sống vô thường, ngắn ngủi và trôi qua rất nhanh, khuyên con người cần trân trọng thời gian",
+        "text": "Trong câu \"Cửa Hàm tử bắt sống Toa Đô, sông Bạch Đằng giết tươi Ô Mã\"(Bình Ngô Đại Cáo - Nguyễn Du) có gì không chính xác về mặt lịch sử?",
+        "answer": "Ở cửa Hàm Tử, quân Trần đã tiêu diệt Toa Đô chứ không bắt sống, và ở sông Bạch Đằng, quân Trần đã bắt sống Ô Mã Nhi chứ không giết tươi",
         "value": 30
     },
     {
-        "text": "Nguyên lý hoạt động của phanh ABS trên ô tô là gì?",
-        "answer": "Cảm biến phát hiện bánh xe sắp bị khóa cứng và tự động nhấp nhả phanh liên tục để duy trì ma sát lăn",
+        "text": "Điền từ còn trống trong các câu thơ sau: \"Mẹ Việt Nam tuổi bốn mươi thế kỷ.Gót Cà Mau đầu tận ải .... ...Giang, buông dài làn sóng tóc.Dựa ..., đứng gác Thái Bình Dương.\"",
+        "answer": "Nam Quan, Cửu Long, Trường Sơn",
         "value": 30
     },
     {
-        "text": "Tại sao khi đeo kính cận, ảnh của vật ở gần lại trông lớn hơn bình thường?",
-        "answer": "Kính cận là thấu kính phân kì, nó làm giảm góc trông ảnh so với khi không đeo kính đối với vật ở khoảng cách đó",
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Hoang Xuan Vinh",
+        "src":"http://10.16.31.53:3000/media/ve_dich_30_diem_2.mp4",
         "value": 30
     },
     {
-        "text": "Mục đích chính của Chính sách Kinh tế mới (NEP) do Lenin đề xướng năm 1921 là gì?",
-        "answer": "Thay thế chính sách cộng sản thời chiến, cho phép kinh tế tư nhân phát triển để phục hồi sản xuất và ổn định xã hội",
+        "text": "Hiện tượng nào khiến cho cáp quang có thể được dùng để truyền tải thông tin?",
+        "answer": "Phản xạ toàn phần (total internal reflection) của ánh sáng trong sợi thủy tinh",
         "value": 30
     },
     {
-        "text": "Tại sao lạm dụng kháng sinh trong chăn nuôi gây hại cho sức khỏe con người?",
-        "answer": "Làm vi khuẩn tiến hóa tạo ra các chủng siêu vi khuẩn kháng thuốc, lây lan sang người qua thực phẩm",
+        "text": "Loại ngũ cốc nào được nhắc đến trong các câu thơ: \"Sơn thôn thiếu nữ ma bao túc,Bao túc ma hoàn lô dĩ hồng.\"",
+        "answer": "Ngô (Bao túc là tên tiếng Hán của Ngô)",
         "value": 30
     },
     {
-        "text": "Tác phẩm nào được coi là truyện thơ Nôm kinh điển của văn học Việt Nam, kể về cuộc đời của nàng Kiều?",
-        "answer": "Truyện Kiều (của Nguyễn Du)",
+        "text": "Tại sao nước muối có tính sát khuẩn cao?",
+        "answer": "Do nước muối tạo ra môi trường có áp suất thẩm thấu cao, làm nước trong vi khuẩn bị đẩy ra ngoài do thẩm thấu và tiêu diệt vi khuẩn",
         "value": 30
     },
     {
-        "text": "Nhạc cụ nào được mệnh danh là 'vua của các loại nhạc cụ'?",
-        "answer": "Đàn đại phong cầm (Pipe organ)",
+        "text": "Khi gia nhập nghĩa quân Lam Sơn, Nguyễn Trãi đã dâng cho Lê Lợi tác phẩm nào?",
+        "answer": "Bình Ngô Sách",
         "value": 30
     },
     {
-        "text": "Trong các phản ứng hóa học, làm sao để tăng tốc độ phản ứng bằng cách thay đổi diện tích tiếp xúc?",
-        "answer": "Nghiền nhỏ chất rắn (làm tăng diện tích tiếp xúc giữa các chất phản ứng)",
+        "text": "Đây là một danh tướng dưới thời Trần. Ông sinh ở Làng Hạ Bì, xã Yết Kiêu, huyện Gia Lộc, tỉnh Hải Dương. Ông đã được tuyển mộ vào quân đội nhà Trần trong lực lượng thủy binh. Ông cùng với Dã Tượng đã lập nhiều chiến công cho nhà Trần. Bạn hãy cho biết, ông là ai?",
+        "answer": "Yết Kiêu",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia?",
+        "answer": "Hiện vật là ghe Ngo và lễ hội là Ok Om Bok",
+        "value": 30,
+        "src":"http://10.16.31.53:3000/media/ve_dich_30_diem_3.mp4"
+    },
+
+    {
+        "text": "Tìm các số có 2 chữ số giống nhau chia 3 dư 1?",
+        "answer": "22, 55, 88",
+        "value": 30
+    },
+    {
+        "text": "Có 10 cái bánh giống nhau, cần rán 2 mặt của mỗi bánh bằng 1 chảo chỉ chứa 4 cái bánh cho 1 lần rán. Biết thời gian rán 1 mặt mỗi báng là 1 phút. Để rán 2 mặt của 10 bánh thì cần ít nhất bao nhiêu phút?",
+        "answer":"5 phút (10 bánh có 20 mặt, mỗi phút rán được 4 mặt, nên cần ít nhất 5 phút để rán hết 20 mặt)",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Gravity",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_1.mp4",
+        "value": 30
+    },
+    {
+        "text": "Trong các môn thể dục dụng cụ hay cử tạ, ta thấy các vận động viên thường xoa 1 chất bột trắng mịn vào tay. Chất bột này là gì và họ làm vậy để làm gì?",
+        "answer": "Chất bột đó là magiê cacbonat (MgCO3), có tác dụng hút ẩm và tăng ma sát giữa tay và dụng cụ, giúp vận động viên cầm nắm chắc hơn",
         "value": 30
     }
 ]

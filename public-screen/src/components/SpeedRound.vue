@@ -65,7 +65,6 @@
 .speedup-root {
   width: 100vw;
   height: 100vh;
-  background: #050a10;
   position: relative;
   perspective: 2500px;
   overflow: hidden;

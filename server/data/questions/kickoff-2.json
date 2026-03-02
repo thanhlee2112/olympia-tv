@@ -34,7 +34,7 @@
     },
     {
         "question": "Đúng hay sai: Đường biên giới trên đất liền dài nhất của Việt Nam là với Trung Quốc.",
-        "answer": "Đúng"
+        "answer": "Sai"
     },
     {
         "question": "Ai là tác giả của vở kịch 'Romeo và Juliet'?",
@@ -45,7 +45,7 @@
         "answer": "Rễ thở"
     },
     {
-        "question": "Điền vào chỗ trống: Quốc gia nào có diện tích lớn nhất thế giới?",
+        "question": "Quốc gia nào có diện tích lớn nhất thế giới?",
         "answer": "Nga"
     }
 ],
@@ -101,10 +101,6 @@
  ],
  "3":[
     {
-        "question": "What is the English term for the study of fossils?",
-        "answer": "Paleontology"
-    },
-    {
         "question": "Đúng hay sai: Vận tốc âm thanh truyền trong môi trường rắn nhanh hơn trong môi trường khí.",
         "answer": "Đúng"
     },
@@ -137,6 +133,10 @@
         "answer": "Đúng"
     },
     {
+        "question": "What is the English term for the study of fossils?",
+        "answer": "Paleontology"
+    },
+    {
         "question": "Loại đất nào phổ biến nhất ở vùng đồi núi Việt Nam?",
         "answer": "Ferralit"
     },
@@ -150,10 +150,6 @@
     }
 ],
  "4":[
-    {
-        "question": "What is the English term for the phenomenon where objects appear to break at the surface of water?",
-        "answer": "Refraction"
-    },
     {
         "question": "Đúng hay sai: Trong sơ đồ tư duy, các nhánh chính nên được vẽ bằng các màu sắc khác nhau.",
         "answer": "Đúng"
@@ -193,6 +189,10 @@
     {
         "question": "Trong văn học, thể loại thơ không tuân theo quy tắc nghiêm ngặt về số câu, số chữ được gọi là gì?",
         "answer": "Thơ tự do"
+    },
+    {
+        "question": "What is the English term for the phenomenon where objects appear to break at the surface of water?",
+        "answer": "Refraction"
     },
     {
         "question": "Điền vào chỗ trống: Nguyên tố phổ biến nhất trong vỏ Trái Đất là ...",

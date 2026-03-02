@@ -22,33 +22,40 @@
 
       <!-- QUESTION AREA - Center, appears after packages animate out -->
       <div v-if="state.final.packageValue" class="question-area">
-        <!-- Giá trị gói -->
+        <!-- Video hiển thị phía trên khung câu hỏi -->
+        <div v-if="state.final.questions[state.final.currentIndex]?.src && state.final.showContent" class="video-frame" style="width: 100%; display: flex; justify-content: center; margin-bottom: 24px;">
+          <video
+            :src="state.final.questions[state.final.currentIndex]?.src"
+            controls
+            style="width: 100%; max-width: 900px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.3);"
+          ></video>
+        </div>
         <div class="center-wrapper">
           <div class="center-container" :class="{ 'animate-in': packageAnimationState === 'showing-content' }">
-          <div class="left">
-            <div class="players-strip">
-              <div v-for="p in state.players" :key="p.id" class="player-strip-item" :class="{
-                active: p.id === state.final.activePlayer,
-                buzzer: p.id === state.final.buzzPlayer
-              }">
-                {{ p.name }} ({{ p.score }})
+            <div class="left">
+              <div class="players-strip">
+                <div v-for="p in state.players" :key="p.id" class="player-strip-item" :class="{
+                  active: p.id === state.final.activePlayer,
+                  buzzer: p.id === state.final.buzzPlayer
+                }">
+                  {{ p.name }} ({{ p.score }})
+                </div>
+              </div>
+
+              <div class="star-wrap">
+                <div v-if="state.final.star" class="star">⭐</div>
+              </div>
+
+              <div class="question">
+                <template v-if="state.final.showContent">
+                  {{ state.final.questions[state.final.currentIndex]?.text }}
+                </template>
+              </div>
+
+              <div class="progress" aria-hidden>
+                <div class="progress-fill" :style="{ width: progress + '%' }"></div>
               </div>
             </div>
-
-            <div class="star-wrap">
-              <div v-if="state.final.star" class="star">⭐</div>
-            </div>
-
-            <div class="question">
-              <template v-if="state.final.showContent">
-                {{ state.final.questions[state.final.currentIndex]?.text }}
-              </template>
-            </div>
-
-            <div class="progress" aria-hidden>
-              <div class="progress-fill" :style="{ width: progress + '%' }"></div>
-            </div>
-          </div>
 
             <div class="right">
               <div class="package-value">GÓI {{ state.final.packageValue }}</div>
