@@ -19,7 +19,7 @@ const revealedPlayers = computed(() => {
   // Giữ nguyên thứ tự: thẻ 1 -> thẻ 2 -> thẻ 3 -> thẻ 4
   return state.players.filter(p =>
     state.scoreboard.revealed.includes(p.id)
-  ).reverse()
+  )
 })
 </script>
 

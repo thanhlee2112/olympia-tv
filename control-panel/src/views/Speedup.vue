@@ -73,7 +73,7 @@
           <span class="p-time">({{ ans.time.toFixed(2) }}s)</span>
 
           <button @click="toggleCorrect(playerId)" class="btn-check" :class="{ 'is-correct': state.speedup.correctPlayers.includes(playerId) }">
-            {{ state.speedup.correctPlayers.includes(playerId) ? "ĐÚNG" : "SAI" }}
+            {{ state.speedup.correctPlayers.includes(playerId) ? "SAI" : "ĐÚNG" }}
           </button>
         </div>
 

@@ -5,8 +5,35 @@
         "value": 10
     },
     {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "6",
+        "value": 10,
+        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_2.mp4"
+    },
+    {
         "text": "Pin mặt trời là ứng dụng của hiện tượng nào?",
         "answer": "Hiện tượng quang điện trong (photoelectric effect)",
+        "value": 10
+    },
+    {
+        "text": "Nghiên cứu về sự di trú của một số loài chim, người ta cho rằng trong cơ thể của chúng, có những bộ phận giúp chúng định hướng dựa vào một yếu tố vật lí của Trái Đất. Đó là yếu tố nào?",
+        "answer": "Từ trường Trái Đất",
+        "value": 10
+    },
+    {
+        "text": "Loại cá nào có tư thế thẳng đứng khi bơi, có giá trị kinh tế cao và được đánh bắt nhiều ở vùng biển phía Nam nước ta?",
+        "answer": "Cá ngựa",
+        "value": 10
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Loại thuế đầu người căn cứ theo nhân khẩu, bắt buộc nam giới trong độ tuổi quy định phải nộp tiền, hiện vật, hoặc sức lao động (sưu dịch) cho triều đình phong kiến hoặc thực dân",
+        "value": 10,
+        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_1.mp4"
+    },
+    {
+        "text": "Tại sao có những trường hợp máy bay bị sét đánh nhưng thân máy bay không bị vỡ, hành khách trong máy bay không bị ảnh hưởng gì?",
+        "answer": "Khi có điện trường ngoài từ các tia sét, các điện tích trong vật liệu dẫn điện của vỏ máy bay sẽ phân bố lại, tạo ra một điện trường ngược chiều, triệt tiêu hoàn toàn điện trường bên trong thân máy bay, nên hành khách không bị ảnh hưởng và thân máy bay không bị vỡ. (Lồng Faraday)",
         "value": 10
     },
     {
@@ -30,6 +57,11 @@
         "value": 10
     },
     {
+        "text": "Những tỉnh và thành phố trực thuộc trung ương nào ở nước ta hiện nay có tên bắt đầu bằng từ \"Quảng\"?",
+        "answer": "Quảng Ninh, Quảng Trị, Quảng Ngãi",
+        "value": 10
+    },
+    {
         "text": "Vào năm 2011, tòa thành nào ở nước ta được UNESCO công nhận là Di sản Văn hóa Thế giới với nhiều giá trị đặc sắc trong kiến trúc và lối kỹ thuật xây dựng bằng đá lớn?",
         "answer": "Thành nhà Hồ",
         "value": 10
@@ -40,8 +72,23 @@
         "value": 10
     },
     {
+        "text": "X6, Trần Văn Trung hay Hai Trung là biệt danh của vị tướng tình báo nào?",
+        "answer": "Phạm Xuân Ẩn",
+        "value": 10
+    },
+    {
         "text": "Sương mù quang hóa ở đô thị được tạo thành khi khí thải giao thông phản ứng với cái gì?",
         "answer": "Ánh sáng mặt trời (tia UV)",
+        "value": 10
+    },
+    {
+        "text": "Ai là người duy nhất của ngành chăn nuôi Việt Nam được phong tặng Anh hùng Lao Động?",
+        "answer": "Anh hùng Lao Động Hồ Giáo",
+        "value": 10
+    },
+    {
+        "text": "Ở địa điểm nào trên Bắc bán cầu, mặt trời luôn ở trên đường chân trời vào mùa hè và luôn ở dưới đường chân trời vào mùa đông?",
+        "answer": "Cực Bắc (North Pole)",
         "value": 10
     },
     {
@@ -52,6 +99,11 @@
     {
         "text": "Trong dịp tết Nguyên Đán, để đuổi tà ma, dân ta dựng cây gì trước sân nhà?",
         "answer": "Cây nêu",
+        "value": 10
+    },
+    {
+        "text": "Loại dao động nào có thể xem là hình chiếu của một chuyển động tròn đều xuống một đường thẳng nằm trong mặt phẳng quỹ đạo?",
+        "answer": "Dao động điều hòa (simple harmonic motion)",
         "value": 10
     },
     {
@@ -80,7 +132,7 @@
         "value": 20
     },
     {
-        "text": "Những câu thơ \"56 ngày đêm khoét núi, ngủ hầm, mưa dầm cơm vắt. Máu trộn bùn non, gan không núng, chí không mòn\" nói về chiến dịch nào?Xảy ra vào khoảng thời gian nào? Do ai chỉ huy?",
+        "text": "Những câu thơ \"56 ngày đêm khoét núi, ngủ hầm, mưa dầm cơm vắt. Máu trộn bùn non, gan không núng, chí không mòn\" nói về chiến dịch nào?Xảy ra từ ngày nào đến ngày nào? Do ai chỉ huy?",
         "answer": "Chiến dịch Điện Biên Phủ, diễn ra từ 13 tháng 3 đến 7 tháng 5 năm 1954, do Đại tướng Võ Nguyên Giáp chỉ huy",
         "value": 20
     },
@@ -90,8 +142,28 @@
         "value": 20
     },
     {
+        "text": "Quá trình hình thành một ao cá tự nhiên từ một hố bom là loại diễn thế nào?",
+        "answer": "Diễn thế nguyên sinh (primary succession)",
+        "value": 20
+    },
+    {
+        "text": "Hai câu sau đây nói về chiến thắng trước những quân xâm lược nào: \"Đây là chiến địa buổi Trùng Hưng Nhị thánh bắt Ô Mã/ Cũng là bãi đất xưa Ngô chúa phá Hoằng Thao\"?",
+        "answer": "Chiến thắng của Trần Hưng Đạo trước quân Nguyên Mông vào năm 1288 và chiến thắng của Ngô Quyền trước quân Nam Hán vào năm 938",
+        "value": 20
+    },
+    {
+        "text": "Tại sao \"đèn trời\" bay được trên không trung?",
+        "answer": "Đèn trời hoạt động dựa trên nguyên lý khí nóng nhẹ hơn khí lạnh, khi đốt cháy bên trong, không khí nóng lên sẽ nhẹ hơn không khí xung quanh, tạo lực đẩy Acsimet, làm cho đèn trời bay lên cao",
+        "value": 20
+    },
+    {
         "text": "Hiện tượng gì là nguyên nhân chủ yếu gây ra sự ô nhiễm không khí ở Hà Nội, đặc biệt vào mùa đông?",
         "answer": "Hiện tượng nghịch nhiệt (inversion) làm giữ lại khói bụi gần mặt đất",
+        "value": 20
+    },
+    {
+        "text": "Khi ta thả một vật trong lòng chất lỏng thì vật đó sẽ nổi lên khi nào?",
+        "answer": "Khi trọng lượng của chất lỏng bị vật chiếm chỗ lớn hơn trọng lượng của vật đó (định luật Archimedes)",
         "value": 20
     },
     {
@@ -116,18 +188,38 @@
         "value": 20
     },
     {
+        "text": "Danh sĩ thời Hậu Lê nào đã nêu bật tư tưởng trọng dùng người tài qua câu văn bia nổi tiếng: \"Hiền tài là nguyên khí quốc gia\"?",
+        "answer": "Thân Nhân Trung",
+        "value": 20
+    },
+    {
+        "text": "Ngày 10/10/1954, quân ta tiến vào giải phóng Thủ đô qua những cửa ô nào?",
+        "answer": "Ô Cầu Giấy, Ô Cầu Dền",
+        "value": 20
+    },
+    {
+        "text": "Ứng dụng quan trọng nhất của canxi cacbua là để sản xuất loại khí gì?",
+        "answer": "Khí axetilen (C2H2) dùng trong hàn cắt kim loại và chiếu sáng",
+        "value": 20
+    },
+    {
+        "text": "Cao nguyên Lang Biang là tên gọi khác của cao nguyên nào?",
+        "answer": "Cao nguyên Lâm Viên",
+        "value": 20
+    },
+    {
+        "text": "Tìm số lớn nhất có ba chữ số, biết rằng khi lấy số đó chia 11 thì được một số nguyên dương có tổng các chữ số là 5",
+        "answer": "550 (Số có 3 chữ số chia 11 thì sẽ được số có 2 chữ số, tổng 2 chữ số đó là 5 thì có thể là 14, 23, 32, 41, 50. Trong đó số lớn nhất là 50, nên số cần tìm là 50*11 = 550)",
+        "value": 20
+    },
+    {
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "200 grams",
         "value": 20,
         "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_2.mp4"
     },
     {
-        "text": "Bạn Nam muốn tổ chức một bữa tiệc cho lớp học của mình có số học sinh từ 40 đến 50. Nếu mỗi bàn tiệc có 5 chỗ ngồi thì sẽ có 2 bạn không có chỗ ngồi, nếu mỗi bàn tiệc có 6 chỗ ngồi thì tất cả các bạn đều có chỗ ngồi. Hỏi số học sinh của lớp Nam là bao nhiêu?",
-        "answer": "42 học sinh (vì 42 chia cho 5 dư 2, và 42 chia cho 6 không dư)",
-        "value": 20
-    },
-    {
-        "text": "Hiện nay tổng số tuổi của 4 anh em Kiệt, Thảo, Dùng Hà kém mẹ 15 tuổi. Hỏi sau bao nhiêu năm tổng số tuổi của 4 anh em bằng số tuổi của mẹ?",
+        "text": "Hiện nay tổng số tuổi của 4 anh em Kiệt, Thảo, Dũng, Hà kém mẹ 15 tuổi. Hỏi sau bao nhiêu năm tổng số tuổi của 4 anh em bằng số tuổi của mẹ?",
         "answer": "Sau 5 năm (vì sau x năm, tổng số tuổi của 4 anh em là 4x + 15, và số tuổi của mẹ là x + 15. Đặt 4x + 15 = x + 15 giải ra x = 5)",
         "value": 20
     },
@@ -147,7 +239,28 @@
         "answer": "53.000 đồng (vì nếu giá sách là 53.000 đồng, Dũng thiếu 52.000 đồng nên có 1.000 đồng, Huy thiếu 2.000 đồng nên có 51.000 đồng, khi góp chung họ chỉ có 52.000 đồng nên không đủ tiền mua sách)",
         "value": 20
     },
-
+    {
+        "text": "Tại sao khi nhai kĩ cơm thì ta sẽ thấy có vị ngọt?",
+        "answer": "Trong nước bọt có enzyme amylase, khi nhai kĩ cơm, amylase sẽ phân giải tinh bột trong cơm thành đường đơn (maltose) có vị ngọt",
+        "value": 20
+    },
+    {
+        "text": "Người ta thường vận dụng dạng đột biến nào để loại bỏ các gen gây hại?",
+        "answer": "Đột biến mất đoạn nhỏ nhiễm sắc thể (microdeletion)",
+        "value": 20
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Le Duc Tho (Lê Đức Thọ)",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_6.mp4"
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Tuồng",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_5.mp4"
+    },
     {
         "text": "Tại sao không nên sử dụng xà phòng để giặt quần áo trong nước cứng?",
         "answer": "Xà phòng phản ứng với ion Ca2+ và Mg2+ tạo kết tủa không tan, làm giảm hiệu quả giặt rửa",
@@ -165,8 +278,18 @@
         "value": 20
     },
     {
+        "text": "Quốc gia nào đã giành được chủ quyền vào năm 2002 và trở thành quốc gia đầu tiên được thành lập trong thế kỉ XXI?",
+        "answer": "Đông Timor (Timor-Leste)",
+        "value": 20
+    },
+    {
         "text": "Có thể dùng cầu chì loại 0.5A cho bóng đèn loại 220V - 75W không? Tại sao?",
         "answer": "Có, vì dòng điện của bóng đèn là I = P/V = 75/220 ≈ 0.34A, nhỏ hơn 0.5A nên cầu chì sẽ không bị đứt khi bóng đèn hoạt động bình thường",
+        "value": 20
+    },
+    {
+        "text": "Tìm số còn thiếu trong dãy sau: 4, 6, 10, 14, 22, 26, 34, ..., 46, 58",
+        "answer": "38 (Mỗi số là bội của 2 với các số nguyên tố dương liên tiếp: 2*2=4, 2*3=6, 2*5=10, 2*7=14, 2*11=22, 2*13=26, 2*17=34, 2*19=38, 2*23=46, 2*29=58)",
         "value": 20
     },
     {
@@ -186,13 +309,28 @@
         "value": 30
     },
     {
-        "text": "Trong câu \"Cửa Hàm tử bắt sống Toa Đô, sông Bạch Đằng giết tươi Ô Mã\"(Bình Ngô Đại Cáo - Nguyễn Du) có gì không chính xác về mặt lịch sử?",
-        "answer": "Ở cửa Hàm Tử, quân Trần đã tiêu diệt Toa Đô chứ không bắt sống, và ở sông Bạch Đằng, quân Trần đã bắt sống Ô Mã Nhi chứ không giết tươi",
+        "text": "Thực vật được chia thành mấy ngành? Đó là những ngành nào?",
+        "answer": "4 ngành. Hạt trần, hạt kín, rêu, quyết",
         "value": 30
     },
     {
-        "text": "Điền từ còn trống trong các câu thơ sau: \"Mẹ Việt Nam tuổi bốn mươi thế kỷ.Gót Cà Mau đầu tận ải ..../...Giang, buông dài làn sóng tóc.Dựa ..., đứng gác Thái Bình Dương.\"",
+        "text": "Các loại bếp từ hiện nay hoạt động nhờ tác dụng nhiệt của dòng điện gì?",
+        "answer": "Dòng điện Fuco (eddy current) tạo ra trong vật liệu dẫn điện khi có từ trường biến thiên, làm nóng vật liệu và nấu chín thức ăn",
+        "value": 30
+    },
+    {
+        "text": "Trong câu \"Cửa Hàm tử bắt sống Toa Đô/Sông Bạch Đằng giết tươi Ô Mã\"(Bình Ngô Đại Cáo - Nguyễn Trãi) có gì không chính xác về mặt lịch sử?",
+        "answer": "Tướng Toa Đô đã bị chém đầu tại trận Tây Kết, không phải bị bắt sống tại cửa Hàm Tử. Và ở sông Bạch Đằng, quân Trần đã bắt sống Ô Mã Nhi chứ không giết",
+        "value": 30
+    },
+    {
+        "text": "Những địa danh nào còn thiếu trong các câu thơ sau: \"Mẹ Việt Nam tuổi bốn mươi thế kỷ.Gót Cà Mau, đầu tận ải .../... Giang, buông dài làn sóng tóc.Dựa ..., đứng gác Thái Bình Dương.\"?",
         "answer": "Nam Quan, Cửu Long, Trường Sơn",
+        "value": 30
+    },
+    {
+        "text": "Tại sao ở một số quốc gia, khi phun nước rửa đường phố người ta thường pha thêm CaCl2?",
+        "answer": "CaCl2 rắn có khả năng hút ẩm mạnh, giúp giữ mặt đường ẩm lâu hơn, từ đó giảm bụi khi phương tiện giao thông di chuyển vì nước do CaCl2 giữ lại sẽ liên kết các hạt bụi nhỏ, giảm khuếch tán bụi vào không khí.",
         "value": 30
     },
     {
@@ -202,8 +340,24 @@
         "value": 30
     },
     {
+        "text": "Kháng chiến chống quân Nguyên - Mông của nhà Trần diễn ra dưới thời các vị vua nào?",
+        "answer": "Trần Thái Tông, Trần Thánh Tông, Trần Nhân Tông",
+        "value": 30
+    },
+    {
         "text": "Hiện tượng nào khiến cho cáp quang có thể được dùng để truyền tải thông tin?",
         "answer": "Phản xạ toàn phần (total internal reflection) của ánh sáng trong sợi thủy tinh",
+        "value": 30
+    },
+    {
+        "text": "Trong các nguyên tố sau: Cacbon, Photpho, Nitơ, Oxi, nguyên tố nào luôn hiện diện xung quanh sinh vật nhưng nó không sử dụng trực tiếp được?",
+        "answer": "Nitơ (N2) do N2 có liên kết ba rất bền, sinh vật không thể sử dụng trực tiếp được mà phải qua quá trình cố định đạm để chuyển hóa thành dạng có thể sử dụng được như NH3 hoặc NO3-",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Four (4) (lớp có 50 người, 60% là người Châu Âu, nên có 30 người Châu Âu, 20% trong số còn lại là người Châu Á, tức là số người Châu Á là 20%*20 = 4.",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_11.mp4",
         "value": 30
     },
     {
@@ -217,8 +371,41 @@
         "value": 30
     },
     {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Eleven (11)",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_7.mp4",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Na2SO3 (Khi cho Na2SO3 vào BaCl2 tạo ra kết tủa trắng BaSO3, sau đó khi cho thêm HCl vào sẽ tạo ra khí SO2 có tính tẩy màu, làm mất màu quỳ tím)",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_13.mp4"
+    },
+    {
+        "text": "Một con sên bò từ chân lên tới đỉnh cái cột cao 10 mét. Ban ngày nó bò được 5 mét, ban đêm nó tụt xuống 4 mét. Hỏi sau bao nhiêu ngày và bao nhiêu đêm con sên sẽ bò lên được đỉnh cột?",
+        "answer": "6 ngày, 6 đêm (Trong 5 ngày đầu, con sên bò lên được 1 mét mỗi ngày, sau 5 ngày nó đã lên được 5 mét. Vào ngày thứ 6, nó bò lên 5 mét nữa là đạt đỉnh cột mà không bị tụt xuống nữa)",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Nguyễn Hoàng",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_14.mp4"
+    },
+    {
         "text": "Khi gia nhập nghĩa quân Lam Sơn, Nguyễn Trãi đã dâng cho Lê Lợi tác phẩm nào?",
         "answer": "Bình Ngô Sách",
+        "value": 30
+    },
+    {
+        "text": "Cho sáu chữ số từ 1 đến 6. Có bao nhiêu cách chọn ba số từ các số đã cho để tổng ba số đó là một số chẵn?",
+        "answer": "10 cách (Để tổng ba số là chẵn, ta có thể chọn 3 số chẵn hoặc 2 số lẻ và 1 số chẵn. Có 3 số chẵn (2,4,6) và 3 số lẻ (1,3,5). Số cách chọn 3 số chẵn là C(3,3) = 1 cách. Số cách chọn 2 số lẻ và 1 số chẵn là C(3,2)*C(3,1) = 3*3 = 9 cách. Tổng cộng có 1 + 9 = 10 cách.",
+        "value": 30
+    },
+    {
+        "text": "Do trục Trái Đất nghiêng với mặt phẳng quỹ đạo và không đổi phương trong không gian suốt năm nên đã gây ra hiện tượng gì ở Trái Đất?",
+        "answer": "Hiện tượng mùa (seasonal changes) và ngày dài ngắn theo mùa",
         "value": 30
     },
     {
@@ -233,7 +420,12 @@
         "value": 30,
         "src":"http://10.16.31.53:3000/media/ve_dich_30_diem_3.mp4"
     },
-
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Nấm, Động vật, Thực vật",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_8.mp4"
+    },
     {
         "text": "Tìm các số có 2 chữ số giống nhau chia 3 dư 1?",
         "answer": "22, 55, 88",
@@ -243,6 +435,11 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Nhu Nguyet River (Cau River, Thi Cau River)",
         "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_5.mp4",
+        "value": 30
+    },
+    {
+        "text": "Có những vùng mà nước giếng khoan khi mới múc lên thì thấy nước trong, để lâu lại thấy nước đục, có màu nâu, vàng. Bạn hãy giải thích vì sao.",
+        "answer": "Khi mới múc lên, nước giếng khoan có thể trong do chưa tiếp xúc nhiều với không khí. Tuy nhiên, khi để lâu, nước tiếp xúc với oxy trong không khí sẽ xảy ra quá trình oxy hóa sắt hòa tan trong nước, tạo thành các hợp chất sắt oxit có màu nâu hoặc vàng, làm nước trở nên đục",
         "value": 30
     },
     {
@@ -259,6 +456,29 @@
     {
         "text": "Trong các môn thể dục dụng cụ hay cử tạ, ta thấy các vận động viên thường xoa 1 chất bột trắng mịn vào tay. Chất bột này là gì và họ làm vậy để làm gì?",
         "answer": "Chất bột đó là magiê cacbonat (MgCO3), có tác dụng hút ẩm và tăng ma sát giữa tay và dụng cụ, giúp vận động viên cầm nắm chắc hơn",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Bạch Thái Bưởi",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_10.mp4"
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Leaf",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_12.mp4",
+        "value": 30
+    },
+    {
+        "text": "Trong lịch sử nước ta, có hai bậc văn sĩ nào khi làm quan đã từng dâng sớ vạch tội và xin chém đầu những tên lộng thần nhưng không được vua chấp nhận nên đã từ quan về quê dạy học?",
+        "answer": "Chu Văn An và Nguyễn Bỉnh Khiêm",
+        "value": 30
+    },
+    {
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Forty Two (42)",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_9.mp4",
         "value": 30
     }
 ]

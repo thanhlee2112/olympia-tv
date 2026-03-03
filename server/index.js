@@ -681,7 +681,7 @@ socket.on("mc:finalWrong", () => {
 
   if (f.star && active.score - q.value >= 0) {
     active.score -= q.value
-  }else{
+  }else if(f.star && active.score - q.value < 0){
       active.score = 0
   }
 
@@ -721,7 +721,7 @@ socket.on("mc:finalBuzzCorrect", () => {
 
   if (!f.star && active.score - q.value >= 0) {
     active.score -= q.value
-  }else{
+  }else if(!f.star && active.score - q.value < 0){
       active.score = 0
   }
   f.buzzPlayer = null

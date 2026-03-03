@@ -212,6 +212,64 @@
   width: 100%;
   height: 100%;
 }
+
+/* Styling cho danh sách đáp án SpeedRound */
+.olympia-answer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: rgba(0,0,0,0.85);
+  border-radius: 18px;
+  padding: 32px 48px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  min-width: 420px;
+}
+
+.olympia-answer-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #181818;
+  border-radius: 12px;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  min-height: 56px;
+}
+
+.olympia-time {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #00ff88;
+  width: 70px;
+  text-align: right;
+}
+
+.olympia-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f1c40f 60%, #e67e22 100%);
+  margin-right: 8px;
+}
+
+.olympia-name-ans {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.olympia-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.olympia-answer-text {
+  font-size: 1.1rem;
+  color: #f1c40f;
+  font-weight: 500;
+  word-break: break-word;
+}
 </style>
 
 <script setup>
