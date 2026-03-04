@@ -89,12 +89,16 @@
 .main-content-area {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
 }
 
 /* THANH NGANG ĐẾ */
 .olympia-base-bar {
   position: relative;
-  width: 900px;
+  width: 100%;
   height: 45px;
   background: #000;
   border-top: 1px solid #444;
@@ -106,7 +110,7 @@
   position: absolute;
   top: 0;
   right: 150px;
-  width: 65%;
+  width: calc(100% - 150px);
   height: 16px;
   background: linear-gradient(to bottom, #8b4513, #4d260b);
   animation: slideInWood 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
@@ -136,20 +140,23 @@
 }
 
 .media-box {
-  width: 900px;
-  /* CỐ ĐỊNH: Luôn bằng chiều cao timer */
-  height: 550px; 
+  width: 100%;
+  height: 100%; /* Media chiếm 80% main-content-area */
   background: rgba(0, 0, 0, 0.95);
   border: 1px solid #333;
   padding: 15px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .media-wrapper {
-  flex: 1; /* Chiếm hết phần còn lại của box */
+  flex: 1;
   width: 100%;
+  height: 100%;
+  min-width: 80vw;
+  min-height: 70vh;
   background: #000;
   display: flex;
   align-items: center;
@@ -159,6 +166,8 @@
 
 .media {
   max-width: 100%;
+  width: 80vw;
+  height: 60vh;
   max-height: 100%;
   object-fit: contain;
 }
@@ -176,6 +185,7 @@
   transform-origin: bottom;
   transform: rotateX(-90deg);
   opacity: 0;
+  height: 100%;
   animation: unfold3D 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   animation-delay: 0.8s;
 }
@@ -183,7 +193,7 @@
 .timer-vertical {
   width: 40px;
   /* CỐ ĐỊNH: Chiều cao chuẩn */
-  height: 550px; 
+  height: 100%; 
   background: #000;
   border: 1px solid #333;
   display: flex;

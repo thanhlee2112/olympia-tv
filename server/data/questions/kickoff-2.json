@@ -95,14 +95,14 @@
         "answer": "Thất ngôn"
     },
     {
-        "question": "Điền vào chỗ trống: Thành phố lớn nhất nước Úc về dân số là ...",
-        "answer": "Sydney"
+        "question": "\"Băng đảo\" là tên gọi khác của quốc gia nào?",
+        "answer": "Iceland"
     }
  ],
  "3":[
     {
-        "question": "Đúng hay sai: Vận tốc âm thanh truyền trong môi trường rắn nhanh hơn trong môi trường khí.",
-        "answer": "Đúng"
+        "question": "Vận tốc âm thanh truyền nhanh hơn trong môi trường nào? Rắn hay khí?",
+        "answer": "Rắn"
     },
     {
         "question": "Điền vào chỗ trống: Tác phẩm hội họa 'Đêm đầy sao' là của danh họa ...",
@@ -195,8 +195,8 @@
         "answer": "Refraction"
     },
     {
-        "question": "Điền vào chỗ trống: Nguyên tố phổ biến nhất trong vỏ Trái Đất là ...",
-        "answer": "Oxi"
+        "question": "Loài đậu nào được Mendel sử dụng trong thí nghiệm di truyền của mình?",
+        "answer": "Đậu Hà Lan"
     }
 ]
 }

@@ -118,13 +118,19 @@
         </div>
     </div>
     <!-- 🔔 BUZZ -->
-    <div v-if="state.obstacle.buzzPlayer" class="buzz-box-rect">
-      <div class="buzz-title">Thí sinh bấm chuông:</div>
-      <div class="buzz-name">{{ buzzName }}</div>
-      <div class="buzz-btns">
-        <button @click="obstacleResult(true)">ĐÚNG</button>
-        <button @click="obstacleResult(false)">SAI</button>
+    <div v-if="state.obstacle.buzzPlayer.length > 0" class="buzz-box-rect-list">
+      <div v-for="player in state.obstacle.buzzPlayer" :key="player">
+        <div class="buzz-box-rect">
+          <div class="buzz-title">Thí sinh bấm chuông:</div>
+          <div class="buzz-name">{{ getPlayerName(player) }}</div>
+          <div class="buzz-btns">
+            <button @click="obstacleResult(true, player)">ĐÚNG</button>
+            <button @click="obstacleResult(false, player)">SAI</button>
+          </div>
+        </div>
+
       </div>
+
     </div>
       <button @click="openScoreboard">
   Tổng kết điểm
@@ -152,7 +158,7 @@ const rowAnswers = computed(() => {
 watch(
   () => state.obstacle.buzzPlayer,
   async (newVal, oldVal) => {
-    if (newVal && newVal !== oldVal) {
+    if (newVal && newVal.length - oldVal.length > 0) {
       await play('/sounds/buzz_obstacle.mp3')
     }
   }
@@ -400,9 +406,7 @@ function returnToDashboard(){
 
 /* Buzz box as a right-side red rectangle */
 .buzz-box-rect {
-  position: fixed;
-  top: 80px;
-  right: 32px;
+  position: static;
   width: 25vw;
   min-width: 220px;
   max-width: 340px;
@@ -417,6 +421,15 @@ function returnToDashboard(){
   justify-content: center;
   z-index: 200;
   padding: 16px 10px;
+}
+.buzz-box-rect-list {
+  position: fixed;
+  top: 80px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 200;
 }
 .buzz-title {
   font-size: 1.1rem;

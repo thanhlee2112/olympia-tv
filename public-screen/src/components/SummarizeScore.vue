@@ -16,10 +16,11 @@ import { computed } from "vue"
 import { state } from "../socket"
 
 const revealedPlayers = computed(() => {
-  // Giữ nguyên thứ tự: thẻ 1 -> thẻ 2 -> thẻ 3 -> thẻ 4
-  return state.players.filter(p =>
-    state.scoreboard.revealed.includes(p.id)
-  )
+  return state.players
+  .filter(p => state.scoreboard.revealed.includes(p.id))
+  .sort((a, b) => {
+    return state.scoreboard.revealed.indexOf(b.id) - state.scoreboard.revealed.indexOf(a.id);
+  });
 })
 </script>
 

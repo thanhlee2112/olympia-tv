@@ -71,7 +71,6 @@
         {{ state.obstacle.timer }}
       </div>
     </div>
-
     <!-- Buzz button -->
 
     <!-- Player answers display when timer is running -->
@@ -147,10 +146,9 @@ const isTimerRunning = computed(() => {
 }
 
 .obstacle-reveal-image {
-  width: 478px;
-  height: 478px;
+  width: 476px;
+  height: 476px;
   object-fit: cover;
-  border-radius: 12px;
 }
 
 /* Circle default: blue background */
@@ -195,7 +193,7 @@ const isTimerRunning = computed(() => {
   width: 480px;
   height: 480px;
   /* center size can be tuned; corners will size automatically */
-  --center-size: 240px;
+  --center-size: 300px;
   box-sizing: border-box;
   border: 2px solid #1976d2; /* outer blue border */
 }

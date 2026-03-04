@@ -18,80 +18,77 @@ const io = new Server(server, {
 const SPEED_DURATION = 30000
 const fs = require('fs');
 
-// 1. Đọc nội dung từ file final.json
 const finalQuestionBank = require("./data/questions/final.json");
 
-// 1. Khởi tạo ngân hàng câu hỏi
-let allQuestions = [...finalQuestionBank];
+// Khởi tạo bản sao sạch
+let allQuestions = JSON.parse(JSON.stringify(finalQuestionBank));
+console.log(`Tổng số câu hỏi trong kho: ${allQuestions.length}`);
 
-/**
- * Hàm bốc 1 câu duy nhất dựa trên giá trị và điều kiện src
- */
 function pickOne(value, alreadyHasSrc) {
-  // Tìm tất cả ứng viên có mức điểm phù hợp còn lại trong mảng gốc
+  // 1. Lọc ứng viên theo mức điểm
   let candidates = allQuestions.filter(q => q.value === value);
 
   if (candidates.length === 0) {
-    throw new Error(`Cạn kiệt câu hỏi mức điểm ${value} trong ngân hàng!`);
+    throw new Error(`Cạn kiệt câu hỏi mức điểm ${value}!`);
   }
 
-  // Xáo trộn danh sách ứng viên để lấy ngẫu nhiên
+  // 2. Xáo trộn danh sách ứng viên
   candidates.sort(() => 0.5 - Math.random());
 
   for (let i = 0; i < candidates.length; i++) {
     const candidate = candidates[i];
 
-    // KIỂM TRA ĐIỀU KIỆN SRC:
-    // Nếu câu này có 'src' MÀ trong gói hiện tại đã có 1 câu 'src' rồi -> Bỏ qua, tìm câu khác
-    if (candidate.src && alreadyHasSrc) {
-      continue;
+    // Kiểm tra điều kiện: Nếu gói đã có câu SRC mà câu này cũng có SRC thì bỏ qua
+    if (candidate.src && alreadyHasSrc) continue;
+
+    // 3. XÓA THEO ID: Tìm vị trí của câu hỏi dựa trên ID duy nhất
+    const originalIndex = allQuestions.findIndex(q => q.id === candidate.id);
+    
+    if (originalIndex !== -1) {
+      // Cắt bỏ khỏi kho câu hỏi ngay lập tức
+      const picked = allQuestions.splice(originalIndex, 1)[0];
+      return picked;
     }
-
-    // Nếu hợp lệ, xóa câu này khỏi mảng gốc allQuestions ngay lập tức
-    const originalIndex = allQuestions.findIndex(q => q.text === candidate.text);
-    allQuestions.splice(originalIndex, 1);
-
-    return candidate;
   }
 
-  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Có thể do tất cả câu còn lại đều có SRC)`);
+  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Có thể do giới hạn SRC).`);
 }
 
-/**
- * Hàm tạo một bộ câu hỏi (1 set) theo thứ tự điểm cố định
- */
 function createSet(pointsSequence) {
   let set = [];
   let hasSrcInSet = false;
 
   pointsSequence.forEach(point => {
     const picked = pickOne(point, hasSrcInSet);
-    
-    if (picked.src) {
-      hasSrcInSet = true;
-    }
-    
+    if (picked.src) hasSrcInSet = true;
     set.push(picked);
   });
 
   return set;
 }
 
-// 4. Xây dựng cấu trúc FINAL_PACKAGES với thứ tự câu hỏi nghiêm ngặt
+// Khởi tạo các gói câu hỏi
 const FINAL_PACKAGES = {
-  // Gói 40: 10 -> 10 -> 20
   40: Array.from({ length: 3 }, () => createSet([10, 10, 20])),
-  
-  // Gói 60: 10 -> 20 -> 30
   60: Array.from({ length: 3 }, () => createSet([10, 20, 30])),
-  
-  // Gói 80: 20 -> 30 -> 30
   80: Array.from({ length: 3 }, () => createSet([20, 30, 30]))
 };
 
-console.log("Đã tạo xong gói câu hỏi với thứ tự điểm cố định và tối đa 1 câu SRC mỗi gói.");
-console.log(JSON.stringify(FINAL_PACKAGES, null, 2));
+// --- KIỂM TRA ĐỘ CHÍNH XÁC ---
+const flatResults = Object.values(FINAL_PACKAGES).flat(2);
+const uniqueIds = new Set(flatResults.map(q => q.id));
 
+console.log("--------------------------------------");
+console.log(`Tổng số câu đã bốc: ${flatResults.length}`);
+console.log(`Số lượng ID duy nhất: ${uniqueIds.size}`);
+
+if (flatResults.length === uniqueIds.size) {
+  console.log("✅ THÀNH CÔNG: Không có câu nào bị trùng lặp.");
+} else {
+  console.error("❌ THẤT BẠI: Vẫn còn câu bị trùng lặp!");
+}
+
+console.log("Số câu còn lại trong kho sau khi bốc:", allQuestions.length);
 
 let gameState = {
   phase: "dashboard",
@@ -179,7 +176,7 @@ gameState.obstacle = {
   timer: 0,
   obstacleClear: false,
   acceptingAnswer: false,
-  buzzPlayer: null,
+  buzzPlayer: [],
   showAnswers: false,
   centerAnswered: false,
   lockedPlayers: []
@@ -552,25 +549,27 @@ socket.on("mc:closeRow", () => {
   emitState()
 })
 socket.on("player:buzzObstacle", () => {
-  if (gameState.obstacle.buzzPlayer) return
   if (gameState.obstacle.lockedPlayers.includes(socket.playerId)) return
 
-  gameState.obstacle.buzzPlayer = socket.playerId
+  gameState.obstacle.buzzPlayer.push(socket.playerId)
   emitState()
 })
-socket.on("mc:obstacleResult", (correct) => {
-  const playerId = gameState.obstacle.buzzPlayer
-  const player = gameState.players.find(p => p.id === playerId)
+socket.on("mc:obstacleResult", (correct, id) => {
+  const player = gameState.players.find(p => p.socketId === id)
 
   if (!player) return
 
   if (correct) {
     const revealedCount =
-      gameState.obstacle.rows.filter(r => r.revealed).length
+      gameState.obstacle.rows.filter(r => r.revealed || r.disabled).length
     gameState.obstacle.obstacleClear = true
     const scoreMap = { 0:80, 1: 80, 2: 60, 3: 40, 4: 20 }
-    const score = scoreMap[revealedCount] || 0
-
+    let score = 0
+    if(gameState.obstacle.centerSelected){
+      score = 10
+    }else{
+      score = scoreMap[revealedCount] || 0
+    }
     player.score += score
     gameState.obstacle.rows.forEach((r)=>{
       r.revealed = true
@@ -581,7 +580,7 @@ socket.on("mc:obstacleResult", (correct) => {
     })
     gameState.obstacle.image.center.revealed = true
   } else {
-    gameState.obstacle.lockedPlayers.push(playerId)
+    gameState.obstacle.lockedPlayers.push(id)
   }
 
   gameState.obstacle.buzzPlayer = null
