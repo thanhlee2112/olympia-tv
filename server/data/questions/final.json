@@ -620,5 +620,92 @@
         "text": "Hải phố, Hoài phố, Hai phố là những tên gọi trước đây của nơi nào ở nước ta?",
         "answer": "Hội An",
         "value": 20
+    },
+    {
+        "id": 101,
+        "text": "Các loại súng cổ xưa thường có đường đạn không chính xác. Người ta đã làm tăng độ chính xác của đường đạn ở các khẩu súng hiện đại bằng cách nào?",
+        "answer": "Thủ thuật khắc rãnh xoắn ốc (Việc khắc rãnh xoắn giúp viên đạn xoay tròn cực nhanh quanh trục dọc khi bay. Theo định luật bảo toàn mô-men động lượng, chuyển động xoay này tạo ra hiệu ứng con quay, giúp đầu đạn luôn hướng về phía trước và chống lại sự lộn nhào do lực cản không khí. Đồng thời, việc xoay tròn giúp trung hòa các sai số về trọng tâm của viên đạn, đảm bảo quỹ đạo bay ổn định và chính xác hơn.)",
+        "value": 20
+    },
+    {
+        "id": 102,
+        "text": "Tại sao khi lấy khay nước đá bằng nhôm từ tủ lạnh ra ngoài, tay ta thường bị dính vào khay?",
+        "answer": "Khi lấy khay nước đá ra khỏi tủ lạnh, bề mặt khay rất lạnh, có thể làm đông đặc nước hoặc hơi ẩm trên tay ta khi tiếp xúc với khay. Điều này tạo ra một lớp băng mỏng giữa tay và khay, khiến tay ta bị dính vào khay",
+        "value": 30
+    },
+    {
+        "id": 103,
+        "text": "Giả sử một con gà rưỡi trong một ngày rưỡi đẻ được một quả trứng rưỡi. Vậy trong 1 tuần rưỡi, 3 con gà sẽ đẻ được bao nhiêu quả trứng?",
+        "answer": "21 quả (Một con gà rưỡi đẻ một quả trứng rưỡi trong một ngày rưỡi, nên một con gà đẻ được 1 quả trứng trong một ngày rưỡi. Vậy trong 1 tuần rưỡi (tức là 10,5 ngày), một con gà sẽ đẻ được 10,5 / 1,5 = 7 quả trứng. Do đó, 3 con gà sẽ đẻ được 3 * 7 = 21 quả trứng trong 1 tuần rưỡi)",
+        "value": 20
+    },
+    {
+        "id": 104,
+        "text": "Khi thành lập nhóm thiếu niên cộng sản đầu tiên, Bác đã đặt tên cho và nhận những thiếu niên có tên mang họ Lý như: Lý Tự Trọng, Lý Thúc Tự, Lý Phương Thuận,... Hãy cho biết tại sao?",
+        "answer": "Khi đó Bác đang lấy bí danh \"Lý Thụy\" để hoạt động cách mạng, nên đã đặt tên cho những thiếu niên cộng sản đầu tiên có họ Lý để dễ ngụy trang thành một gia tộc, tránh bị phát hiện bởi thực dân Pháp",
+        "value": 30
+    },
+    {
+        "id": 105,
+        "text": "Bạn Thành muốn tổ chức một cuộc thi Olympia theo thể thức năm 2014 cho 4 người chơi. Bạn Thành cần tạo tối thiểu bao nhiêu câu 10 điểm, bao nhiêu câu 20 điểm và bao nhiêu câu 30 điểm để tạo thành một phần thi về đích mà không có câu nào trùng nhau, bất kể thí sinh chọn gói câu hỏi nào?",
+        "answer": "28 câu 10 điểm, 16 câu 20 điểm, 4 câu 30 điểm (Theo thể thức năm 2014, mỗi gói câu hỏi sẽ gồm 4 câu hỏi, vì vậy số câu hỏi 10 điểm cần cho 1 thí sinh là 7 câu, câu hỏi 20 điểm là 4 câu và câu hỏi 30 điểm là 1 câu. Với 4 thí sinh, số câu hỏi cần là: 7*4 = 28 câu 10 điểm, 4*4 = 16 câu 20 điểm, và 1*4 = 4 câu 30 điểm)",
+        "value": 30
+    },
+    {
+        "id": 106,
+        "text": "Bạn Sơn cắt một mảnh giấy hình đa giác lồi thành những đa giác nhỏ hơn bằng cách cắt thẳng, mỗi lần cắt không cắt qua đỉnh của đa giác bị cắt. Cuối cùng, bạn nhận được 20 tứ giác và 2 ngũ giác. Hỏi mảnh giấy ban đầu có hình gì? Biết số cạnh của mảnh giấy ban đầu nhỏ hơn 10",
+        "answer": "Mảnh giấy ban đầu có 6 cạnh (Với mỗi lần cắt, ta tạo thêm 4 đỉnh mới trên toàn bộ số giấy so với số giấy trước đó, vì vậy khi cắt k lần sẽ tạo ra 4k đỉnh mới. Với n đỉnh của đa giác ban đầu, ta có n+4k = tổng số đỉnh của tất cả đa giác sau khi cắt, tức là n+4k=4*20 + 5*2 = 90. Do đó, n = 90 - 4k. Vì số mảnh sau một lần cắt bằng số mảnh trước đó cộng thêm 1, nên sau k lần cắt sẽ có k+1 mảnh. Với 22 mảnh cuối cùng, ta có k+1=22 => k=21. Thay k=21 vào công thức n = 90 - 4k, ta được n = 90 - 4*21 = 6 cạnh)",
+        "value": 30
+    },
+    {
+        "id": 107,
+        "text": "Có 10 bóng đèn được đánh số từ 1 đến 10. Ban đầu tất cả các bóng đèn đều tắt. Người ta thực hiện lần lượt 10 lượt công tắc, ở lượt thứ nhất, người ta sẽ bật/tắt bóng đèn có số thứ tự chia hết cho 1. Ở lượt thứ 2, người ta sẽ bật/tắt tất cả các bóng đèn có số thứ tự là chia hết cho 2 và cứ như vậy đến lượt thứ 10. Hỏi sau khi thực hiện xong 10 lượt công tắc, có bao nhiêu bóng đèn đang bật?",
+        "answer": "Có 3 bóng đèn đang bật (Các bóng đèn có số thứ tự là các số chính phương: 1, 4, 9. Các bóng đèn này sẽ bị bật/tắt đúng 3 lần ở lượt thứ nhất, lượt có số thứ tự là căn bậc 2 của nó và lượt của chính nó. Các bóng đèn khác sẽ bị bật/tắt một số lần chẵn nên sẽ tắt sau lượt thứ 10)",
+        "value": 30
+    },
+    {
+        "id": 108,
+        "text": "Ta có những viên gạch hình hộp chữ nhật dài 20cm, rộng 10cm, cao 5cm. Hỏi có thể xếp nhiều nhất bao nhiêu viên gạch như vậy vào một hộp hình lập phương có cạnh 20cm mà không được cắt viên gạch nào?",
+        "answer": "Có thể xếp được 8 viên gạch (Tỉ lệ các cạnh của hình lập phương so với từng viên gạch là 20/20 = 1, 20/10 = 2, và 20/5 = 4. Do đó, ta có thể xếp được 1 viên gạch theo chiều dài, 2 viên gạch theo chiều rộng và 4 viên gạch theo chiều cao. Tổng số viên gạch có thể xếp được là 1*2*4 = 8 viên gạch)",
+        "value": 10
+    },
+    {
+        "id": 109,
+        "text": "Ngoài khả năng tiếp nhận âm thanh, tai còn có thể tiếp nhận vị trí của cơ thể trong không gian nhờ vào một hệ thống nào bên trong tai?",
+        "answer": "Hệ thống tiền đình (vestibular system) trong tai trong giúp cảm nhận sự cân bằng và định hướng của cơ thể trong không gian",
+        "value": 10
+    },
+    {
+        "id": 110,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
+        "answer": "Monday",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_16.mp4"
+    },
+    {
+        "id": 111,
+        "text": "Ba chữ nào được khắc trên Tháp Bút, Hồ Gươm?",
+        "answer": "Tả Thanh Thiên",
+        "value": 10
+    },
+    {
+        "id": 112,
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Ông Đồ (Vũ Đình Liên)",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_7.mp4"
+    },
+    {
+        "id": 113,
+        "text": "Một đoàn du lịch có 36 người qua sông bằng 1 chiếc thuyền. Con thuyền chỉ chở được tối đa 6 người. Trong đoàn chỉ có đúng 1 người biết lái thuyền. Hỏi cần ít nhất bao nhiêu chuyến để đưa toàn bộ đoàn qua sông?",
+        "answer": "7 chuyến",
+        "value": 20
+    },
+    {
+        "id": 114,
+        "text": "Bạn hãy trả lời câu hỏi sau của nhóm phóng viên Olympia",
+        "answer": "Do mạch bên phải đấu 2 cực dương với nhau (mạch xung đối), dòng điện sẽ không thể chạy bóng đèn về cực âm của nguồn, nên bóng đèn bên phải sẽ không sáng.",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_17.mp4"
     }
 ]

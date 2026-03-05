@@ -19,6 +19,7 @@ const SPEED_DURATION = 30000
 const fs = require('fs');
 
 const finalQuestionBank = require("./data/questions/final.json");
+const { log } = require("console")
 
 // Khởi tạo bản sao sạch
 let allQuestions = JSON.parse(JSON.stringify(finalQuestionBank));
@@ -69,9 +70,9 @@ function createSet(pointsSequence) {
 
 // Khởi tạo các gói câu hỏi
 const FINAL_PACKAGES = {
-  40: Array.from({ length: 3 }, () => createSet([10, 10, 20])),
-  60: Array.from({ length: 3 }, () => createSet([10, 20, 30])),
-  80: Array.from({ length: 3 }, () => createSet([20, 30, 30]))
+  40: Array.from({ length: 4 }, () => createSet([10, 10, 20])),
+  60: Array.from({ length: 4 }, () => createSet([10, 20, 30])),
+  80: Array.from({ length: 4 }, () => createSet([20, 30, 30]))
 };
 
 // --- KIỂM TRA ĐỘ CHÍNH XÁC ---
@@ -110,9 +111,10 @@ let gameState = {
 }
 
 gameState.players = [
-  { id: "1", name: "Trần Duy Anh", score: 0, token: uuidv4(), socketId: null },
-  { id: "2", name: "Bùi Lê Minh Quang", score: 0, token: uuidv4(), socketId: null },
-  { id: "3", name: "Trương Hà Huỳnh Thái", score: 0, token: uuidv4(), socketId: null },
+  { id: "1", name: "Duy Anh", score: 0, token: uuidv4(), socketId: null },
+  { id: "2", name: "Minh Quang", score: 0, token: uuidv4(), socketId: null },
+  { id: "3", name: "Minh Triết", score: 0, token: uuidv4(), socketId: null },
+  { id: "4", name: "Bình Minh", score: 0, token: uuidv4(), socketId: null }
 ]
 gameState.players.forEach(player => {
   console.log(
@@ -555,7 +557,7 @@ socket.on("player:buzzObstacle", () => {
   emitState()
 })
 socket.on("mc:obstacleResult", (correct, id) => {
-  const player = gameState.players.find(p => p.socketId === id)
+  const player = gameState.players.find(p => p.id === id)
 
   if (!player) return
 
@@ -563,12 +565,13 @@ socket.on("mc:obstacleResult", (correct, id) => {
     const revealedCount =
       gameState.obstacle.rows.filter(r => r.revealed || r.disabled).length
     gameState.obstacle.obstacleClear = true
-    const scoreMap = { 0:80, 1: 80, 2: 60, 3: 40, 4: 20 }
+    console.log("Revealed count:", revealedCount);
+    const scoreMap = { 0: 80, 1: 80, 2: 60, 3: 40, 4: 20 }
     let score = 0
     if(gameState.obstacle.centerSelected){
       score = 10
     }else{
-      score = scoreMap[revealedCount] || 0
+      score = scoreMap[revealedCount]
     }
     player.score += score
     gameState.obstacle.rows.forEach((r)=>{
@@ -878,7 +881,14 @@ function buildObstaclePlayerState(socket) {
       numberOfChars: r.answer.length
     })),
 
-    image: gameState.obstacle.image,
+    image: {
+      imageUrl: gameState.obstacle.image.imageUrl,
+      parts: gameState.obstacle.image.parts,
+      center: {
+        revealed: gameState.obstacle.image.center.revealed,
+        question: gameState.obstacle.image.center.question,
+      }
+    },
 
     timer: gameState.obstacle.timer,
     buzzPlayer: gameState.obstacle.buzzPlayer,

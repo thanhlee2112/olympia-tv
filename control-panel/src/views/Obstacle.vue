@@ -231,8 +231,8 @@ async function rowResult(correct, playerId) {
   }
 }
 
-function obstacleResult(correct) {
-  socket.emit("mc:obstacleResult", correct)
+function obstacleResult(correct, id) {
+  socket.emit("mc:obstacleResult", correct, id)
   if(correct){
     play('/sounds/right_answer_obstacle.mp3')
   }else{

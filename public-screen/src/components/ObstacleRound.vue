@@ -52,7 +52,11 @@
         </div>
       </div>
     </div>
-
+    <div v-if="state.obstacle.buzzPlayer.length > 0" class="buzz-row-box">
+      <div v-for="player in state.obstacle.buzzPlayer" :key="player.id" class="buzz-rect" disabled>
+        <span class="buzz-player-name">{{ getPlayerName(player) }}</span>
+      </div>
+    </div>
     <!-- Question section -->
     <div v-if="state.obstacle.currentRow || (state.obstacle.centerSelected && !state.obstacle.centerAnswered)" class="question-wrapper">
       <div class="question-container">
@@ -72,7 +76,6 @@
       </div>
     </div>
     <!-- Buzz button -->
-
     <!-- Player answers display when timer is running -->
     <div v-if="state.obstacle.showAnswers" class="player-answers-display">
       <h3>Đáp án từ các thí sinh:</h3>
@@ -106,7 +109,10 @@ function getPlayerAnswer(playerId) {
   const rowAnswers = state.obstacle.rowAnswers[currentRowId]
   return rowAnswers ? rowAnswers[playerId] : ""
 }
-
+function getPlayerName(playerId) {
+  const player = state.players.find(p => p.id === playerId)
+  return player ? player.name : "Unknown"
+}
 const isTimerRunning = computed(() => {
   return state.obstacle.currentRow && state.obstacle.timer > 0
 })
@@ -488,21 +494,45 @@ const isTimerRunning = computed(() => {
   }
 }
 
-.buzz-btn {
-  margin-top: 20px;
-  padding: 12px 24px;
-  font-size: 18px;
-  background: #ff9800;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
+/* Buzz player horizontal row */
+/* Buzz player horizontal row aligned left */
+.buzz-row-box {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-top: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.buzz-btn:disabled {
-  background: #ccc;
+.buzz-rect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+  padding: 16px 24px;
+  background: #ff9800;
+  gap: 8px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   cursor: not-allowed;
+}
+
+.buzz-player-id {
+  font-size: 0.95rem;
+  color: #fffde7;
+  font-weight: 600;
+}
+
+.buzz-player-name {
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 700;
 }
 
 /* Answer section */

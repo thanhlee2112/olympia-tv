@@ -100,13 +100,11 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
       >
         🔔 BẤM CHUÔNG
       </button>
-
-      {/* Ô nhập đáp án */}
       {
-        state.currentRow || state.centerSelected && (
+        (state.currentRow || state.centerSelected) && (
       <div className="question-section">
         <div className="question">
-          {state.rows.find(r=>r.id===state.currentRow)?.question || state.image.center.question}
+          {state.rows.find(r=>r.id==state.currentRow)?.question || state.image.center.question}
         </div>
       </div>
         )
