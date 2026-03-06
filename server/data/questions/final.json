@@ -707,5 +707,18 @@
         "answer": "Do mạch bên phải đấu 2 cực dương với nhau (mạch xung đối), dòng điện sẽ không thể chạy bóng đèn về cực âm của nguồn, nên bóng đèn bên phải sẽ không sáng.",
         "value": 30,
         "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_17.mp4"
+    },
+    {
+        "id": 115,
+        "text": "Vở kịch \"Con rồng tre\" được Nguyễn Ái Quốc viết để đả kích nhân vật nào trong lịch sử?",
+        "answer": "Khải Định",
+        "value": 20
+    },
+    {
+        "id": 116,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
+        "answer": "Friday",
+        "value": 30,
+        "src": "http://10.16.31.50:3000/media/ve_dich_20_diem_8.mp4"
     }
 ]

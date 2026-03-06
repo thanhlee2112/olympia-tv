@@ -32,6 +32,9 @@
         </div>
         <div class="center-wrapper">
           <div class="center-container" :class="{ 'animate-in': packageAnimationState === 'showing-content' }">
+                                <div class="star-wrap">
+                <div v-if="state.final.star" class="star">⭐</div>
+                      </div>           
             <div class="left">
               <div class="players-strip">
                 <div v-for="p in state.players" :key="p.id" class="player-strip-item" :class="{
@@ -41,11 +44,6 @@
                   {{ p.name }} ({{ p.score }})
                 </div>
               </div>
-
-              <div class="star-wrap">
-                <div v-if="state.final.star" class="star">⭐</div>
-              </div>
-
               <div class="question">
                 <template v-if="state.final.showContent">
                   {{ state.final.questions[state.final.currentIndex]?.text }}
@@ -361,7 +359,12 @@ const progress = computed(() => {
 .player-strip-item.active { background: #ff8a65; }
 .player-strip-item.buzzer { background: #ff8a65; font-weight: 700; }
 
-.star-wrap { margin-bottom: 6px; }
+.star-wrap {
+  position: fixed;
+  top: -50px;
+  left: 10px;
+   margin-bottom: 6px; 
+}
 .star { color: #ffd54f; font-size: 22px; }
 
 .question {
