@@ -113,8 +113,6 @@ let gameState = {
 gameState.players = [
   { id: "1", name: "Duy Anh", score: 0, token: uuidv4(), socketId: null },
   { id: "2", name: "Minh Quang", score: 0, token: uuidv4(), socketId: null },
-  { id: "3", name: "Minh Triết", score: 0, token: uuidv4(), socketId: null },
-  { id: "4", name: "Bình Minh", score: 0, token: uuidv4(), socketId: null }
 ]
 gameState.players.forEach(player => {
   console.log(

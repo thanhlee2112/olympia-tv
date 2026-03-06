@@ -720,5 +720,17 @@
         "answer": "Friday",
         "value": 30,
         "src": "http://10.16.31.50:3000/media/ve_dich_20_diem_8.mp4"
+    },
+    {
+        "id": 117,
+        "text": "Trong từ điển văn học(bộ mới), GS. Nguyễn Huệ Chi khẳng định: \"Phải bắt đầu từ đây, thơ và tiểu thuyết mới đi vào thế giới bên trong nhân vật, giúp người đọc khám phá trực diện vẻ đẹp của cái\"tôi\" và tạo ra cách đọc\"phản tỉnh\", tức là nhìn sâu vào cõi lòng mình\". Lời khẳng định trên đã cho thấy phần nào những đóng góp quan trọng của tổ chức văn chương nào hồi đầu thế kỷ XX?",
+        "answer": "Tự Lực Văn Đoàn",
+        "value": 20
+    },
+    {
+        "id": 118,
+        "text": "Số nguyên nào nhỏ nhất khác không chia hết cho tất cả các số từ 1 đến 10?",
+        "answer": "2520",
+        "value": 30
     }
 ]
