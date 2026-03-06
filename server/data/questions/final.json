@@ -729,7 +729,7 @@
     },
     {
         "id": 118,
-        "text": "Số nguyên nào nhỏ nhất khác không chia hết cho tất cả các số từ 1 đến 10?",
+        "text": "Số tự nhiên nào nhỏ nhất khác không chia hết cho tất cả các số từ 1 đến 10?",
         "answer": "2520",
         "value": 30
     }
