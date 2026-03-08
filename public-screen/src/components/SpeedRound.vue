@@ -3,6 +3,11 @@
     <div v-if="state.speedup.currentQuestion && !state.speedup.showAnswers" class="olympia-container">
       
       <div class="olympia-layout">
+                <div class="timer-unfold-wrapper">
+          <div class="timer-vertical">
+             <div class="fill" :style="{ height: progress + '%' }"></div>
+          </div>
+        </div>
         <div class="main-content-area">
           <div class="media-unfold-wrapper">
             <div class="media-box">
@@ -29,12 +34,6 @@
           <div class="olympia-base-bar">
             <div class="wood-slider"></div>
             <div class="question-tag">CÂU {{ state.speedup.currentQuestion.id }}</div>
-          </div>
-        </div>
-
-        <div class="timer-unfold-wrapper">
-          <div class="timer-vertical">
-             <div class="fill" :style="{ height: progress + '%' }"></div>
           </div>
         </div>
       </div>
@@ -156,7 +155,7 @@
   width: 100%;
   height: 100%;
   min-width: 80vw;
-  min-height: 70vh;
+  min-height: 63vh;
   background: #000;
   display: flex;
   align-items: center;
@@ -215,70 +214,86 @@
   100% { transform: translateX(0); }
 }
 
+/* Container chính bao phủ toàn màn hình */
 .answer-overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0, 0, 0, 0.7); /* Làm tối nền để nổi bật câu trả lời */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* Styling cho danh sách đáp án SpeedRound */
+/* Danh sách các câu trả lời */
 .olympia-answer-list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  background: rgba(0,0,0,0.85);
-  border-radius: 18px;
-  padding: 32px 48px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-  min-width: 420px;
+  gap: 15px; /* Khoảng cách giữa các hàng */
+  width: 80%;
+  max-width: 600px;
 }
 
+/* Hiệu ứng rơi cho từng item */
 .olympia-answer-item {
   display: flex;
   align-items: center;
-  gap: 18px;
-  background: #181818;
-  border-radius: 12px;
-  padding: 12px 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  min-height: 56px;
+  background: linear-gradient(90deg, #1a2a6c, #b21f1f); /* Màu gradient đặc trưng */
+  border: 2px solid #fff;
+  border-radius: 10px;
+  padding: 10px 20px;
+  color: white;
+  
+  /* Animation rơi */
+  animation: dropIn 1.0s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
+/* Tạo độ trễ (delay) cho từng người chơi để rơi lần lượt */
+.olympia-answer-item:nth-child(1) { animation-delay: 0.1s; }
+.olympia-answer-item:nth-child(2) { animation-delay: 0.4s; }
+.olympia-answer-item:nth-child(3) { animation-delay: 0.7s; }
+.olympia-answer-item:nth-child(4) { animation-delay: 1.0s; }
+
+/* Định nghĩa Keyframes */
+@keyframes dropIn {
+  0% {
+    transform: translateY(120vh); /* Bắt đầu từ ngoài phía trên màn hình */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0); /* Dừng lại ở vị trí tự nhiên trong flexbox (giữa màn hình) */
+    opacity: 1;
+  }
+}
+
+/* Styling các thành phần bên trong cho giống Olympia */
 .olympia-time {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #00ff88;
-  width: 70px;
-  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  min-width: 60px;
 }
 
 .olympia-dot {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
+  background: #ffd700;
   border-radius: 50%;
-  background: linear-gradient(135deg, #f1c40f 60%, #e67e22 100%);
-  margin-right: 8px;
-}
-
-.olympia-name-ans {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  margin-right: 15px;
 }
 
 .olympia-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #ddd;
 }
 
 .olympia-answer-text {
-  font-size: 1.1rem;
-  color: #f1c40f;
-  font-weight: 500;
-  word-break: break-word;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 </style>
 

@@ -1,6 +1,7 @@
 <template>
 <div>
   <audio ref="audioRef"></audio>
+  <audio ref="countdownAudioRef"></audio>
   <div v-if="!state.final.activePlayer">
     <div>
     <button @click="playerGoToFinal()">Final</button>
@@ -68,6 +69,7 @@
 import { setPhase, socket, state } from "../socket"
 import { ref, watch } from "vue"
 const audioRef = ref(null)
+const countdownAudioRef = ref(null)
 function play(src,ref = audioRef) {
   return new Promise((resolve, reject) => {
     const audio = ref.value
@@ -142,7 +144,7 @@ function correct(){
 }
 function wrong(){
   socket.emit("mc:finalWrong")
-  play('/sounds/final_buzz_window.mp3')
+  play('/sounds/final_buzz_window.mp3',countdownAudioRef)
 }
 function buzzCorrect(){
   socket.emit("mc:finalBuzzCorrect")

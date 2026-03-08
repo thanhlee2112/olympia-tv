@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div v-if="state.obstacle.buzzPlayer.length > 0" class="buzz-row-box">
+    <div v-if="state.obstacle.buzzPlayer && state.obstacle.buzzPlayer.length > 0" class="buzz-row-box">
       <div v-for="player in state.obstacle.buzzPlayer" :key="player.id" class="buzz-rect" disabled>
         <span class="buzz-player-name">{{ getPlayerName(player) }}</span>
       </div>

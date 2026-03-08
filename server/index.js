@@ -70,9 +70,9 @@ function createSet(pointsSequence) {
 
 // Khởi tạo các gói câu hỏi
 const FINAL_PACKAGES = {
-  40: Array.from({ length: 4 }, () => createSet([10, 10, 20])),
-  60: Array.from({ length: 4 }, () => createSet([10, 20, 30])),
-  80: Array.from({ length: 4 }, () => createSet([20, 30, 30]))
+  40: Array.from({ length: 2 }, () => createSet([10, 10, 20])),
+  60: Array.from({ length: 2 }, () => createSet([10, 20, 30])),
+  80: Array.from({ length: 2 }, () => createSet([20, 30, 30]))
 };
 
 // --- KIỂM TRA ĐỘ CHÍNH XÁC ---
@@ -116,7 +116,7 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
+    `${player.name}: http://192.168.0.183:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -133,28 +133,32 @@ gameState.obstacle = {
       question: "Nguyên tố nào chiếm tỷ lệ cao nhất trong vỏ Trái Đất?",
       answer: "OXY",
       revealed: false,
-      disabled: false
+      disabled: false,
+      selected: false,
     },
     {
       id: 2,
       question: "Biểu tượng của tình yêu trong văn học và nghệ thuật thường là gì?",
       answer: "TIM",
       revealed: false,
-      disabled: false
+      disabled: false,
+      selected: false,
     },
     {
       id: 3,
       question: "Người ta thường gọi diễn viên nữ đóng các vai tuồng là đào. Vậy diễn viên nam đóng các vai tuồng được gọi là gì?",
       answer: "KÉP",
       revealed: false,
-      disabled: false
+      disabled: false,
+      selected: false,
     },
     {
       id: 4,
       question: "Điền vào chỗ trống: \"Hỡi anh em binh sĩ, tự vệ, dân quân!Giờ cứu quốc đã đến. Ta phải hy sinh đến giọt ... cuối cùng, để giữ gìn đất nước.Dù phải gian khổ kháng chiến, nhưng với một lòng kiên quyết hy sinh, thắng lợi nhất định về dân tộc ta!\"",
       answer: "MÁU",
       revealed: false,
-      disabled: false
+      disabled: false,
+      selected: false,
     }
   ],
 
@@ -170,7 +174,7 @@ gameState.obstacle = {
       question: "... điện là một tập hợp các linh kiện điện (như nguồn điện, dây dẫn, bóng đèn, điện trở, tụ điện...) được kết nối với nhau bằng dây dẫn thành một vòng kín, qua đó dòng điện có thể chạy qua.",
       answer: "MẠCH"
     },
-    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
+    imageUrl: "http://192.168.0.183:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -184,10 +188,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Điền số còn thiếu vào chỗ trống?", answer: "3",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là cây cầu nào?", answer: "Mỹ Thuận", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp các bước sau để vẽ một nụ cười", answer: "EBDFCA", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là số nào?", answer: "11", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://192.168.0.183:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://192.168.0.183:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp các bước sau để vẽ một nụ cười", answer: "EBDFCA", src:"http://192.168.0.183:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Ông là ai?", answer: "Văn Cao", src:"http://192.168.0.183:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -475,6 +479,7 @@ socket.on("mc:selectRow", (rowId) => {
   const row = gameState.obstacle.rows.find(r => r.id === rowId)
   if (!row || row.disabled) return
   gameState.obstacle.currentRow = rowId
+  row.selected = true
   gameState.obstacle.acceptingAnswer = false
 
   emitState()
@@ -561,7 +566,7 @@ socket.on("mc:obstacleResult", (correct, id) => {
 
   if (correct) {
     const revealedCount =
-      gameState.obstacle.rows.filter(r => r.revealed || r.disabled).length
+      gameState.obstacle.rows.filter(r => r.selected).length
     gameState.obstacle.obstacleClear = true
     console.log("Revealed count:", revealedCount);
     const scoreMap = { 0: 80, 1: 80, 2: 60, 3: 40, 4: 20 }
