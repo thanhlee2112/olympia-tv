@@ -21,11 +21,11 @@
           <p>Điểm: {{ p.score }}</p>
         </div>
       </div>
-      <div>
-        <button @click="openScoreboard">
+      <div class="kickoff-btn-group">
+        <button class="kickoff-btn" @click="openScoreboard">
            TỔNG KẾT ĐIỂM
         </button>
-        <button @click="endKickoff">Kết thúc phần thi khởi động</button>
+        <button class="kickoff-btn" @click="endKickoff">Kết thúc phần thi khởi động</button>
       </div>
     </div>
 
@@ -36,8 +36,8 @@
     
       <h2>Người chơi: {{ currentPlayer?.name }}</h2>
       <h3>Thời gian: {{ state.timer }}s</h3>
-      <div v-if="!state.kickoff.questionVisible">
-        <button @click="MCshowQuestion">
+      <div v-if="!state.kickoff.questionVisible" class="kickoff-btn-group">
+        <button class="kickoff-btn" @click="MCshowQuestion">
           MỞ CÂU HỎI
         </button>
       </div>
@@ -47,19 +47,20 @@
         <p class="answer">
           Đáp án (MC): {{ currentQuestion?.answer }}
         </p>
-      
-        <button @click="answerQuestions(true)">
-          Đúng (+10)
-        </button>
-        <button @click="answerQuestions(false)">
-          Sai
-        </button>
-        <button @click="gapSound">
-          ...
-        </button>
-        <button @click="endKickoffPlayer">
-          Kết thúc phần thi khởi động
-        </button>
+        <div class="kickoff-btn-group">
+          <button class="kickoff-btn correct" @click="answerQuestions(true)">
+            Đúng (+10)
+          </button>
+          <button class="kickoff-btn wrong" @click="answerQuestions(false)">
+            Sai
+          </button>
+          <button class="kickoff-btn" @click="gapSound">
+            ...
+          </button>
+          <button class="kickoff-btn" @click="endKickoffPlayer">
+            Kết thúc phần thi khởi động
+          </button>
+        </div>
       </div>
     
     </div>
@@ -148,6 +149,7 @@ function endKickoff() {
   padding: 20px;
 }
 
+/* ...existing code... */
 .players {
   display: flex;
   gap: 20px;
@@ -166,23 +168,34 @@ function endKickoff() {
   background: #2563eb;
 }
 
-.actions {
-  margin-top: 20px;
+.kickoff-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
 }
-
-.correct {
-  background: green;
-  color: white;
-  margin-right: 10px;
-  padding: 10px 20px;
+.kickoff-btn {
+  font-size: 2rem;
+  padding: 18px 40px;
+  border-radius: 12px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s, transform 0.2s;
 }
-
-.wrong {
-  background: red;
-  color: white;
-  padding: 10px 20px;
+.kickoff-btn:hover {
+  background: #1565c0;
+  transform: scale(1.05);
 }
-
+.kickoff-btn.correct {
+  background: #43a047;
+}
+.kickoff-btn.wrong {
+  background: #e53935;
+}
 .answer {
   margin-top: 10px;
   color: yellow;

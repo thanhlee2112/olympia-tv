@@ -27,11 +27,19 @@
       </div>
 
       <!-- Image overlay -->
-      <div class="image-grid-overlay">
+      <div
+        class="image-grid-overlay"
+        :style="{
+          width: imageWidth + 'px',
+          height: imageHeight + 'px',
+          '--center-size': centerSize + 'px'
+        }"
+      >
         <img
           :src="state.obstacle.image.imageUrl"
           alt="obstacle"
           class="obstacle-reveal-image"
+          @load="onImageLoad"
         />
         <!-- 4 corner overlays -->
         <div
@@ -43,10 +51,11 @@
         >
           {{ i + 1 }}
         </div>
-  <div class="line v-top"></div>
-  <div class="line v-bottom"></div>
-  <div class="line h-left"></div>
-  <div class="line h-right"></div>        <!-- Center box -->
+        <div class="line v-top"></div>
+        <div class="line v-bottom"></div>
+        <div class="line h-left"></div>
+        <div class="line h-right"></div>
+        <!-- Center box -->
         <div class="center-box-overlay" v-show="!state.obstacle.image.center.revealed">
           TRUNG TÂM
         </div>
@@ -97,6 +106,17 @@
 import { ref, computed } from "vue"
 import { state, socket } from "../socket"
 const openAnswerFromPlayer = ref(false)
+
+const imageWidth = ref(480)
+const imageHeight = ref(480)
+const centerSize = ref(300)
+
+function onImageLoad(e) {
+  imageWidth.value = e.target.naturalWidth
+  imageHeight.value = e.target.naturalHeight
+  // Tỉ lệ center box: 60% chiều nhỏ nhất
+  centerSize.value = Math.floor(Math.min(imageWidth.value, imageHeight.value) * 0.6)
+}
 
 function getRowQuestion(rowId) {
   const row = state.obstacle.rows.find(r => r.id === rowId)
@@ -152,9 +172,9 @@ const isTimerRunning = computed(() => {
 }
 
 .obstacle-reveal-image {
-  width: 476px;
-  height: 476px;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Circle default: blue background */
@@ -196,10 +216,9 @@ const isTimerRunning = computed(() => {
 /* Image overlay */
 .image-grid-overlay {
   position: relative;
-  width: 480px;
-  height: 480px;
-  /* center size can be tuned; corners will size automatically */
-  --center-size: 300px;
+  width: 100%;
+  height: 100%;
+  /* center size sẽ được truyền từ biến style */
   box-sizing: border-box;
   border: 2px solid #1976d2; /* outer blue border */
 }

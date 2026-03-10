@@ -1,32 +1,31 @@
 <template>
 <div>
   <audio ref="audioRef"></audio>
-  <audio ref="countdownAudioRef"></audio>
   <div v-if="!state.final.activePlayer">
-    <div>
-    <button @click="playerGoToFinal()">Final</button>
-    <button @click="openScoreboard">
-  Tổng kết điểm
-</button>
-  </div>
-    <div
-      v-for="p in state.players"
-      :key="p.id"
-      @click="start(p.id)"
-    >
-      {{ p.name }} - {{ p.score }}
+    <div class="final-btn-group">
+      <button class="final-btn" @click="playerGoToFinal()">Final</button>
+      <button class="final-btn" @click="openScoreboard">Tổng kết điểm</button>
+    </div>
+    <div class="final-player-list">
+      <div
+        v-for="p in state.players"
+        :key="p.id"
+        @click="start(p.id)"
+        class="final-player-item"
+      >
+        {{ p.name }} - {{ p.score }}
+      </div>
     </div>
   </div>
 
   <div v-else>
-    <div v-if="!state.final.packageValue">
-      <button @click="pkg(40)">40</button>
-      <button @click="pkg(60)">60</button>
-      <button @click="pkg(80)">80</button>
+    <div v-if="!state.final.packageValue" class="final-btn-group">
+      <button class="final-btn" @click="pkg(40)">40</button>
+      <button class="final-btn" @click="pkg(60)">60</button>
+      <button class="final-btn" @click="pkg(80)">80</button>
     </div>
 
     <div v-else>
-
       <h2 v-if="state.final.showContent">
         {{
           state.final.questions[
@@ -41,26 +40,27 @@
             ]?.answer
         }}
       </h2>
-      <button @click="showQuestion">Hiển thị câu hỏi</button>
-      <button @click="gapSound">...</button>
-      <button @click="toggleStar">⭐</button>
-      <button @click="startTimer">Start</button>
-      <button @click="correct">ĐÚNG</button>
-      <button @click="wrong">SAI</button>
-      <button @click="nextQuestion">CÂU TIẾP</button>
-      <div v-if="state.final.buzzPlayer">
-        {{ getName(state.final.buzzPlayer) }}
-        <button @click="buzzCorrect">ĐÚNG</button>
-        <button @click="buzzWrong">SAI</button>
+      <div class="final-btn-group">
+        <button class="final-btn" @click="showQuestion">Hiển thị câu hỏi</button>
+        <button class="final-btn" @click="gapSound">...</button>
+        <button class="final-btn" @click="toggleStar">⭐</button>
+        <button class="final-btn" @click="startTimer">Start</button>
+        <button class="final-btn" @click="correct">ĐÚNG</button>
+        <button class="final-btn" @click="wrong">SAI</button>
+        <button class="final-btn" @click="nextQuestion">CÂU TIẾP</button>
       </div>
-      <div v-if="state.final.currentIndex == 2">
-        <button @click="endFinal">Kết thúc phần thi</button>
+      <div v-if="state.final.buzzPlayer" class="final-buzz-group">
+        {{ getName(state.final.buzzPlayer) }}
+        <button class="final-btn" @click="buzzCorrect">ĐÚNG</button>
+        <button class="final-btn" @click="buzzWrong">SAI</button>
+      </div>
+      <div v-if="state.final.currentIndex == 2" class="final-btn-group">
+        <button class="final-btn" @click="endFinal">Kết thúc phần thi</button>
       </div>
     </div>
-
   </div>
-  <div>
-    <button @click="endFinalAll">Kết thúc Về đích</button>
+  <div class="final-btn-group">
+    <button class="final-btn" @click="endFinalAll">Kết thúc Về đích</button>
   </div>
 </div>
 </template>
@@ -69,7 +69,6 @@
 import { setPhase, socket, state } from "../socket"
 import { ref, watch } from "vue"
 const audioRef = ref(null)
-const countdownAudioRef = ref(null)
 function play(src,ref = audioRef) {
   return new Promise((resolve, reject) => {
     const audio = ref.value
@@ -144,7 +143,7 @@ function correct(){
 }
 function wrong(){
   socket.emit("mc:finalWrong")
-  play('/sounds/final_buzz_window.mp3',countdownAudioRef)
+  play('/sounds/final_buzz_window.mp3')
 }
 function buzzCorrect(){
   socket.emit("mc:finalBuzzCorrect")
@@ -165,4 +164,58 @@ function endFinal(){
 function endFinalAll(){
   setPhase("dashboard")
 }
+// ...existing code...
 </script>
+
+<style scoped>
+.final-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 24px 0;
+}
+.final-btn {
+  font-size: 2rem;
+  padding: 18px 40px;
+  border-radius: 12px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s, transform 0.2s;
+}
+.final-btn:hover {
+  background: #1565c0;
+  transform: scale(1.05);
+}
+.final-player-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+.final-player-item {
+  font-size: 1.5rem;
+  padding: 14px 32px;
+  border-radius: 8px;
+  background: #000;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+.final-player-item:hover {
+  background: #e3f2fd;
+  transform: scale(1.03);
+}
+.final-buzz-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+  font-size: 1.5rem;
+}
+</style>

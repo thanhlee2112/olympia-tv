@@ -12,6 +12,82 @@ const io = new Server(server, {
   cors: { origin: "*" }
 })
 
+function createFlexibleQuestionGroups(bank, numGroups = 4, questionsPerGroup = 12) {
+    // 1. Nhóm các câu hỏi theo lĩnh vực
+    let categories = {};
+    bank.forEach(q => {
+        if (!categories[q.linh_vuc]) categories[q.linh_vuc] = [];
+        categories[q.linh_vuc].push(q);
+    });
+
+    // 2. Fisher-Yates Shuffle
+    const shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    };
+
+    // Xáo trộn câu hỏi trong từng ngăn chứa lĩnh vực
+    Object.keys(categories).forEach(key => shuffle(categories[key]));
+
+    const finalGroups = [];
+
+    for (let i = 0; i < numGroups; i++) {
+        const currentGroup = [];
+        // Object để theo dõi: { "Toán học": 1, "Văn học": 2, ... }
+        const categoryCounter = {}; 
+
+        // Tạo danh sách lĩnh vực khả dụng (còn câu hỏi) và xáo trộn để lấy ngẫu nhiên
+        let availableCats = shuffle(Object.keys(categories).filter(cat => categories[cat].length > 0));
+
+        // Tiếp tục bốc cho đến khi đủ 12 câu hoặc hết sạch kho dữ liệu
+        while (currentGroup.length < questionsPerGroup && availableCats.length > 0) {
+            let pickedInThisRound = false;
+
+            for (let j = 0; j < availableCats.length; j++) {
+                const cat = availableCats[j];
+                const count = categoryCounter[cat] || 0;
+
+                // Điều kiện bốc: Nhóm chưa đủ 12 câu VÀ Lĩnh vực này xuất hiện < 3 lần trong nhóm này
+                if (currentGroup.length < questionsPerGroup && count < 3) {
+                    const question = categories[cat].pop();
+                    currentGroup.push(question);
+                    
+                    categoryCounter[cat] = count + 1;
+                    pickedInThisRound = true;
+
+                    // Nếu lĩnh vực này hết câu hỏi trong kho, loại khỏi danh sách khả dụng ngay
+                    if (categories[cat].length === 0) {
+                        availableCats.splice(j, 1);
+                        j--; // Điều chỉnh index sau khi xóa
+                    }
+                    
+                    if (currentGroup.length === questionsPerGroup) break;
+                }
+            }
+
+            // Nếu đi hết một vòng các lĩnh vực mà không bốc thêm được câu nào (do ràng buộc < 3)
+            // thì phải dừng để tránh vòng lặp vô tận
+            if (!pickedInThisRound) break;
+        }
+        
+        finalGroups.push(currentGroup);
+    }
+
+    return finalGroups;
+}
+
+const packs = createFlexibleQuestionGroups(kickoffQuestionBank);
+
+// Hiển thị kiểm tra
+packs.forEach((group, index) => {
+    console.log(`\n=== GÓI CÂU HỎI SỐ ${index + 1} (${group.length} câu) ===`);
+    group.forEach((q, idx) => {
+        console.log(`${idx + 1}. [${q.linh_vuc}] - ${q.question}`);
+    });
+});
 /* ======================
    GAME STATE
 ====================== */
@@ -116,11 +192,11 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://192.168.0.183:5174/?token=${player.token}`
+    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
-  keyword: "HỆ TUẦN HOÀN",
+  keyword: "HỒN TRƯƠNG BA, DA HÀNG THỊT (21 chữ cái)",
   rowAnswers:{
       1: null,
       2: null,
@@ -130,32 +206,32 @@ gameState.obstacle = {
   rows: [
     {
       id: 1,
-      question: "Nguyên tố nào chiếm tỷ lệ cao nhất trong vỏ Trái Đất?",
-      answer: "OXY",
+      question: "Văn học ... là những tác phẩm nghệ thuật ngôn từ truyền miệng, sản phẩm của quá trình sáng tác tập thể, thể hiện nhận thức, tư tưởng, tình cảm của nhân dân lao động về tự nhiên, xã hội nhằm mục đích phục vụ trực tiếp cho các sinh hoạt khác nhau trong đời sống cộng đồng.",
+      answer: "DÂNGIAN",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 2,
-      question: "Biểu tượng của tình yêu trong văn học và nghệ thuật thường là gì?",
-      answer: "TIM",
+      question: "Tên cuốn tiểu thuyết nổi tiếng của nhà văn George Orwell, lấy bối cảnh một xã hội bị kiểm soát gắt gao bởi \"Anh Cả\" (Big Brother) là gì?",
+      answer: "1984",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 3,
-      question: "Người ta thường gọi diễn viên nữ đóng các vai tuồng là đào. Vậy diễn viên nam đóng các vai tuồng được gọi là gì?",
-      answer: "KÉP",
+      question: "Đêm trắng (tác giả: Lưu Quang Hà), Vòng tròn bội bạc (tác giả: Chu Lai), Bắt quỷ (tác giả: Nguyễn Đăng Chương) là những tác phẩm thuộc loại hình nghệ thuật sân khấu nào?",
+      answer: "KỊCHNÓI",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 4,
-      question: "Điền vào chỗ trống: \"Hỡi anh em binh sĩ, tự vệ, dân quân!Giờ cứu quốc đã đến. Ta phải hy sinh đến giọt ... cuối cùng, để giữ gìn đất nước.Dù phải gian khổ kháng chiến, nhưng với một lòng kiên quyết hy sinh, thắng lợi nhất định về dân tộc ta!\"",
-      answer: "MÁU",
+      question: "Trong các câu chuyện có yếu tố siêu nhiên, ma quái, thực thể được hình thành sau khi con người đã chết gọi là gì?",
+      answer: "HỒN",
       revealed: false,
       disabled: false,
       selected: false,
@@ -171,10 +247,10 @@ gameState.obstacle = {
     ],
     center: {
       revealed: false,
-      question: "... điện là một tập hợp các linh kiện điện (như nguồn điện, dây dẫn, bóng đèn, điện trở, tụ điện...) được kết nối với nhau bằng dây dẫn thành một vòng kín, qua đó dòng điện có thể chạy qua.",
-      answer: "MẠCH"
+      question: "Ai là tác giả của vở kịch\"Lời thề thứ 9\" và tập thơ \"Hương cây - Bếp lửa\"?",
+      answer: "LƯUQUANGVŨ"
     },
-    imageUrl: "http://192.168.0.183:3000/media/cnv.png"
+    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -188,10 +264,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://192.168.0.183:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://192.168.0.183:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp các bước sau để vẽ một nụ cười", answer: "EBDFCA", src:"http://192.168.0.183:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Ông là ai?", answer: "Văn Cao", src:"http://192.168.0.183:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là dãy núi nào?", answer: "Andes", src:"http://10.16.31.53:3000/media/speedup_5.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -331,7 +407,7 @@ socket.on("mc:addRowScore", ({ playerId }) => {
     gameState.timer = 60
         
     gameState.kickoff = {
-      questions: kickoffQuestionBank[playerId],
+      questions: packs[playerId],
       currentIndex: 0,
       running: true,
       questionVisible: false
