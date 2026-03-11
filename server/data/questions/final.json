@@ -776,6 +776,37 @@
         "text": "Trong các loài sâu bọ con người chỉ thuần dưỡng 2 loài, đó là 2 loài nào?",
         "answer": "Ong và tằm",
         "value": 20
+    },
+    {
+        "id": 126,
+        "text": "Hai câu thơ nào trong bài thơ Tương tư của Nguyễn Bính đã được tác giả dùng để chỉ nhịp chuyển vần của thời gian?",
+        "answer": "Ngày qua ngày, lại qua ngày/Lá xanh nhuộm đã thành cây lá vàng",
+        "value": 30
+    },
+    {
+        "id": 127,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "X-ray",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_19.mp4",
+        "value": 30
+    },
+    {
+        "id": 128,
+        "text": "Bút laze mà ta thường hay dùng để chỉ bảng thuộc loại laze nào?",
+        "answer": "Laze bán dẫn (semiconductor laser)",
+        "value": 20
+    },
+    {
+        "id": 129,
+        "text": "Nhân vật văn học nào trong một truyện ngắn của Nam Cao hội tụ đủ cả ba yếu tố: \"cái xấu, cái nghèo, cái ngẩn ngơ\"?",
+        "answer": "Thị Nở",
+        "value": 10
+    },
+    {
+        "id": 130,
+        "text": "Trong năm vị tướng tài của Trần Hưng Đạo, ai có tài bắn cung bách phát bách trúng?",
+        "answer": "Nguyễn Địa Lô",
+        "value": 20
     }
 
 ]
