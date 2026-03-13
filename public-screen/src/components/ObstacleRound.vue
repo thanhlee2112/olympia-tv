@@ -4,7 +4,7 @@
 
     <div class="obstacle-hint" v-show="!state.obstacle.showAnswers">
       <!-- 4 rows of circles -->
-      <div class="rows-circle">
+      <div  v-if="!state.obstacle.displayImage" class="rows-circle">
         <div
           v-for="row in state.obstacle.rows"
           :key="row.id"
@@ -27,7 +27,7 @@
       </div>
 
       <!-- Image overlay -->
-      <div
+      <div v-else
         class="image-grid-overlay"
         :style="{
           width: imageWidth + 'px',

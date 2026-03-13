@@ -200,4 +200,69 @@ function endKickoff() {
   margin-top: 10px;
   color: yellow;
 }
+/* General button styling */
+button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 40px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.12);
+  margin: 8px 12px;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+button:hover {
+  background: #1565c0;
+  color: #ffd600;
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px rgba(25,118,210,0.18);
+}
+
+/* Kickoff button group layout */
+.kickoff-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  margin: 28px 0;
+}
+
+/* Kickoff specific buttons */
+.kickoff-btn {
+  background: #1976d2;
+  color: #fff;
+  border-radius: 14px;
+  font-size: 2rem;
+  padding: 22px 48px;
+  margin: 8px 12px;
+  box-shadow: 0 2px 8px rgba(25,118,210,0.15);
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.kickoff-btn:hover {
+  background: #1565c0;
+  color: #ffd600;
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px rgba(25,118,210,0.18);
+}
+.kickoff-btn.correct {
+  background: #43a047;
+  color: #fff;
+}
+.kickoff-btn.correct:hover {
+  background: #388e3c;
+  color: #ffd600;
+}
+.kickoff-btn.wrong {
+  background: #e53935;
+  color: #fff;
+}
+.kickoff-btn.wrong:hover {
+  background: #b71c1c;
+  color: #ffd600;
+}
 </style>

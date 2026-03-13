@@ -31,7 +31,7 @@
 
                 <img
                   v-show="state.speedup.currentQuestion.type === 'image'"
-                  :src="`/assets/images/${state.speedup.currentQuestion.src}`"
+                  :src="`${state.speedup.currentQuestion.src}`"
                   class="media"
                 />
               </div>

@@ -19,6 +19,9 @@
         <button @click="setPhase('dashboard')" class="btn-back">
           Trở về Bảng Điều Khiển
         </button>
+        <button @click="openScoreboard">
+          Tổng kết điểm
+        </button>
       </div>
     </div>
 
@@ -81,9 +84,6 @@
           XÁC NHẬN CỘNG ĐIỂM
         </button>
       </div>
-          <button @click="openScoreboard">
-  Tổng kết điểm
-</button>
     </div>
   </div>
 </template>
@@ -285,5 +285,133 @@ function getName(id) {
 
 .is-correct {
   background: #27ae60 !important;
+}
+/* General button styling */
+button {
+  background: #2980b9;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-size: 1.15rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.10);
+  margin: 8px 10px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+button:hover {
+  background: #2471a3;
+  color: #ffd600;
+  box-shadow: 0 4px 16px rgba(41,128,185,0.18);
+}
+
+/* Question selection buttons */
+.btn-question {
+  padding: 24px 0;
+  font-size: 1.3rem;
+  background: #2980b9;
+  border-radius: 10px;
+  margin: 0 8px;
+  box-shadow: 0 2px 8px rgba(41,128,185,0.15);
+}
+.btn-question:hover {
+  background: #2471a3;
+  color: #ffd600;
+}
+
+/* Start button */
+.btn-start {
+  background: #27ae60;
+  padding: 18px 48px;
+  font-size: 1.25rem;
+  border-radius: 12px;
+  margin: 16px auto;
+  box-shadow: 0 2px 8px rgba(39,174,96,0.15);
+  display: block;
+}
+.btn-start:hover {
+  background: #229954;
+  color: #ffd600;
+}
+
+/* View answer button */
+.btn-view {
+  background: #f1c40f;
+  color: #222;
+  padding: 16px 32px;
+  font-size: 1.15rem;
+  border-radius: 10px;
+  margin: 8px 10px;
+  box-shadow: 0 2px 8px rgba(241,196,15,0.15);
+}
+.btn-view:hover {
+  background: #ffd600;
+  color: #2980b9;
+}
+
+/* Confirm button */
+.btn-confirm {
+  background: #e67e22;
+  color: #fff;
+  padding: 18px 48px;
+  font-size: 1.2rem;
+  border-radius: 12px;
+  margin: 18px auto;
+  box-shadow: 0 2px 8px rgba(230,126,34,0.15);
+  display: block;
+}
+.btn-confirm:hover {
+  background: #d35400;
+  color: #ffd600;
+}
+
+/* Check button for player answers */
+.btn-check {
+  background: #34495e;
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  margin-left: 12px;
+  box-shadow: 0 1px 4px #34495e22;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-check.is-correct {
+  background: #27ae60 !important;
+  color: #fff !important;
+}
+.btn-check:hover {
+  background: #2c3e50;
+  color: #ffd600;
+}
+
+/* Back button */
+.btn-back {
+  background: #c62828;
+  color: #fff;
+  padding: 16px 32px;
+  font-size: 1.15rem;
+  border-radius: 10px;
+  margin: 8px 10px;
+  box-shadow: 0 2px 8px rgba(198,40,40,0.15);
+}
+.btn-back:hover {
+  background: #b71c1c;
+  color: #ffd600;
+}
+
+/* Player card layout */
+.player-card {
+  background: rgba(255,255,255,0.12);
+  margin: 8px 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-radius: 10px;
+  font-size: 1.1rem;
 }
 </style>

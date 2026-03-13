@@ -135,6 +135,9 @@
       <button @click="openScoreboard">
   Tổng kết điểm
 </button>
+      <button @click="showImage">
+        HIỂN THỊ HÌNH ẢNH GỢI Ý
+      </button>
   </div>
 </template>
 
@@ -194,6 +197,10 @@ function rowClass(row) {
   }
 }
 
+function showImage() {
+  socket.emit("mc:showObstacleImage")
+}
+
 function play(src,ref = audioRef) {
   return new Promise((resolve, reject) => {
     const audio = ref.value
@@ -225,7 +232,7 @@ async function startTimer() {
 async function rowResult(correct, playerId) {
   socket.emit("mc:rowResult", correct, playerId)
   if (correct) {
-    await play("/sounds/correct_answer_obstacle.mp3")
+    await play("/sounds/right_answer_obstacle.mp3")
   } else {
     await play("/sounds/wrong_answer_obstacle.mp3")
   }
@@ -246,8 +253,10 @@ function revealCorrectAnswer(rowId = null) {
 function closeRow(row) {
   socket.emit("mc:closeRow", row)
 }
-function selectCenter() {
+async function selectCenter() {
   if (!canSelectCenter.value) return
+  await play("/sounds/select_row_obstacle.mp3")
+  play ("/sounds/open_question_obstacle.mp3")
   socket.emit("mc:selectCenter")
 }
 function returnToDashboard(){
@@ -462,5 +471,66 @@ function returnToDashboard(){
 .buzz-btns button:hover {
   background: #ffd600;
   color: #b71c1c;
+}
+/* General button styling */
+button {
+  background: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+  margin: 6px 8px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+button:hover {
+  background: #1976d2;
+  color: #ffd600;
+  box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+}
+
+/* Score button specific */
+.score-btn {
+  background: #43a047;
+  color: #fff;
+  border-radius: 8px;
+  margin: 0 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 1px 4px #388e3c22;
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.score-btn:hover {
+  background: #ffd600;
+  color: #388e3c;
+}
+
+/* Row final actions button group */
+.row-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+/* Player answers button group */
+.player-answer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+/* Question box button group */
+.question-box button {
+  margin: 8px 6px;
 }
 </style>

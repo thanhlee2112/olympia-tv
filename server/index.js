@@ -203,6 +203,7 @@ gameState.obstacle = {
       3: null,
       4: null
   },
+  displayImage: false,
   rows: [
     {
       id: 1,
@@ -267,7 +268,7 @@ gameState.speedup =
       { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
       { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
       { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là dãy núi nào?", answer: "Andes", src:"http://10.16.31.53:3000/media/speedup_5.mp4", type:"video" }
+      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -593,6 +594,12 @@ socket.on("mc:rowResult", (correct, playerId) => {
 
   emitState()
 })
+
+socket.on("mc:showObstacleImage", () => {
+  gameState.obstacle.displayImage = !gameState.obstacle.displayImage
+  emitState()
+})
+
 socket.on("mc:revealCorrectAnswer", (rowId) => {
   if (socket.role !== "mc") return
 
