@@ -64,6 +64,9 @@
         BẮT ĐẦU ĐẾM NGƯỢC
       </button>
       <button @click="gapSound">...</button>
+      <button v-if="canSelectCenter" @click="activateCountdown">
+        ĐẾM NGƯỢC THỜI GIAN BẤM CHUÔNG
+      </button>
       <div v-if="state.obstacle.acceptingAnswer">
         ⏳ {{ state.obstacle.timer }}
       </div>
@@ -77,7 +80,7 @@
           <h4>CÂU TRẢ LỜI THÍ SINH</h4>
         
           <div
-            v-for="(ans, playerId) in state.obstacle.rowAnswers"
+            v-for="(ans , playerId) in displayAnswers"
             :key="playerId"
             class="player-answer-row"
           >
@@ -111,14 +114,11 @@
             <button @click="closeRow(currentRow.id)">
               KẾT THÚC HÀNG
             </button>
-            <button v-if="canSelectCenter" @click="activateCountdown">
-               ĐẾM NGƯỢC THỜI GIAN BẤM CHUÔNG
-             </button>
           </div>
         </div>
     </div>
     <!-- 🔔 BUZZ -->
-    <div v-if="state.obstacle.buzzPlayer.length > 0" class="buzz-box-rect-list">
+    <div v-if="state.obstacle.buzzPlayer && state.obstacle.buzzPlayer.length > 0" class="buzz-box-rect-list">
       <div v-for="player in state.obstacle.buzzPlayer" :key="player">
         <div class="buzz-box-rect">
           <div class="buzz-title">Thí sinh bấm chuông:</div>
@@ -158,6 +158,19 @@ const rowAnswers = computed(() => {
   if (!rowId) return {}
   return state.obstacle.rowAnswers?.[rowId] || state.obstacle.rowAnswers?.center || {}
 })
+// Trong phần script
+const displayAnswers = computed(() => {
+  const current = state.obstacle.currentRow;
+  const answers = state.obstacle.rowAnswers;
+
+  // Nếu có currentRow và hàng đó tồn tại dữ liệu
+  if(!current && state.obstacle.centerSelected){
+    return answers[5]
+  }else if(current){
+    return answers[current]
+  }
+  return {};
+});
 watch(
   () => state.obstacle.buzzPlayer,
   async (newVal, oldVal) => {
@@ -188,7 +201,7 @@ async function showPlayerAnswer(){
   socket.emit("mc:showAnswersObstacle")
   await play('/sounds/reveal_player_answer.mp3')
 }
-
+7
 function rowClass(row) {
   return {
     active: state.obstacle.currentRow === row.id,
@@ -237,7 +250,6 @@ async function rowResult(correct, playerId) {
     await play("/sounds/wrong_answer_obstacle.mp3")
   }
 }
-
 function obstacleResult(correct, id) {
   socket.emit("mc:obstacleResult", correct, id)
   if(correct){

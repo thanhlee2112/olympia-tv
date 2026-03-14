@@ -192,7 +192,7 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
+    `${player.name}: http://192.168.0.103:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -201,7 +201,8 @@ gameState.obstacle = {
       1: null,
       2: null,
       3: null,
-      4: null
+      4: null,
+      5: null
   },
   displayImage: false,
   rows: [
@@ -251,7 +252,7 @@ gameState.obstacle = {
       question: "Ai là tác giả của vở kịch\"Lời thề thứ 9\" và tập thơ \"Hương cây - Bếp lửa\"?",
       answer: "LƯUQUANGVŨ"
     },
-    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
+    imageUrl: "http://192.168.0.103:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -265,10 +266,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://192.168.0.103:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://192.168.0.103:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://192.168.0.103:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://192.168.0.103:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -366,14 +367,18 @@ emitState()
   })
 socket.on("player:answerRow", (answer) => {
   const rowId = gameState.obstacle.currentRow
-  if (!rowId) return
+  if (!rowId && !gameState.obstacle.centerSelected) return
   if (!gameState.obstacle.acceptingAnswer) return
 
   if (!gameState.obstacle.rowAnswers[rowId]) {
     gameState.obstacle.rowAnswers[rowId] = {}
   }
+  if (!gameState.obstacle.rowAnswers[5] && gameState.obstacle.centerSelected){
+    gameState.obstacle.rowAnswers[5] = {}
+  }
   if(gameState.obstacle.centerSelected){
-    gameState.obstacle.rowAnswers.center = answer
+    gameState.obstacle.rowAnswers[5][socket.playerId] = answer
+    return;
   }
   gameState.obstacle.rowAnswers[rowId][socket.playerId] = answer
 
@@ -584,7 +589,7 @@ socket.on("mc:rowResult", (correct, playerId) => {
     r => r.id === gameState.obstacle.currentRow
   )
 
-  if (!row) return
+  if (!row && !gameState.obstacle.centerSelected) return
     // Add 10 points to the player who answered correctly
     const player = gameState.players.find(p => p.id == playerId)
   if (correct) {
@@ -672,7 +677,7 @@ socket.on("mc:obstacleResult", (correct, id) => {
     gameState.obstacle.lockedPlayers.push(id)
   }
 
-  gameState.obstacle.buzzPlayer = null
+  gameState.obstacle.buzzPlayer = []
   emitState()
 })
 socket.on("mc:selectCenter", () => {
@@ -693,7 +698,7 @@ socket.on("mc:centerResult", (correct) => {
     gameState.obstacle.image.center.revealed = true
   }
 
-  gameState.obstacle.buzzPlayer = null
+  gameState.obstacle.buzzPlayer = []
   emitState()
 })
 socket.on("mc:startFinal", (playerId) => {
@@ -975,7 +980,7 @@ function buildObstaclePlayerState(socket) {
         question: gameState.obstacle.image.center.question,
       }
     },
-
+    centerSelected: gameState.obstacle.centerSelected,
     timer: gameState.obstacle.timer,
     buzzPlayer: gameState.obstacle.buzzPlayer,
     locked: gameState.obstacle.lockedPlayers.includes(socket.playerId)

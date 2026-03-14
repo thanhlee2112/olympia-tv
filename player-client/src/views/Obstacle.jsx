@@ -15,6 +15,7 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
     socket.emit("player:answerRow", input)
     setSubmittedAnswer(input)
   }
+console.log(state.rows.find(r=>r.id==state.currentRow)?.question || state.image.center.question);
 
   function buzzObstacle() {
     if (locked) return
@@ -104,7 +105,7 @@ export default function ObstaclePlayer({ state, playerId ,socket}) {
         (state.currentRow || state.centerSelected) && (
       <div className="question-section">
         <div className="question">
-          {state.rows.find(r=>r.id==state.currentRow)?.question || state.image.center.question}
+          {state.rows.find(r=>r.id==state.currentRow)?.question ?? state.image.center.question}
         </div>
       </div>
         )

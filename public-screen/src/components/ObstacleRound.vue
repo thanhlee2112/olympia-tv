@@ -125,8 +125,13 @@ function getRowQuestion(rowId) {
 
 function getPlayerAnswer(playerId) {
   const currentRowId = state.obstacle.currentRow
-  if (!currentRowId) return ""
-  const rowAnswers = state.obstacle.rowAnswers[currentRowId]
+  if (!currentRowId && !state.obstacle.centerSelected) return ""
+  let rowAnswers = null;
+  if(!currentRowId && state.obstacle.centerSelected){
+    rowAnswers = state.obstacle.rowAnswers[5]
+  }else if(currentRowId){
+    rowAnswers = state.obstacle.rowAnswers[currentRowId]
+  }  
   return rowAnswers ? rowAnswers[playerId] : ""
 }
 function getPlayerName(playerId) {

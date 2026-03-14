@@ -10,7 +10,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "6",
         "value": 10,
-        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_2.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_10_diem_2.mp4"
     },
     {
         "id": 3,
@@ -35,7 +35,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Loại thuế đầu người căn cứ theo nhân khẩu, bắt buộc nam giới trong độ tuổi quy định phải nộp tiền, hiện vật, hoặc sức lao động (sưu dịch) cho triều đình phong kiến hoặc thực dân",
         "value": 10,
-        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_1.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_10_diem_1.mp4"
     },
     {
         "id": 7,
@@ -204,7 +204,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Global Warming",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_4.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_4.mp4"
     },
     {
         "id": 35,
@@ -259,7 +259,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "200 grams",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_2.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_2.mp4"
     },
     {
         "id": 44,
@@ -278,7 +278,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Kiến trúc sư Ngô Viết Thụ",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_3.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_3.mp4"
     },
     {
         "id": 47,
@@ -303,14 +303,14 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Le Duc Tho (Lê Đức Thọ)",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_6.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_6.mp4"
     },
     {
         "id": 51,
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Tuồng",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_5.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_5.mp4"
     },
     {
         "id": 52,
@@ -323,7 +323,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Khi ta vắt nước quất vào nước đậu thì axit có trong nước quất sẽ tạo môi trường có độ pH thấp, làm cho protein trong nước đậu bị đông tụ lại thành mảng.",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_1.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_1.mp4"
     },
     {
         "id": 54,
@@ -359,7 +359,7 @@
         "id": 59,
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Tác phẩm \"Kính gửi cụ Nguyễn Du\" của nhà thơ Tố Hữu",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_4.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_4.mp4",
         "value": 30
     },
     {
@@ -402,7 +402,7 @@
         "id": 66,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Hoang Xuan Vinh",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_2.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_2.mp4",
         "value": 30
     },
     {
@@ -427,7 +427,7 @@
         "id": 70,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Four (4) (lớp có 50 người, 60% là người Châu Âu, nên có 30 người Châu Âu, 20% trong số còn lại là người Châu Á, tức là số người Châu Á là 20%*20 = 4.",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_11.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_11.mp4",
         "value": 30
     },
     {
@@ -446,7 +446,7 @@
         "id": 73,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Eleven (11)",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_7.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_7.mp4",
         "value": 30
     },
     {
@@ -454,7 +454,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Na2SO3 (Khi cho Na2SO3 vào BaCl2 tạo ra kết tủa trắng BaSO3, sau đó khi cho thêm HCl vào sẽ tạo ra khí SO2 có tính tẩy màu, làm mất màu quỳ tím)",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_13.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_13.mp4"
     },
     {
         "id": 75,
@@ -467,7 +467,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Nguyễn Hoàng",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_14.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_14.mp4"
     },
     {
         "id": 77,
@@ -492,21 +492,21 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Từ Dụ (Từ Dũ)",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_6.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_6.mp4"
     },
     {
         "id": 81,
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Hiện vật là ghe Ngo và lễ hội là Ok Om Bok",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_3.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_3.mp4"
     },
     {
         "id": 82,
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Nấm, Động vật, Thực vật",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_8.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_8.mp4"
     },
     {
         "id": 83,
@@ -518,7 +518,7 @@
         "id": 84,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Nhu Nguyet River (Cau River, Thi Cau River)",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_5.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_5.mp4",
         "value": 30
     },
     {
@@ -537,7 +537,7 @@
         "id": 87,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Gravity",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_1.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_1.mp4",
         "value": 30
     },
     {
@@ -551,13 +551,13 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Bạch Thái Bưởi",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_10.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_10.mp4"
     },
     {
         "id": 90,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Leaf",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_12.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_12.mp4",
         "value": 30
     },
     {
@@ -570,7 +570,7 @@
         "id": 92,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Forty Two (42)",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_9.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_9.mp4",
         "value": 30
     },
     {
@@ -680,7 +680,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Monday",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_16.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_16.mp4"
     },
     {
         "id": 111,
@@ -693,7 +693,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Ông Đồ (Vũ Đình Liên)",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_7.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_7.mp4"
     },
     {
         "id": 113,
@@ -706,7 +706,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Do mạch bên phải đấu 2 cực dương với nhau (mạch xung đối), dòng điện sẽ không thể chạy bóng đèn về cực âm của nguồn, nên bóng đèn bên phải sẽ không sáng.",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_17.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_17.mp4"
     },
     {
         "id": 115,
@@ -719,7 +719,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Friday",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_8.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_8.mp4"
     },
     {
         "id": 117,
@@ -738,7 +738,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Endling",
         "value": 20,
-        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_9.mp4"
+        "src": "http://192.168.0.103:3000/media/ve_dich_20_diem_9.mp4"
     },
     {
         "id": 120,
@@ -756,7 +756,7 @@
         "id" :122,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Connecting people, creating prosperity",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_18.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_18.mp4",
         "value": 30
     },
     {
@@ -787,7 +787,7 @@
         "id": 127,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "X-ray",
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_19.mp4",
+        "src": "http://192.168.0.103:3000/media/ve_dich_30_diem_19.mp4",
         "value": 30
     },
     {
