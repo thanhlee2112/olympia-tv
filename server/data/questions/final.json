@@ -807,6 +807,24 @@
         "text": "Trong năm vị tướng tài của Trần Hưng Đạo, ai có tài bắn cung bách phát bách trúng?",
         "answer": "Nguyễn Địa Lô",
         "value": 20
+    },
+    {
+        "id": 131,
+        "text": "Công ty A trả lương cho 1 công nhân trong 5 năm theo phương pháp: Nhận 10 triệu đồng trong quý đầu tiên và đều đặn mỗi quý sau đó tăng thêm 600 ngàn đồng tiền lương. Hỏi sau 5 năm tổng số tiền người này có thể nhận được là bao nhiêu?",
+        "answer": "314 triệu dồng (số tiền được trả sẽ tăng theo cấp số cộng. 5 năm có 20 quý, bắt đầu với 10 triệu và công sai 600 ngàn thì tổng số tiền nhận được là tổng của 20 số hạng đầu tiên trong dãy cấp số cộng)",
+        "value" : 30
+    },
+    {
+        "id": 132,
+        "text": "Hùng cho 15 quả bóng vào 5 hộp nhưng số quả bóng mỗi hộp không giống nhau. Hỏi mỗi hộp có bao nhiêu quả bóng?",
+        "answer": "Có lần lượt 1,2,3,4,5 quả",
+        "value": 20
+    },
+    {
+        "id": 133,
+        "text": "Hiệp ước nào đã chấm dứt sự tồn tại của triều đại phong kiến nhà Nguyễn với tư cách là một quốc gia độc lập, thay vào đó là chế độ thuộc địa nửa phong kiến?",
+        "answer": "Hiệp ước Patrenot (ký kết ngày 6/6/1884, hiệp ước này đã chính thức trao quyền cai trị đất nước cho thực dân Pháp)",
+        "value": 20
     }
 
 ]
