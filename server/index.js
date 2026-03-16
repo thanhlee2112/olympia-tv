@@ -146,9 +146,9 @@ function createSet(pointsSequence) {
 
 // Khởi tạo các gói câu hỏi
 const FINAL_PACKAGES = {
-  40: Array.from({ length: 2 }, () => createSet([10, 10, 20])),
-  60: Array.from({ length: 2 }, () => createSet([10, 20, 30])),
-  80: Array.from({ length: 2 }, () => createSet([20, 30, 30]))
+  40: Array.from({ length: 3 }, () => createSet([10, 10, 20])),
+  60: Array.from({ length: 3 }, () => createSet([10, 20, 30])),
+  80: Array.from({ length: 3 }, () => createSet([20, 30, 30]))
 };
 
 // --- KIỂM TRA ĐỘ CHÍNH XÁC ---
@@ -189,10 +189,11 @@ let gameState = {
 gameState.players = [
   { id: "1", name: "Duy Anh", score: 0, token: uuidv4(), socketId: null },
   { id: "2", name: "Minh Quang", score: 0, token: uuidv4(), socketId: null },
+  { id: "3", name: "Huỳnh Thái", score: 0, token: uuidv4(), socketId: null}
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://192.168.0.103:5174/?token=${player.token}`
+    `${player.name}: http://10.8.115.182:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -252,7 +253,7 @@ gameState.obstacle = {
       question: "Ai là tác giả của vở kịch\"Lời thề thứ 9\" và tập thơ \"Hương cây - Bếp lửa\"?",
       answer: "LƯUQUANGVŨ"
     },
-    imageUrl: "http://192.168.0.103:3000/media/cnv.png"
+    imageUrl: "http://10.8.115.182:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -266,10 +267,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://192.168.0.103:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://192.168.0.103:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://192.168.0.103:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://192.168.0.103:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://10.8.115.182:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://10.8.115.182:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://10.8.115.182:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://10.8.115.182:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -487,8 +488,6 @@ socket.on("mc:selectSpeedQuestion", (id) => {
       answer,
       time: safeTime
     }
-
-    emitState()
   })
   socket.on("mc:showSpeedAnswers", () => {
     gameState.speedup.showAnswers = true
