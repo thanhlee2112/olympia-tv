@@ -825,6 +825,49 @@
         "text": "Hiệp ước nào đã chấm dứt sự tồn tại của triều đại phong kiến nhà Nguyễn với tư cách là một quốc gia độc lập, thay vào đó là chế độ thuộc địa nửa phong kiến?",
         "answer": "Hiệp ước Patrenot (ký kết ngày 6/6/1884, hiệp ước này đã chính thức trao quyền cai trị đất nước cho thực dân Pháp)",
         "value": 20
+    },
+    {
+        "id": 134,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Chiến thắng Đông Khê của chiến dịch Biên giới Thu-Đông năm 1950",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_10.mp4"
+    },
+    {
+        "id":135,
+        "text": "Hai thành phố trực thuộc Trung ương nào của nước ta không giáp biển?",
+        "answer": "Hà Nội, Cần Thơ",
+        "value": 10
+    },
+    {
+        "id": 136,
+        "text": "Tại sao than đá chất thành đống lớn có thể tự bốc cháy?",
+        "answer": "Do than đá có thể tự phản ứng oxi hóa - khử với Oxy trong không khí, và phản ứng này tỏa nhiệt. Trong đống than đá thì nhiệt lượng tỏa ra từ các phản ứng sẽ tích tụ lại tới ngưỡng bốc cháy của than, gây ra sự tự bốc cháy của đống than.",
+        "value": 30
+    },
+    {
+        "id": 137,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Asian Highway",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_11.mp4"
+    },
+    {
+        "id": 138,
+        "text": "Morgan đã phát hiện ra hiện tượng liên kết gen nhờ thí nghiệm lai tạo nào trên ruồi giấm?",
+        "answer": "Lai phân tích",
+        "value": 10
+    },
+    {
+        "id": 139,
+        "text": "Mũ bảo hiểm xe máy đạt chuẩn thì về mặt cấu tạo phải gồm 3 bộ phận nào?",
+        "answer": "Vỏ mũ, lớp đệm và dây cài",
+        "value": 10
+    },
+    {
+        "id": 140,
+        "text": "\"Xuất hiện từ rất sớm trong lịch sử loài người, nó gây ra những ca tử vong thương tâm và không thể vãn hồi cho bệnh nhân một khi các triệu chứng khởi phát. Phải đến cuối thế kỷ XIX vaccine phòng bệnh này mới được phát minh\". Căn bệnh nào được nhắc đến trong các câu trên, và vật chủ lây truyền chủ yếu là loài động vật nào?",
+        "answer": "Bệnh dại và loài lây truyền chủ yếu là chó",
+        "value": 20
     }
-
 ]
