@@ -193,11 +193,11 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.8.115.182:5174/?token=${player.token}`
+    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
-  keyword: "HỒN TRƯƠNG BA, DA HÀNG THỊT (21 chữ cái)",
+  keyword: "BIỂN ĐÔNG (8 chữ cái)",
   rowAnswers:{
       1: null,
       2: null,
@@ -209,32 +209,32 @@ gameState.obstacle = {
   rows: [
     {
       id: 1,
-      question: "Văn học ... là những tác phẩm nghệ thuật ngôn từ truyền miệng, sản phẩm của quá trình sáng tác tập thể, thể hiện nhận thức, tư tưởng, tình cảm của nhân dân lao động về tự nhiên, xã hội nhằm mục đích phục vụ trực tiếp cho các sinh hoạt khác nhau trong đời sống cộng đồng.",
-      answer: "DÂNGIAN",
+      question: "Định dạng file tài liệu phổ biến của Microsoft Word là gì?",
+      answer: "DOC",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 2,
-      question: "Tên cuốn tiểu thuyết nổi tiếng của nhà văn George Orwell, lấy bối cảnh một xã hội bị kiểm soát gắt gao bởi \"Anh Cả\" (Big Brother) là gì?",
-      answer: "1984",
+      question: "Ngôi đình nào nổi tiếng với lễ hội thi \"Ông Voi\"?",
+      answer: "TRÀCỔ",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 3,
-      question: "Đêm trắng (tác giả: Lưu Quang Hà), Vòng tròn bội bạc (tác giả: Chu Lai), Bắt quỷ (tác giả: Nguyễn Đăng Chương) là những tác phẩm thuộc loại hình nghệ thuật sân khấu nào?",
-      answer: "KỊCHNÓI",
+      question: "Một megawatt bằng bao nhiêu watt?",
+      answer: "1000000",
       revealed: false,
       disabled: false,
       selected: false,
     },
     {
       id: 4,
-      question: "Trong các câu chuyện có yếu tố siêu nhiên, ma quái, thực thể được hình thành sau khi con người đã chết gọi là gì?",
-      answer: "HỒN",
+      question: "Trong toán học, ký hiệu thường được dùng để biểu diễn diện tích là gì?",
+      answer: "S",
       revealed: false,
       disabled: false,
       selected: false,
@@ -250,10 +250,10 @@ gameState.obstacle = {
     ],
     center: {
       revealed: false,
-      question: "Ai là tác giả của vở kịch\"Lời thề thứ 9\" và tập thơ \"Hương cây - Bếp lửa\"?",
-      answer: "LƯUQUANGVŨ"
+      question: "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
+      answer: "CHỦ QUYỀN"
     },
-    imageUrl: "http://10.8.115.182:3000/media/cnv.png"
+    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -267,10 +267,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Hãy giải mật mã bên trái dựa vào gợi ý bên phải để tìm ra tên một tỉnh của Việt Nam", answer: "Cà Mau",src:"http://10.8.115.182:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Núi lửa", src:"http://10.8.115.182:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Những hình ảnh sau thể hiện phương châm nào trong phòng, chống thiên tai của nước ta?", answer: "Bốn tại chỗ", src:"http://10.8.115.182:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Tia cực tím (Tia tử ngoại)", src:"http://10.8.115.182:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
