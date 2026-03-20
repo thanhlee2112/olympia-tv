@@ -883,5 +883,11 @@
         "answer": "3",
         "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_21.mp4",
         "value": 30
+    },
+    {
+        "id": 146,
+        "text": "Tại sao vôi có thể được dùng để khử trùng và làm sạch nước trong các ao hồ, sông suối?",
+        "answer": "Vôi có tính kiềm mạnh, khi được thêm vào nước sẽ làm tăng độ pH của nước, tạo ra môi trường không thuận lợi cho sự phát triển của vi khuẩn và các sinh vật",
+        "value": 30
     }
 ]
