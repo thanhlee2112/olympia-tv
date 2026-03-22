@@ -91,17 +91,18 @@ packs.forEach((group, index) => {
 /* ======================
    GAME STATE
 ====================== */
-const SPEED_DURATION = 30000
-const fs = require('fs');
-
 const finalQuestionBank = require("./data/questions/final.json");
-const { log } = require("console")
 
 // Khởi tạo bản sao sạch
 let allQuestions = JSON.parse(JSON.stringify(finalQuestionBank));
 console.log(`Tổng số câu hỏi trong kho: ${allQuestions.length}`);
 
-function pickOne(value, alreadyHasSrc) {
+/**
+ * @param {number} value - Mức điểm cần tìm
+ * @param {boolean} alreadyHasSrc - Gói đã có câu hỏi chứa video/audio chưa
+ * @param {Array} usedCategories - Danh sách các category đã có trong gói hiện tại
+ */
+function pickOne(value, alreadyHasSrc, usedCategories) {
   // 1. Lọc ứng viên theo mức điểm
   let candidates = allQuestions.filter(q => q.value === value);
 
@@ -109,42 +110,50 @@ function pickOne(value, alreadyHasSrc) {
     throw new Error(`Cạn kiệt câu hỏi mức điểm ${value}!`);
   }
 
-  // 2. Xáo trộn danh sách ứng viên
+  // 2. Xáo trộn danh sách ứng viên để đảm bảo tính ngẫu nhiên
   candidates.sort(() => 0.5 - Math.random());
 
   for (let i = 0; i < candidates.length; i++) {
     const candidate = candidates[i];
 
-    // Kiểm tra điều kiện: Nếu gói đã có câu SRC mà câu này cũng có SRC thì bỏ qua
+    // ĐIỀU KIỆN 1: Nếu gói đã có câu SRC mà câu này cũng có SRC thì bỏ qua
     if (candidate.src && alreadyHasSrc) continue;
 
-    // 3. XÓA THEO ID: Tìm vị trí của câu hỏi dựa trên ID duy nhất
+    // ĐIỀU KIỆN 2: Nếu category của câu này đã tồn tại trong gói thì bỏ qua
+    // (Lưu ý: Bạn có thể bỏ qua kiểm tra này nếu category là "Mời bạn trả lời..." nếu muốn)
+    if (usedCategories.includes(candidate.category)) continue;
+
+    // 3. XÓA THEO ID: Tìm vị trí của câu hỏi dựa trên ID duy nhất trong kho tổng
     const originalIndex = allQuestions.findIndex(q => q.id === candidate.id);
     
     if (originalIndex !== -1) {
-      // Cắt bỏ khỏi kho câu hỏi ngay lập tức
-      const picked = allQuestions.splice(originalIndex, 1)[0];
-      return picked;
+      // Cắt bỏ khỏi kho câu hỏi ngay lập tức và trả về
+      return allQuestions.splice(originalIndex, 1)[0];
     }
   }
 
-  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Có thể do giới hạn SRC).`);
+  // Nếu chạy hết vòng lặp mà không tìm được câu thỏa mãn cả 2 điều kiện (SRC và Category)
+  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Do giới hạn SRC hoặc trùng Category).`);
 }
 
 function createSet(pointsSequence) {
   let set = [];
   let hasSrcInSet = false;
+  let categoriesInSet = []; // Theo dõi category trong từng set riêng biệt
 
   pointsSequence.forEach(point => {
-    const picked = pickOne(point, hasSrcInSet);
+    const picked = pickOne(point, hasSrcInSet, categoriesInSet);
+    
     if (picked.src) hasSrcInSet = true;
+    if (picked.category) categoriesInSet.push(picked.category);
+    
     set.push(picked);
   });
 
   return set;
 }
 
-// Khởi tạo các gói câu hỏi
+// Khởi tạo các gói câu hỏi (40, 60, 80)
 const FINAL_PACKAGES = {
   40: Array.from({ length: 3 }, () => createSet([10, 10, 20])),
   60: Array.from({ length: 3 }, () => createSet([10, 20, 30])),
@@ -160,13 +169,25 @@ console.log(`Tổng số câu đã bốc: ${flatResults.length}`);
 console.log(`Số lượng ID duy nhất: ${uniqueIds.size}`);
 
 if (flatResults.length === uniqueIds.size) {
-  console.log("✅ THÀNH CÔNG: Không có câu nào bị trùng lặp.");
+  console.log("✅ THÀNH CÔNG: Không có câu nào bị trùng lặp ID.");
 } else {
-  console.error("❌ THẤT BẠI: Vẫn còn câu bị trùng lặp!");
+  console.error("❌ THẤT BẠI: Vẫn còn câu bị trùng lặp ID!");
 }
 
-console.log("Số câu còn lại trong kho sau khi bốc:", allQuestions.length);
+// Kiểm tra trùng Category trong từng gói
+console.log("Kiểm tra tính đa dạng Category...");
+let hasCategoryError = false;
+Object.values(FINAL_PACKAGES).flat().forEach((packageSet, idx) => {
+    const cats = packageSet.map(q => q.category);
+    const uniqueCats = new Set(cats);
+    if(cats.length !== uniqueCats.size) {
+        console.error(`Gói thứ ${idx + 1} bị trùng category:`, cats);
+        hasCategoryError = true;
+    }
+});
+if(!hasCategoryError) console.log("✅ THÀNH CÔNG: Tất cả các gói đều có category riêng biệt.");
 
+console.log("Số câu còn lại trong kho sau khi bốc:", allQuestions.length);
 let gameState = {
   phase: "dashboard",
   currentPlayer: null,
@@ -193,7 +214,7 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
+    `${player.name}: http://10.8.115.182:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -253,7 +274,7 @@ gameState.obstacle = {
       question: "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
       answer: "CHỦ QUYỀN"
     },
-    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
+    imageUrl: "http://10.8.115.182:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -267,10 +288,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.8.115.182:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.8.115.182:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.8.115.182:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.8.115.182:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
