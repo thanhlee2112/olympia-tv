@@ -1,522 +1,698 @@
 [
   {
+    "id": 1,
     "linh_vuc": "Toán học",
     "question": "Trong hình học không gian, có bao nhiêu loại khối đa diện đều?",
     "answer": "5"
   },
   {
+    "id": 2,
     "linh_vuc": "Văn học",
     "question": "Nhân vật Huấn Cao trong tác phẩm 'Chữ người tử tù' được xây dựng dựa trên nguyên mẫu của danh sĩ nào?",
     "answer": "Cao Bá Quát"
   },
   {
+    "id": 3,
     "linh_vuc": "Lịch sử",
     "question": "Bản Hiến pháp đầu tiên của nước Việt Nam Dân chủ Cộng hòa được Quốc hội thông qua vào năm nào?",
     "answer": "1946"
   },
   {
+    "id": 4,
     "linh_vuc": "Vật lý",
     "question": "Hiện tượng cầu vồng xuất hiện sau cơn mưa là kết quả của hiện tượng vật lý nào?",
     "answer": "Tán sắc ánh sáng"
   },
   {
+    "id": 5,
     "linh_vuc": "Hóa học",
     "question": "Nguyên tố nào là thành phần chính của kim cương, than chì và fullerene?",
     "answer": "Carbon"
   },
   {
+    "id": 6,
     "linh_vuc": "Sinh học",
     "question": "Bào quan nào được mệnh danh là 'nhà máy năng lượng' của tế bào?",
     "answer": "Ty thể"
   },
   {
+    "id": 7,
     "linh_vuc": "Địa lý",
     "question": "Tỉnh nào là tỉnh duy nhất ở Việt Nam có đường biên giới giáp với cả Lào và Campuchia?",
     "answer": "Kon Tum"
   },
   {
+    "id": 8,
     "linh_vuc": "Tiếng Anh",
     "question": "What is the opposite of 'generous'?",
     "answer": "Mean / Stingy"
   },
   {
+    "id": 9,
     "linh_vuc": "Thể thao",
     "question": "Đội tuyển bóng đá nam nào giành chức vô địch World Cup 2022?",
     "answer": "Argentina"
   },
   {
+    "id": 10,
     "linh_vuc": "Nghệ thuật",
     "question": "Họa sĩ nào là tác giả của bức tranh sơn dầu nổi tiếng 'Thiếu nữ bên hoa huệ'?",
     "answer": "Tô Ngọc Vân"
   },
   {
+    "id": 11,
     "linh_vuc": "Toán học",
     "question": "Hàm số nào có đồ thị là một đường thẳng đi qua gốc tọa độ?",
     "answer": "Hàm số bậc nhất (dạng y = ax)"
   },
   {
-    "lin_vuc": "Văn học",
+    "id": 12,
+    "linh_vuc": "Văn học",
     "question": "Ai là tác giả của tiểu thuyết 'Số đỏ'?",
     "answer": "Vũ Trọng Phụng"
   },
   {
+    "id": 13,
     "linh_vuc": "Lịch sử",
     "question": "Triều đại nào trong lịch sử Việt Nam đã thực hiện chính sách 'Ngụ binh ư nông' đầu tiên?",
     "answer": "Nhà Đinh"
   },
   {
+    "id": 14,
     "linh_vuc": "Vật lý",
     "question": "Đơn vị đo cường độ dòng điện trong hệ SI là gì?",
     "answer": "Ampe"
   },
   {
+    "id": 15,
     "linh_vuc": "Hóa học",
     "question": "Khí nào thường được gọi là 'khí cười'?",
     "answer": "N2O (Dinitơ oxit)"
   },
   {
+    "id": 16,
     "linh_vuc": "Sinh học",
     "question": "Nhóm máu nào được coi là nhóm máu chuyên cho?",
     "answer": "Nhóm máu O"
   },
   {
+    "id": 17,
     "linh_vuc": "Địa lý",
     "question": "Đảo lớn nhất thế giới hiện nay là đảo nào?",
     "answer": "Greenland"
   },
   {
+    "id": 18,
     "linh_vuc": "Tiếng Anh",
     "question": "Which month comes after August?",
     "answer": "September"
   },
   {
+    "id": 19,
     "linh_vuc": "Thể thao",
     "question": "Trong môn bóng chuyền, mỗi đội có tối đa bao nhiêu lần chạm bóng trước khi đưa bóng sang sân đối phương?",
     "answer": "3"
   },
   {
+    "id": 20,
     "linh_vuc": "Kiến thức chung",
     "question": "Ngày Quốc tế Phụ nữ là ngày nào?",
     "answer": "8/3"
   },
   {
+    "id": 21,
     "linh_vuc": "Toán học",
     "question": "Số nguyên tố nhỏ nhất là số mấy?",
     "answer": "2"
   },
   {
+    "id": 22,
     "linh_vuc": "Văn học",
     "question": "Đoạn trích 'Hạnh phúc của một tang gia' thuộc chương thứ mấy của tiểu thuyết 'Số đỏ'?",
     "answer": "Chương XV (15)"
   },
   {
+    "id": 23,
     "linh_vuc": "Lịch sử",
     "question": "Chiến thắng Điện Biên Phủ trên không diễn ra vào năm nào?",
     "answer": "1972"
   },
   {
+    "id": 24,
     "linh_vuc": "Vật lý",
     "question": "Lực nào giữ các hành tinh quay quanh Mặt Trời?",
     "answer": "Lực hấp dẫn"
   },
   {
+    "id": 25,
     "linh_vuc": "Hóa học",
     "question": "Axit nào có trong dịch vị dạ dày của con người giúp tiêu hóa thức ăn?",
     "answer": "HCl (Axit clohidric)"
   },
   {
+    "id": 26,
     "linh_vuc": "Sinh học",
     "question": "Quá trình thực vật sử dụng ánh sáng mặt trời để tổng hợp chất hữu cơ được gọi là gì?",
     "answer": "Quang hợp"
   },
   {
+    "id": 27,
     "linh_vuc": "Địa lý",
     "question": "Quốc gia nào có diện tích lớn nhất thế giới?",
     "answer": "Nga"
   },
   {
+    "id": 28,
     "linh_vuc": "Tiếng Anh",
     "question": "What is the past tense of the verb 'buy'?",
     "answer": "Bought"
   },
   {
+    "id": 29,
     "linh_vuc": "Thể thao",
     "question": "Cầu thủ bóng đá nào giữ kỷ lục giành được nhiều Quả bóng vàng nhất lịch sử (tính đến 2024)?",
     "answer": "Lionel Messi"
   },
   {
+    "id": 30,
     "linh_vuc": "Nghệ thuật",
     "question": "Nhạc sĩ nào được mệnh danh là 'Người viết tình ca' với những ca khúc như 'Riêng một góc trời', 'Niệm khúc cuối'?",
     "answer": "Ngô Thụy Miên"
   },
   {
+    "id": 31,
     "linh_vuc": "Toán học",
     "question": "Một tam giác có độ dài ba cạnh là 3, 4, 5 là tam giác gì?",
     "answer": "Tam giác vuông"
   },
   {
+    "id": 32,
     "linh_vuc": "Văn học",
     "question": "Trong tác phẩm 'Vợ nhặt', nhân vật Tràng mua cho thị mấy bát bánh đúc?",
     "answer": "4 bát"
   },
   {
+    "id": 33,
     "linh_vuc": "Lịch sử",
     "question": "Sông nào là nơi diễn ra 3 chiến thắng hiển hách của quân dân ta chống giặc phương Bắc (938, 981, 1288)?",
     "answer": "Sông Bạch Đằng"
   },
   {
+    "id": 34,
     "linh_vuc": "Vật lý",
     "question": "Chất nào dẫn điện tốt nhất trong các kim loại?",
     "answer": "Bạc"
   },
   {
+    "id": 35,
     "linh_vuc": "Hóa học",
     "question": "Công thức hóa học của vôi sống là gì?",
     "answer": "CaO"
   },
   {
+    "id": 36,
     "linh_vuc": "Sinh học",
     "question": "Cặp nhiễm sắc thể giới tính của nam giới bình thường ở người là gì?",
     "answer": "XY"
   },
   {
+    "id": 37,
     "linh_vuc": "Địa lý",
     "question": "Dãy núi nào được coi là ranh giới tự nhiên giữa châu Âu và châu Á?",
     "answer": "Dãy Ural"
   },
   {
+    "id": 38,
     "linh_vuc": "Tiếng Anh",
     "question": "Complete the idiom: 'Practice makes ______'.",
     "answer": "Perfect"
   },
   {
+    "id": 39,
     "linh_vuc": "Thể thao",
     "question": "Kỳ vận hội Olympic mùa hè đầu tiên của thời hiện đại diễn ra tại thành phố nào?",
     "answer": "Athens"
   },
   {
+    "id": 40,
     "linh_vuc": "Kiến thức chung",
     "question": "Mạng internet toàn cầu (World Wide Web) được ký hiệu viết tắt là gì?",
     "answer": "WWW"
   },
   {
+    "id": 41,
     "linh_vuc": "Toán học",
     "question": "Giá trị của $\\cos(90°)$ bằng bao nhiêu?",
     "answer": "0"
   },
   {
+    "id": 42,
     "linh_vuc": "Văn học",
     "question": "Ai là tác giả của bài thơ 'Tây Tiến'?",
     "answer": "Quang Dũng"
   },
   {
+    "id": 43,
     "linh_vuc": "Lịch sử",
     "question": "Ai là vị vua cuối cùng của triều đại phong kiến Việt Nam?",
     "answer": "Bảo Đại"
   },
   {
+    "id": 44,
     "linh_vuc": "Vật lý",
     "question": "Âm thanh không thể truyền qua môi trường nào?",
     "answer": "Chân không"
   },
   {
+    "id": 45,
     "linh_vuc": "Hóa học",
     "question": "Kim loại duy nhất ở trạng thái lỏng trong điều kiện thường là gì?",
     "answer": "Thủy ngân"
   },
   {
+    "id": 46,
     "linh_vuc": "Sinh học",
     "question": "Hormone nào có vai trò làm giảm lượng đường trong máu?",
     "answer": "Insulin"
   },
   {
+    "id": 47,
     "linh_vuc": "Địa lý",
     "question": "Sông Mê Kông chảy vào Việt Nam qua hai tỉnh nào đầu tiên?",
     "answer": "An Giang và Đồng Tháp"
   },
   {
+    "id": 48,
     "linh_vuc": "Tiếng Anh",
     "question": "Which animal is known as the 'King of the Jungle'?",
     "answer": "Lion"
   },
   {
+    "id": 49,
     "linh_vuc": "Thể thao",
     "question": "Đường chạy ngắn nhất trong các nội dung thi đấu điền kinh chính thức tại Olympic là bao nhiêu mét?",
     "answer": "100m"
   },
   {
+    "id": 50,
     "linh_vuc": "Nghệ thuật",
     "question": "Nhà soạn nhạc người Đức nào bị điếc nhưng vẫn sáng tác được những bản giao hưởng vĩ đại?",
     "answer": "Beethoven"
   },
   {
+    "id": 51,
     "linh_vuc": "Toán học",
     "question": "Số nào là số nghịch đảo của -5?",
     "answer": "-1/5 (hoặc -0.2)"
   },
   {
+    "id": 52,
     "linh_vuc": "Văn học",
     "question": "Trong tác phẩm 'Lão Hạc', con chó của Lão Hạc tên là gì?",
     "answer": "Cậu Vàng"
   },
   {
+    "id": 53,
     "linh_vuc": "Lịch sử",
     "question": "Phong trào Cần Vương do ai khởi xướng?",
     "answer": "Hàm Nghi và Tôn Thất Thuyết"
   },
   {
+    "id": 54,
     "linh_vuc": "Vật lý",
     "question": "Thiết bị dùng để đo cường độ dòng điện gọi là gì?",
     "answer": "Ampe kế"
   },
   {
+    "id": 55,
     "linh_vuc": "Hóa học",
     "question": "Chất khí nào chiếm tỉ lệ thể tích lớn nhất trong không khí?",
     "answer": "Nitơ (N2)"
   },
   {
+    "id": 56,
     "linh_vuc": "Sinh học",
     "question": "Xương nào là xương dài nhất trong cơ thể người?",
     "answer": "Xương đùi"
   },
   {
+    "id": 57,
     "linh_vuc": "Địa lý",
     "question": "Thác Ni-a-ga-ra nằm ở biên giới của hai quốc gia nào?",
     "answer": "Mỹ và Canada"
   },
   {
+    "id": 58,
     "linh_vuc": "Tiếng Anh",
     "question": "What is the plural form of the word 'child'?",
     "answer": "Children"
   },
   {
+    "id": 59,
     "linh_vuc": "Kiến thức chung",
     "question": "Hành tinh nào gần Mặt Trời nhất?",
     "answer": "Sao Thủy"
   },
   {
+    "id": 60,
     "linh_vuc": "Toán học",
     "question": "Tổng các góc trong một tứ giác lồi bằng bao nhiêu độ?",
     "answer": "360 độ"
   },
   {
+    "id": 61,
     "linh_vuc": "Văn học",
     "question": "Trong tác phẩm \"Lặng lẽ Sapa\", nhân vật chính làm nghề gì?",
     "answer": "Kỹ sư khí tượng"
   },
   {
+    "id": 62,
     "linh_vuc": "Vật lý",
     "question": "Thiên thạch bốc cháy khi đi vào bầu khí quyển Trái Đất phần lớn do tác động của ma sát, đúng hay sai?",
     "answer": "Sai"
   },
   {
+    "id": 63,
     "linh_vuc": "Địa lý",
     "question": "Các hiện tượng thời tiết thường xảy ra ở tầng nào của khí quyển?",
     "answer": "Tầng đối lưu"
   },
   {
+    "id": 64,
     "linh_vuc": "Văn học",
     "question": "Hai câu thơ đầu trong tác phẩm Bình Ngô đại cáo của Nguyễn Trãi là gì?",
     "answer": "Việc nhân nghĩa cốt ở yên dân/Quân điếu phạt trước lo trừ bạo."
   },
   {
+    "id": 65,
     "linh_vuc": "Tiếng Anh",
     "question": "How many times has Vietnam been elected to the United Nations Human Rights Council as of 2025?",
     "answer": "3 times (2008-2010, 2014-2016, 2020-2022)"
   },
   {
+    "id": 66,
     "linh_vuc": "Lịch sử",
     "question": "Tháng 8 năm 2025, nhà ngoại giao kỳ cựu nào đã được trao tặng danh hiệu Anh hùng Lao động vì những đóng góp xuất sắc trong sự nghiệp ngoại giao và cách mạng của Việt Nam?",
     "answer": "Nguyễn Thị Bình"
   },
   {
+    "id": 67,
     "linh_vuc": "Tiếng Anh",
     "question": "What is Vietnam's first interational channel in English that officially went on air on September 7, 2025?",
     "answer": "Vietnam Today"
   },
   {
+    "id": 68,
     "linh_vuc": "Toán học",
     "question": "Năm nào trong thế kỷ XX gồm 4 chữ số lẻ khác nhau, chia hết cho 5 và chia 9 dư 4?",
     "answer": "1975"
   },
   {
+    "id": 69,
     "linh_vuc": "Tiếng Anh",
     "question": "Up until 2025, how many times has Vietnam received the title for Asia's Leading Destination at the World Travel Awards?",
     "answer": "7 times (2010, 2015, 2016, 2017, 2018, 2019, 2020)"
   },
   {
+    "id": 70,
     "linh_vuc": "Lịch sử",
     "question": "\"Phòng ngừa cho những thế hệ tương lai khỏi thảm họa chiến tranh\" là quyết tâm được đưa ra trong văn kiện lịch sử nào được ký ngày 26/6/1945 tại San Francisco, Mỹ?",
     "answer": "Hiến chương Liên Hợp Quốc"
   },
   {
+    "id": 71,
     "linh_vuc": "Lịch sử",
     "question": "Sau khi đánh bại quân Nam Hán, Ngô Quyền đã không thừa nhận chức quan nào do chính quyền phương Bắc đặt ra mà tự xưng Vương nhằm khẳng định tinh thần độc lập, tự chủ của dân tộc Việt Nam?",
     "answer": "Tiết độ sứ"
   },
   {
+    "id": 72,
     "linh_vuc": "Kiến thức chung",
     "question": "Ngày 19/9/2025, Bộ Y tế đã khai trương Tổng đài điện thoại quốc gia về phòng, chống mua bán người với số điện thoại nào?",
     "answer": "111"
   },
   {
+    "id": 73,
     "linh_vuc": "Toán học",
     "question": "Người ta chứng minh được chỉ có 5 loại khối đa diện lồi và đều tồn tại trong không gian ba chiều. Chúng được gọi chung tên theo nhà toán học nào?",
     "answer": "Platon"
   },
   {
+    "id": 74,
     "linh_vuc": "Lịch sử",
     "question": "Di tích lịch sử \"Bến phà II Long Đại\" - nơi chứng kiến sự hy sinh anh dũng của 16 thanh niên xung phong vào tháng 9 năm 1972, thuộc tỉnh nào hiện nay?",
     "answer": "Quảng Trị"
   },
   {
+    "id": 75,
     "linh_vuc": "Sinh học",
     "question": "Vắc xin Qdenga được sử dụng để phòng ngừa bệnh truyền nhiễm nào?",
     "answer": "Sốt xuất huyết"
   },
   {
+    "id": 76,
     "linh_vuc": "Tiếng Anh",
     "question": "In which country are ASEAN's headquarters located?",
     "answer": "Indonesia"
   },
   {
+    "id": 77,
     "linh_vuc": "Kiến thức chung",
     "question": "Loài cây nào được trồng thành rừng và được phong là \"Vệ sĩ chống cát bay\"?",
     "answer": "Phi lao"
   },
   {
+    "id": 78,
     "linh_vuc": "Lịch sử",
     "question": "Cao Bá Quát đã nhắc đến ai khi làm câu đối sau: \"Nợ nước chưa đền, ba tuổi vẫn hiềm đã muộn/Bầu trời xông thẳng, chín tầng chưa thấy là cao\"?",
     "answer": "Thánh Gióng"
   },
   {
+    "id": 79,
     "linh_vuc": "Địa lý",
     "question": "Santorini là một hòn đảo du lịch nổi tiếng của đất nước nào?",
     "answer": "Hi Lạp"
   },
   {
+    "id": 80,
     "linh_vuc": "Sinh học",
     "question": "Tá tràng là đoạn đầu của ...",
     "answer": "Ruột non"
   },
   {
+    "id": 81,
     "linh_vuc": "Tiếng Anh",
     "question": "\"5 Wh\" questions are: who, what, when, which and ...",
     "answer": "where"
   },
   {
+    "id": 82,
     "linh_vuc": "Sinh học",
     "question": "Bệnh chân voi ở người là do loài giun nào gây ra?",
     "answer": "Giun chỉ"
   },
   {
+    "id": 83,
     "linh_vuc": "Âm nhạc",
     "question": "\"Đường Cổ Ngư\" trong bài hát \"Hà Nội vắng những cơn mưa\" nay có tên là gì?",
     "answer": "Đường Thanh Niên"
   },
   {
+    "id": 84,
     "linh_vuc": "Sinh học",
     "question": "Bốn triệu chứng kinh điển của phản ứng viêm là gì?",
     "answer": "Sưng, nóng, đỏ, đau"
   },
   {
+    "id": 85,
     "linh_vuc": "Kiến thức chung",
     "question": "Từ \"Plei\" trong Pleiku theo ngôn ngữ địa phương là gì?",
     "answer": "Làng"
   },
   {
+    "id": 86,
     "linh_vuc": "Vật lý",
     "question": "Hiện tượng giao thoa ánh sáng chứng tỏ ánh sáng có tính chất gì?",
     "answer": "Tính chất sóng"
   },
   {
+    "id": 87,
     "linh_vuc": "Tiếng Anh",
     "question": "Which country produces all of the most famouse perfumes?",
     "answer": "France"
   },
   {
+    "id": 88,
     "linh_vuc": "Văn học",
     "question": "Trong truyện Dế mèn phiêu lưu ký, người bạn dế hàng xóm được Dế Mèn đặt tên là gì?",
     "answer": "Dế Choắt"
   },
   {
+    "id": 89,
     "linh_vuc": "Lịch sử",
     "question": "Theo một câu chuyện dân gian, ai là người đã ngồi đan sọt giữa đường để được gặp Hưng Đạo Vương mà hiến kế đánh giặc?",
     "answer": "Phạm Ngũ Lão"
   },
   {
+    "id": 90,
     "linh_vuc": "Địa lý",
     "question": "Miền Tây Bắc và Bắc Trung Bộ nằm từ hữu ngạn sông ... tới dãy núi ...",
     "answer": "Sông Hồng, dãy Bạch Mã"
   },
   {
+    "id": 91,
     "linh_vuc": "Sinh học",
     "question": "Chuột nghe tiếng mèo kêu thì bỏ chạy là tập tính bẩm sinh hay tập tính học được?",
     "answer": "Tập tính học được"
   },
   {
+    "id": 92,
     "linh_vuc": "Toán học",
     "question": "Một lục giác lồi có bao nhiêu đường chéo?",
     "answer": "9"
   },
   {
+    "id": 93,
     "linh_vuc": "Địa lý",
     "question": "Giai đoạn nguy hiểm nhất của cơn bão là trước hay sau khi tâm bão vừa đi qua?",
     "answer": "Sau khi tâm bão vừa đi qua"
   },
   {
+    "id": 94,
     "linh_vuc": "Vật lý",
     "question": "Hiện tượng truyền nhiệt nào thực hiện được kể cả ở trong chân không?",
     "answer": "Truyền nhiệt bằng bức xạ"
   },
   {
+    "id": 95,
     "linh_vuc": "Địa lý",
     "question": "Ngọn núi nào cao nhất miền Đông Nam Bộ Việt Nam?",
     "answer": "Núi Bà Đen"
   },
   {
+    "id": 96,
     "linh_vuc": "Sinh học",
     "question": "Khi hoạt động quá nhiều, cơ mỏi do sinh ra axit nào?",
     "answer": "Axit lactic"
   },
   {
+    "id": 97,
     "linh_vuc": "Văn học",
     "question": "Từ nào còn thiếu trong câu: \"Vắng đàn ông quạnh ..., vắng đàn bà quạnh ...\"?",
     "answer": "nhà, bếp"
   },
   {
+    "id": 98,
     "linh_vuc": "Kiến thức chung",
     "question": "Môn võ dân tộc nào có đặc trưng là những đòn bay cao kẹp cổ, còn gọi là \"đòn chân tấn công\"?",
     "answer": "Vovinam"
   },
   {
+    "id": 99,
     "linh_vuc": "Âm nhạc",
     "question": "Đàn nhị còn có tên gọi khác là gì?",
     "answer": "Đàn cò"
   },
   {
+    "id": 100,
     "linh_vuc": "Kiến thức chung",
     "question": "Có bao nhiêu vị thần trên đỉnh núi Olympus?",
     "answer": "12"
   },
   {
+    "id": 101,
     "linh_vuc": "Địa lý",
     "question": "Gió Mậu Dịch có hướng ... ở bán cầu Bắc và ... ở bán cầu Nam.",
     "answer": "Đông Bắc, Đông Nam"
   },
   {
+    "id": 102,
     "linh_vuc": "Toán học",
     "question": "Những số tự nhiên nào có giai thừa bằng chính nó?",
     "answer": "1, 2"
   },
   {
+    "id": 103,
     "linh_vuc": "Văn học",
     "question": "Hai câu thơ \"Hoa cười ngọc thốt đoan trang/Mây thua nước tóc tuyết nhường màu da\" miêu tả ai?",
     "answer": "Thúy Vân"
   },
   {
+    "id": 104,
     "linh_vuc": "Tiếng Anh",
     "question": "Which object in space is about 385,000 km from Earth?",
     "answer": "The Moon"
+  },
+  {
+    "id": 105,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Grand Slam bao gồm mấy giải quần vợt trên thế giới?",
+    "answer": "4 giải (Australian Open, French Open, Wimbledon, US Open)"
+  },
+  {
+    "id": 106,
+    "linh_vuc": "Hóa học",
+    "question": "Kim loại nào có nhiệt độ nóng chảy thấp nên được dùng cho thiết bị an toàn điện trong gia đình?",
+    "answer": "Chì"
+  },
+  {
+    "id": 107,
+    "linh_vuc": "Tiếng Anh",
+    "question": "Where do you go to borrow or buy a book at school?",
+    "answer": "Library"
+  },
+  {
+    "id": 108,
+    "linh_vuc": "Sinh học",
+    "question": "Ăn mặn hoặc mất nhiều mồ hôi có thể khiến áp suất thẩm thấu trong máu ...",
+    "answer": "Tăng"
+  },
+  {
+    "id": 109,
+    "linh_vuc": "Toán học",
+    "question": "Tập hợp nào là tập con của mọi tập hợp?",
+    "answer": "Tập rỗng"
+  },
+  {
+    "id": 110,
+    "linh_vuc": "Hóa học",
+    "question": "Kết quả của sự chuyển hóa lâu dài lẫn nhau giữa CaCO3 và Ca(HCO3)2 trong hang động tạo thành gì?",
+    "answer": "Thạch nhũ"
+  },
+  {
+    "id": 111,
+    "linh_vuc": "Văn học",
+    "question": "Tư tưởng ghét thương được nhà thơ Nguyễn Đình Chiểu thể hiện qua nhân vật nào trong đoạn trích \"Lẽ ghét thương\"?",
+    "answer": "Ông Quán"
+  },
+  {
+    "id": 112,
+    "linh_vuc": "Lịch sử",
+    "question": "Pharaoh là từ dùng để chỉ các vị vua của nền văn minh nào?",
+    "answer": "Ai Cập cổ đại"
+  },
+  {
+    "id": 113,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Tên viết tắt bằng tiếng Anh của Đài Truyền hình Việt Nam là gì?",
+    "answer": "VTV (Vietnam Television)"
+  },
+  {
+    "id": 114,
+    "linh_vuc": "Vật lý",
+    "question": "Lực ... là lực giữa 2 vật mang điện tích đứng yên",
+    "answer": "Tĩnh điện"
+  },
+  {
+    "id": 115,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Cua-rơ là từ được dùng để chỉ các vận động viên của môn thể thao nào?",
+    "answer": "Đua xe đạp"
+  },
+  {
+    "id": 116,
+    "linh_vuc": "Địa lý",
+    "question": "Đồng bằng sông Hồng được bồi tụ phù sa bởi hệ thống sông Hồng và hệ thống sông ...",
+    "answer": "Sông Thái Bình"
   }
 ]

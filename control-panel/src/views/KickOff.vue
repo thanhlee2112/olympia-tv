@@ -43,7 +43,7 @@
       </div>
     
       <div v-else>
-        <h2>{{ currentQuestion?.question }}</h2>
+        <h2>Câu {{state.kickoff.currentIndex + 1}}: {{ currentQuestion?.question }}</h2>
         <p class="answer">
           Đáp án (MC): {{ currentQuestion?.answer }}
         </p>

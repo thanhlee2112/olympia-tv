@@ -11,7 +11,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "6",
         "value": 10,
-        "src": "http://10.8.115.182:3000/media/ve_dich_10_diem_2.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_2.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -40,7 +40,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Loại thuế đầu người căn cứ theo nhân khẩu, bắt buộc nam giới trong độ tuổi quy định phải nộp tiền, hiện vật, hoặc sức lao động (sưu dịch) cho triều đình phong kiến hoặc thực dân",
         "value": 10,
-        "src": "http://10.8.115.182:3000/media/ve_dich_10_diem_1.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_10_diem_1.mp4",
         "category": "Lịch sử"
     },
     {
@@ -237,7 +237,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Global Warming",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_4.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_4.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -301,7 +301,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "200 grams",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_2.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_2.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -323,7 +323,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Kiến trúc sư Ngô Viết Thụ",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_3.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_3.mp4",
         "category": "Lịch sử"
     },
     {
@@ -352,7 +352,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Le Duc Tho (Lê Đức Thọ)",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_6.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_6.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -360,7 +360,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Tuồng",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_5.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_5.mp4",
         "category": "Nghệ thuật"
     },
     {
@@ -375,7 +375,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Khi ta vắt nước quất vào nước đậu thì axit có trong nước quất sẽ tạo môi trường có độ pH thấp, làm cho protein trong nước đậu bị đông tụ lại thành mảng.",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_1.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_1.mp4",
         "category": "Hóa học"
     },
     {
@@ -417,7 +417,7 @@
         "id": 59,
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Tác phẩm \"Kính gửi cụ Nguyễn Du\" của nhà thơ Tố Hữu",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_4.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_4.mp4",
         "value": 30,
         "category": "Văn học"
     },
@@ -467,7 +467,7 @@
         "id": 66,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Hoang Xuan Vinh",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_2.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_2.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -496,7 +496,7 @@
         "id": 70,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Four (4) (lớp có 50 người, 60% là người Châu Âu, nên có 30 người Châu Âu, 20% trong số còn lại là người Châu Á, tức là số người Châu Á là 20%*20 = 4.",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_11.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_11.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -518,7 +518,7 @@
         "id": 73,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Eleven (11)",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_7.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_7.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -527,7 +527,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Na2SO3 (Khi cho Na2SO3 vào BaCl2 tạo ra kết tủa trắng BaSO3, sau đó khi cho thêm HCl vào sẽ tạo ra khí SO2 có tính tẩy màu, làm mất màu quỳ tím)",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_13.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_13.mp4",
         "category": "Hóa học"
     },
     {
@@ -542,7 +542,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Nguyễn Hoàng",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_14.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_14.mp4",
         "category": "Lịch sử"
     },
     {
@@ -571,7 +571,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Từ Dụ (Từ Dũ)",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_6.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_6.mp4",
         "category": "Lịch sử"
     },
     {
@@ -579,7 +579,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Hiện vật là ghe Ngo và lễ hội là Ok Om Bok",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_3.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_3.mp4",
         "category": "Kiến thức chung"
     },
     {
@@ -587,7 +587,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Nấm, Động vật, Thực vật",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_8.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_8.mp4",
         "category": "Sinh học"
     },
     {
@@ -601,7 +601,7 @@
         "id": 84,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Nhu Nguyet River (Cau River, Thi Cau River)",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_5.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_5.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -623,7 +623,7 @@
         "id": 87,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Gravity",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_1.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_1.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -639,14 +639,14 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Bạch Thái Bưởi",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_10.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_10.mp4",
         "category": "Lịch sử"
     },
     {
         "id": 90,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Leaf",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_12.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_12.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -661,7 +661,7 @@
         "id": 92,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Forty Two (42)",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_9.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_9.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -708,18 +708,11 @@
         "category": "Lịch sử"
     },
     {
-        "id": 99,
-        "text": "Tại sao khi nấu canh chua, người ta thường cho thêm một ít đường vào nồi canh?",
-        "answer": "Đường giúp cân bằng vị chua của canh, làm cho món ăn có hương vị hài hòa hơn",
-        "value": 20,
-        "category": "Kiến thức chung"
-    },
-    {
         "id": 100,
         "text": "Hải phố, Hoài phố, Hai phố là những tên gọi trước đây của nơi nào ở nước ta?",
         "answer": "Hội An",
         "value": 20,
-        "category": "Địa lý"
+        "category": "Lịch sử"
     },
     {
         "id": 101,
@@ -740,20 +733,6 @@
         "text": "Giả sử một con gà rưỡi trong một ngày rưỡi đẻ được một quả trứng rưỡi. Vậy trong 1 tuần rưỡi, 3 con gà sẽ đẻ được bao nhiêu quả trứng?",
         "answer": "21 quả (Một con gà rưỡi đẻ một quả trứng rưỡi trong một ngày rưỡi, nên một con gà đẻ được 1 quả trứng trong một ngày rưỡi. Vậy trong 1 tuần rưỡi (tức là 10,5 ngày), một con gà sẽ đẻ được 10,5 / 1,5 = 7 quả trứng. Do đó, 3 con gà sẽ đẻ được 3 * 7 = 21 quả trứng trong 1 tuần rưỡi)",
         "value": 20,
-        "category": "Toán học"
-    },
-    {
-        "id": 104,
-        "text": "Khi thành lập nhóm thiếu niên cộng sản đầu tiên, Bác đã đặt tên cho và nhận những thiếu niên có tên mang họ Lý như: Lý Tự Trọng, Lý Thúc Tự, Lý Phương Thuận,... Hãy cho biết tại sao?",
-        "answer": "Khi đó Bác đang lấy bí danh \"Lý Thụy\" để hoạt động cách mạng, nên đã đặt tên cho những thiếu niên cộng sản đầu tiên có họ Lý để dễ ngụy trang thành một gia tộc, tránh bị phát hiện bởi thực dân Pháp",
-        "value": 30,
-        "category": "Lịch sử"
-    },
-    {
-        "id": 105,
-        "text": "Bạn Thành muốn tổ chức một cuộc thi Olympia theo thể thức năm 2014 cho 4 người chơi. Bạn Thành cần tạo tối thiểu bao nhiêu câu 10 điểm, bao nhiêu câu 20 điểm và bao nhiêu câu 30 điểm để tạo thành một phần thi về đích mà không có câu nào trùng nhau, bất kể thí sinh chọn gói câu hỏi nào?",
-        "answer": "28 câu 10 điểm, 16 câu 20 điểm, 4 câu 30 điểm (Theo thể thức năm 2014, mỗi gói câu hỏi sẽ gồm 4 câu hỏi, vì vậy số câu hỏi 10 điểm cần cho 1 thí sinh là 7 câu, câu hỏi 20 điểm là 4 câu và câu hỏi 30 điểm là 1 câu. Với 4 thí sinh, số câu hỏi cần là: 7*4 = 28 câu 10 điểm, 4*4 = 16 câu 20 điểm, và 1*4 = 4 câu 30 điểm)",
-        "value": 30,
         "category": "Toán học"
     },
     {
@@ -789,7 +768,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Monday",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_16.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_16.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -804,7 +783,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Ông Đồ (Vũ Đình Liên)",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_7.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_7.mp4",
         "category": "Văn học"
     },
     {
@@ -819,7 +798,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Do mạch bên phải đấu 2 cực dương với nhau (mạch xung đối), dòng điện sẽ không thể chạy bóng đèn về cực âm của nguồn, nên bóng đèn bên phải sẽ không sáng.",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_17.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_17.mp4",
         "category": "Vật lý"
     },
     {
@@ -834,7 +813,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Friday",
         "value": 30,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_8.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_8.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -856,7 +835,7 @@
         "text": "Bạn hãy trả lời câu hỏi sau bằng tiếng Anh",
         "answer": "Endling",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_9.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_9.mp4",
         "category": "Tiếng Anh"
     },
     {
@@ -877,7 +856,7 @@
         "id" :122,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Connecting people, creating prosperity",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_18.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_18.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -913,7 +892,7 @@
         "id": 127,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "X-ray",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_19.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_19.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -964,7 +943,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Chiến thắng Đông Khê của chiến dịch Biên giới Thu-Đông năm 1950",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_10.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_10.mp4",
         "category": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia"
     },
     {
@@ -986,7 +965,7 @@
         "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
         "answer": "Asian Highway",
         "value": 20,
-        "src": "http://10.8.115.182:3000/media/ve_dich_20_diem_11.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_11.mp4",
         "category": "Kiến thức chung"
     },
     {
@@ -1028,7 +1007,7 @@
         "id": 143,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "Tran Quoc Pagoda",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_20.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_20.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -1043,7 +1022,7 @@
         "id": 145,
         "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
         "answer": "3",
-        "src": "http://10.8.115.182:3000/media/ve_dich_30_diem_21.mp4",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_21.mp4",
         "value": 30,
         "category": "Tiếng Anh"
     },
@@ -1053,6 +1032,100 @@
         "answer": "Vôi có tính kiềm mạnh, khi được thêm vào nước sẽ làm tăng độ pH của nước, tạo ra môi trường không thuận lợi cho sự phát triển của vi khuẩn và các sinh vật",
         "value": 30,
         "category": "Hóa học"
+    },
+    {
+        "id": 147,
+        "text": "Trong thiết kế bảo mật cho web, tại sao phải dùng refresh token?",
+        "answer": "Refresh token được sử dụng để cấp lại access token khi access token hết hạn mà không cần yêu cầu người dùng đăng nhập lại.",
+        "value": 30,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 148,
+        "text": "Trong các nguyên tố Halogen, nguyên tố nào chiếm ít nhất trong vỏ Trái Đất?",
+        "answer": "Iot",
+        "value": 20,
+        "category": "Hóa học"
+    },
+    {
+        "id": 149,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Four",
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_22.mp4",
+        "value": 30,
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 150,
+        "text": "Hệ thống sông nào lớn thứ ba nước ta, sau hệ thống sông Hồng và hệ thống sông Cửu Long?",
+        "answer": "Hệ thống sông Đồng Nai",
+        "value": 10,
+        "category": "Địa lý"
+    },
+    {
+        "id": 151,
+        "text": "Tên của 2 thôn nào đã được nhắc đến trong bài thơ \"Tương tư\" của Nguyễn Bính?",
+        "answer": "Thôn Đoài và thôn Đông",
+        "value": 10,
+        "category": "Văn học"
+    },
+    {
+        "id": 152,
+        "text": "Ở động vật có vú, máu tiếp nhận Oxi và nhả cacbonic ở bộ phận nào của phổi?",
+        "answer": "Ở các phế nang (alveoli) của phổi",
+        "value": 20,
+        "category": "Sinh học"
+    },
+    {
+        "id": 153,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Nguyễn Văn Linh",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_23.mp4",
+        "category": "Lịch sử"
+    },
+    {
+        "id": 154,
+        "text": "Mỹ và Canada là hai quốc gia láng giềng cùng tiếp giáp ba đại dương. Hãy cho biết tên của ba đại dương đó?",
+        "answer": "Đại Tây Dương, Đại Dương Thái Bình Dương, và Đại Dương Bắc Băng Dương",
+        "value": 20,
+        "category": "Địa lý"
+    },
+    {
+        "id" : 155,
+        "text": "Tại sao người ta thường cho một lượng clo vừa phải vào nước để diệt khuẩn?",
+        "answer": "Clo có khả năng oxy hóa mạnh, khi được thêm vào nước sẽ tạo thành axit HClO (hypochlorous acid), có tác dụng diệt khuẩn hiệu quả bằng cách phá hủy màng tế bào và các thành phần quan trọng của vi khuẩn.",
+        "value": 30,
+        "category": "Hóa học"
+    },
+    {
+        "id": 156,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Nguyễn Hữu Cảnh",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_24.mp4",
+        "category": "Lịch sử"
+    },
+    {
+        "id": 157,
+        "text": "Trong ca khúc \"Bác Hồ - Người cho em tất cả\" của nhạc sỹ Mộng Lân, anh bộ đội đã cho em bé điều gì?",
+        "answer": "Lòng dũng cảm",
+        "value": 10,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 158,
+        "text": "Thế năng trọng trường của một vật phụ thuộc vào những yếu tố nào?",
+        "answer": "Thế năng trọng trường của một vật phụ thuộc vào khối lượng của vật và độ cao của vật so với mốc tham chiếu",
+        "value": 10,
+        "category": "Vật lý"
+    },
+    {
+        "id": 159,
+        "text": "Đường conic là tên gọi chung của những đường hình học nào?",
+        "answer": "Đường conic là tên gọi chung của những đường hình học được tạo ra khi cắt một mặt nón bằng một mặt phẳng. Các loại đường conic bao gồm: elip, parabol, hyperbol",
+        "value": 30,
+        "category": "Toán học"
     }
 
 ]

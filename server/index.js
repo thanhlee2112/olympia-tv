@@ -92,6 +92,7 @@ packs.forEach((group, index) => {
    GAME STATE
 ====================== */
 const finalQuestionBank = require("./data/questions/final.json");
+const { showQuestion } = require("../control-panel/src/socket")
 
 // Khởi tạo bản sao sạch
 let allQuestions = JSON.parse(JSON.stringify(finalQuestionBank));
@@ -196,7 +197,8 @@ let gameState = {
     questions: [],
     currentIndex: 0,
     running: false,
-    questionVisible: false
+    questionVisible: false,
+    showQuestion: false
   },
   obstacle: null,
   speedup: null,
@@ -214,7 +216,7 @@ gameState.players = [
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.8.115.182:5174/?token=${player.token}`
+    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -274,7 +276,7 @@ gameState.obstacle = {
       question: "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
       answer: "CHỦ QUYỀN"
     },
-    imageUrl: "http://10.8.115.182:3000/media/cnv.png"
+    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -288,10 +290,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.8.115.182:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.8.115.182:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.8.115.182:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.8.115.182:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -916,7 +918,7 @@ function buildKickoffPlayerState(socket) {
   if (
     gameState.phase === "KhoiDong" &&
     gameState.currentPlayer === socket.playerId &&
-    gameState.kickoff.questionVisible
+    gameState.kickoff.showQuestion
   ) {
     const q =
       gameState.kickoff.questions[
@@ -946,7 +948,6 @@ function buildFinalPlayerState(socket) {
   const player = gameState.players.find(
     p => p.id === socket.playerId
   )
-  console.log(gameState.final);
   
   return{
     phase: gameState.phase,
@@ -963,6 +964,7 @@ function buildFinalPlayerState(socket) {
   }
 }
 function startTimer() {
+  gameState.kickoff.showQuestion = true
   clearInterval(timerInterval)
   timerInterval = setInterval(() => {
     gameState.timer--
