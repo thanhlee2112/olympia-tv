@@ -1,0 +1,32 @@
+[
+    {
+        "CNV": "Tuyên ngôn độc lập",
+        "image": "http://10.16.31.53:3000/media/cnv-2.png",
+        "image_explain": "1 góc căn nhà số 48 Hàng Ngang"
+    },
+    {
+        "id": 1,
+        "question": "Trong hệ đếm La Mã, MCMXLV tương đương với số nào theo hệ đếm cơ số 10?",
+        "answer": "1945"
+    },
+    {
+        "id": 2,
+        "question": "Phạm Bành và Đinh Công Tráng là những lãnh đạo của cuộc khởi nghĩa nông dân nào trong thế kỷ XIX?",
+        "answer": "Ba Đình"
+    },
+    {
+        "id": 3,
+        "question": "Ai là vị chủ tịch duy nhất của Đảng Cộng sản Việt Nam?",
+        "answer": "Hồ Chí Minh"
+    },
+    {
+        "id": 4,
+        "question": "Theo truyền thuyết \"Con Rồng cháu Tiên\", từ nào dùng để chỉ những người cùng một giống nòi, cùng sinh ra từ bọc trăm trứng của mẹ Âu Cơ?",
+        "answer": "Đồng bào"
+    },
+    {
+        "id": 5,
+        "question": "Ngày 2 tháng 9 hàng năm được chọn là ngày gì ở Việt Nam?",
+        "answer": "Quốc Khánh"
+    }
+]

@@ -1126,6 +1126,190 @@
         "answer": "Đường conic là tên gọi chung của những đường hình học được tạo ra khi cắt một mặt nón bằng một mặt phẳng. Các loại đường conic bao gồm: elip, parabol, hyperbol",
         "value": 30,
         "category": "Toán học"
+    },
+    {
+        "id": 160,
+        "text": "Trong y học cổ truyền Việt Nam, tứ chứng nan y bao gồm những bệnh nào?",
+        "answer": "Phong(Hủi),Lao,Xơ gan/chướng bụng(Cổ), Ung thư (Lại)",
+        "value": 30,
+        "category": "Sinh học"
+    },
+    {
+        "id": 161,
+        "text": "Trong cuộc kháng chiến chống Mỹ, chiến dịch nào là lâu nhất và chiến dịch nào là nhanh nhất?",
+        "answer": ""
+    },
+    {
+        "id": 162,
+        "text": "Một quả cân 10kg đặt trên 1 cái cân trong một thang máy. Kim của cân sẽ chỉ số bao nhiêu khi thang máy rơi tự do?",
+        "answer": "0",
+        "value": 10,
+        "category": "Vật lý"
+    },
+    {
+        "id": 163,
+        "text": "Vợ của nhân vật Mõ trong tác phẩm \"Quan Âm Thị Kính\" có tên là gì?",
+        "answer": "Đốp",
+        "value": 10,
+        "category": "Văn học"
+    },
+    {
+        "id": 164,
+        "text": "\"Đeo bông chỉ tổ nặng tai/Đeo kiềng nặng cổ hỡi ai có vàng/ Làm dân một nước vẻ vang/ Đem vàng cứu nước giàu sang nào tày!\" là những câu ca dao nói về sự kiện lịch sử nào của nước ta?",
+        "answer": "Tuần lễ vàng",
+        "value": 10,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 165,
+        "text": "Cháu hỏi bà: \"Bà ơi, năm nay bà bao nhiêu tuổi vậy ạ?\". Bà trả lời: \"1/6 tuổi của bà trừ đi 6 thì bằng 6\". Hỏi bà bao nhiêu tuổi?",
+        "answer": "72 tuổi",
+        "value": 10,
+        "category": "Toán học"
+    },
+    {
+        "id": 166,
+        "text": "Câu văn \"Con dạo này không được chăm chỉ lắm\" đã sử dụng biện pháp tu từ gì?",
+        "answer": "Nói giảm, nói tránh",
+        "value": 10,
+        "category": "Văn học"
+    },
+    {
+        "id": 167,
+        "text": "Một người uống 1 ly cà phê đen đầy. Sau khi uống 1/2 ly, người đó đổ sữa đầy ly rồi uống 1/3 ly. Sau đó, người đó lại đổ sữa đầy ly rồi uống 1/6 ly. Cuối cùng, người đó đổ sữa đầy ly và uống hết ly. Hỏi người đó uống sữa nhiều hơn hay cà phê nhiều hơn?Vì sao?",
+        "answer": "Người đó uống sữa và cà phê như nhau, vì 1/2+1/3+1/6=1, nên tổng lượng cà phê đã uống bằng 1 ly, và lượng sữa đã uống cũng bằng 1 ly",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 168,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Ai đã đặt tên cho dòng sông?(Cả tên tác phẩm và tên tập sách)",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_25.mp4",
+        "category": "Văn học"
+    },
+    {
+        "id": 169,
+        "text": "Củ lạc (đậu phộng) thực chất là bộ phận nào của cây?",
+        "answer": "Quả",
+        "value": 10,
+        "category": "Sinh học"
+    },
+    {
+        "id": 170,
+        "text": "Với cùng số tiền mua 51 mét vải loại I, ta có thể mua bao nhiêu mét vải loại II, biết rằng số tiền mua 1 mét vải loại II chỉ bằng 85% số tiền mua 1 mét vải loại I?",
+        "answer": "60 mét vải loại II (Giả sử giá 1 mét vải loại I là x, thì số tiền mua 51 mét vải loại I là 51x. Giá 1 mét vải loại II là 0.85x, nên số mét vải loại II có thể mua được với số tiền đó là 51x / 0.85x = 60 mét)",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 171,
+        "text": "Kháng sinh đầu tiên được tìm ra từ sinh vật nào?",
+        "answer": "Nấm",
+        "value": 10,
+        "category": "Sinh học"
+    },
+    {
+        "id": 172,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Wimbledon",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_26.mp4",
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 173,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer":"Viên phấn làm từ đá vôi, do CaCO3 tiếp xúc với giấm ăn (axit axetic) tạo ra phản ứng hóa học giải phóng khí CO2, tạo thành những bọt khí bay lên",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_27.mp4",
+        "category": "Hóa học"
+    },
+    {
+        "id": 174,
+        "text": "Diễn viên nào đã vào vai Nguyễn Ái Quốc trong bộ phim \"Nguyễn Ái Quốc ở Hồng Kông\"?",
+        "answer": "Trần Lực",
+        "value": 10,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 175,
+        "text": "Tại sao nước vôi khi để lâu ngoài không khí lại xuất hiện 1 lớp váng mỏng trên bề mặt?",
+        "answer": "Nước vôi khi tiếp xúc với CO2 trong không khí sẽ tạo thành canxi cacbonat (CaCO3), một chất rắn không tan, nên sẽ xuất hiện một lớp váng mỏng trên bề mặt nước vôi",
+        "value": 30,
+        "category": "Hóa học"
+    },
+    {
+        "id": 176,
+        "text": "Bệnh nào gây ra do 1 loại đột biến trên NST X ở người: mù màu, Down hay teo cơ?",
+        "answer": "Mù màu",
+        "value": 20,
+        "category": "Sinh học"
+    },
+    {
+        "id:": 177,
+        "text": "Hình ảnh của loại áo nào được nhắc đến trong khổ thứ hai của bài thơ \"Chân quê\" của Nguyễn Bính?",
+        "answer": "Áo tứ thân",
+        "value": 10,
+        "category": "Văn học"
+    },
+    {
+        "id": 178,
+        "text": "Một lớp học có 30 học sinh, trong đó có 25 học sinh thi Toán và 15 học sinh thi Văn. Hỏi có bao nhiêu học sinh thi cả Toán và Văn?",
+        "answer": "10 học sinh",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 179,
+        "text": "Chiến dịch nào đã buộc Pháp phải chuyển từ \"đánh nhanh thắng nhanh\" sang chiến tranh lâu dài ở Việt Nam?",
+        "answer": "Chiến dịch Việt Bắc Thu-Đông năm 1947",
+        "value": 10,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 180,
+        "text": "\"Quýt, cam mười bảy quả tươi/Đem chia cho một trăm người cùng vui/Chia ba mỗi quả quýt rồi/Còn cam mỗi quả chia mười vừa xinh/Trăm người, trăm miếng ngọt lành/Quýt, cam mỗi loại tính rành là bao?\"",
+        "answer": "Quýt có 10 quả, cam có 7 quả (Giả sử số quả quýt là x, thì số quả cam sẽ là 17-x. Theo đề bài, mỗi quả quýt chia cho 3 người, nên số người được chia quýt là 3x. Mỗi quả cam chia cho 10 người, nên số người được chia cam là 10(17-x). Tổng số người được chia quýt và cam phải bằng 100, nên ta có phương trình: 3x + 10(17-x) = 100. Giải phương trình này sẽ cho ra x = 10, vậy số quả quýt là 10 và số quả cam là 17-10 = 7)",
+        "value": 30,
+        "category": "Toán học"
+    },
+    {
+        "id": 181,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Isaac Newton",
+        "value": 20,
+        "src": "http://10.16.31.53:3000/media/ve_dich_20_diem_12.mp4",
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 182,
+        "text": "Tổng số tuổi của 2 anh em hiện nay là 32 tuổi. Bạn hãy tìm tuổi mỗi người, biết rằng cách đây 2 năm tuổi của anh gấp 3 lần tuổi của em",
+        "answer": "Anh 23 tuổi, em 9 tuổi (Tổng số tuổi cách đây 2 năm của 2 anh em là 28 tuổi. Vậy tuổi của anh là 21 còn tuổi của em là 7 cách đây 2 năm, nên hiện tại anh 23 tuổi và em 9 tuổi.)",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 183,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Rome",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_28.mp4",
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 184,
+        "text": "Có những kiểu sinh sản nào ở thực vật?",
+        "answer": "Sinh sản hữu tính (qua hạt) và sinh sản vô tính (qua thân, rễ, lá)",
+        "value": 10,
+        "category": "Sinh học"
+    },
+    {
+        "id": 185,
+        "text": "Thương cảng nào được coi là cảng biển ngoại thương có lịch sử lâu đời nhất Việt Nam?",
+        "answer": "Cảng Vân Đồn",
+        "value": 20,
+        "category": "Lịch sử"
     }
-
 ]

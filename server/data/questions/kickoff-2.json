@@ -694,5 +694,59 @@
     "linh_vuc": "Địa lý",
     "question": "Đồng bằng sông Hồng được bồi tụ phù sa bởi hệ thống sông Hồng và hệ thống sông ...",
     "answer": "Sông Thái Bình"
+  },
+  {
+    "id": 117,
+    "linh_vuc": "Âm nhạc",
+    "question": "Người ta phải gõ phím màu gì để tạo ra các nốt nhạc thăng hoặc giáng trên đàn piano?",
+    "answer": "Phím đen"
+  },
+  {
+    "id": 118,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Theo Luật giao thông đường bộ, người đủ bao nhiêu tuổi trở lên được lái xe gắn máy có dung tích xi lanh dưới 50cm3?",
+    "answer": "16 tuổi"
+  },
+  {
+    "id": 119,
+    "linh_vuc": "Vật lý",
+    "question": "Sự phát quang diễn ra khi phân tử hấp thụ năng lượng dưới dạng nhiệt hoặc dạng quang gọi là gì?",
+    "answer": "Huỳnh quang"
+  },
+  {
+    "id": 120,
+    "linh_vuc": "Thể thao",
+    "question": "\"Hole in one\" là thuật ngữ trong môn thể thao nào?",
+    "answer": "Golf"
+  },
+  {
+    "id": 121,
+    "linh_vuc": "Sinh học",
+    "question": "Cây xanh chỉ quang hợp khi có điều kiện ánh sáng mạnh. Đúng hay sai?",
+    "answer": "Sai"
+  },
+  {
+    "id": 122,
+    "linh_vuc": "Lịch sử",
+    "question": "Hiệp ước Pa-tơ-nốt được ký kết giữa thực dân Pháp và triều đình ...",
+    "answer": "Nguyễn (Huế)"
+  },
+  {
+    "id": 123,
+    "linh_vuc": "Lịch sử",
+    "question": "Kinh đô nào là kinh đô đầu tiên của thời đại phong kiến nước ta?",
+    "answer": "Hoa Lư"
+  },
+  {
+    "id":124,
+    "linh_vuc": "Nghệ thuật",
+    "question": "Bức tranh\"Mona Lisa\" được Leonardo da Vinci vẽ bằng chất liệu gì?",
+    "answer": "Sơn dầu"
+  },
+  {
+    "id":125,
+    "linh_vuc": "Thể thao",
+    "question": "Trong cầu lông, nếu khi giao cầu, quả cầu bị mắc và giữ lại trên lưới, thì người giao cầu có được phép giao cầu lại không?",
+    "answer": "Không"
   }
 ]
