@@ -748,5 +748,53 @@
     "linh_vuc": "Thể thao",
     "question": "Trong cầu lông, nếu khi giao cầu, quả cầu bị mắc và giữ lại trên lưới, thì người giao cầu có được phép giao cầu lại không?",
     "answer": "Không"
+  },
+  {
+    "id": 126,
+    "linh_vuc": "Lịch sử",
+    "question": "\"Sông nào tàu giặc chìm sâu/ Anh hùng Trung Trực ghi vào sử xanh\"?",
+    "answer": "Vàm Cỏ Đông"
+  },
+  {
+    "id": 127,
+    "linh_vuc": "Tiếng Anh",
+    "question": "What is the largest island of Vietnam?",
+    "answer": "Phú Quốc"
+  },
+  {
+    "id": 128,
+    "linh_vuc": "Văn học",
+    "question": "Điền những con số còn thiếu vào câu thơ sau: \"Ngày xuân con én đưa thoi/ Thiều quang ... đã ngoài ...\" (Truyện Kiều - Nguyễn Du)",
+    "answer": "90 , 60"
+  },
+  {
+    "id": 129,
+    "linh_vuc": "Toán học",
+    "question": "Hàm số đồng biến hoặc nghịch biến trên K được gọi chung là hàm số ... trên K",
+    "answer": "Đơn điệu"
+  },
+  {
+    "id": 130,
+    "linh_vuc": "Sinh học",
+    "question": "Giữa chó và tinh tinh, loài nào có tỉ lệ giữa khối lượng não và khối lượng cơ thể lớn hơn?",
+    "answer": "Tinh tinh"
+  },
+  {
+    "id": 131,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Ở nước ta, tổng điều tra dân số thường diễn ra bao nhiêu năm một lần?",
+    "answer": "10 năm"
+  },
+  {
+    "id": 132,
+    "linh_vuc": "Tiếng Anh",
+    "question": "In which month do Vietnamese celebrate the Independence Day?",
+    "answer": "September"
+  },
+  {
+    "id": 133,
+    "linh_vuc": "Kiến thức chung",
+    "question": "Trò chơi cần điền các số từ 1 đến 9 sao cho mỗi hàng, mỗi cột và mỗi vùng không có các số lặp lại được gọi là gì?",
+    "answer": "Sudoku"
   }
 ]

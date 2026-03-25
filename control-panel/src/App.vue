@@ -8,6 +8,7 @@
     <ScoreBoard v-else-if="state.phase === 'scoreboard'" />
     <div v-else class="main-grid">
       <PhaseControl />
+      <ScoreBoardAll />
     </div>
   <audio ref="audioRef"></audio>
   </div>
@@ -25,6 +26,7 @@ import { state } from "./socket"
 import Kickoff from "./views/Kickoff.vue"
 import { watch } from "vue"
 import { ref } from "vue"
+import ScoreBoardAll from "./components/ScoreBoardAll.vue"
 const audioRef = ref(null)
 
 watch(

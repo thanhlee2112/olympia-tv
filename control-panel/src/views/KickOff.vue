@@ -95,6 +95,10 @@ function answerQuestions(isCorrect) {
     play("/sounds/correct_answer_kickoff.mp3").catch(err => {
       console.log("Audio error:", err)
     })
+  }else{
+    play("/sounds/wrong_answer_kickoff.mp3").catch(err => {
+      console.log("Audio error:", err)
+    })
   }
 } 
 function start(playerId) {

@@ -145,6 +145,8 @@
 import { inject, computed, ref,watch } from "vue"
 import { setPhase, socket, state } from "../socket"
 
+const firstTimePlayCorrectSound = ref(true)
+const firstTimePlayWrongSound = ref(true)
 const showAnswer = ref(false)
 const audioRef = ref(null)
 const countdownAudioRef = ref(null)
@@ -245,9 +247,14 @@ async function startTimer() {
 async function rowResult(correct, playerId) {
   socket.emit("mc:rowResult", correct, playerId)
   if (correct) {
-    await play("/sounds/right_answer_obstacle.mp3")
-  } else {
+    if (firstTimePlayCorrectSound.value) {
+      await play("/sounds/correct_answer_obstacle.mp3")
+      firstTimePlayCorrectSound.value = false
+    }
+    // Các lần đúng tiếp theo không phát nhạc nữa
+  } else if (!correct && firstTimePlayWrongSound.value) {
     await play("/sounds/wrong_answer_obstacle.mp3")
+    firstTimePlayWrongSound.value = false
   }
 }
 function obstacleResult(correct, id) {
@@ -261,6 +268,8 @@ function obstacleResult(correct, id) {
 function revealCorrectAnswer(rowId = null) {
   socket.emit("mc:revealCorrectAnswer", rowId)
   play('/sounds/open_image.mp3')
+  firstTimePlayCorrectSound.value = true
+  firstTimePlayWrongSound.value = true
 }
 function closeRow(row) {
   socket.emit("mc:closeRow", row)
