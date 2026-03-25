@@ -258,7 +258,7 @@ gameState.obstacle = {
     },
     {
       id: 3,
-      question: "Một megawatt bằng bao nhiêu watt?",
+      question: "Một tấn bằng bao nhiêu gram?",
       answer: "1000000",
       revealed: false,
       disabled: false,

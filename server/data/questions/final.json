@@ -1377,5 +1377,12 @@
         "answer": "Vua Lê Đại Hành(Lê Hoàn)(năm 987)",
         "value": 20,
         "category": "Lịch sử"
+    },
+    {
+        "id": 195,
+        "text": "Hiện tại Việt Nam đang có bao nhiêu tập đoàn công nghệ thông tin lớn do người Việt sáng lập và điều hành? Đó là những tập đoàn nào?",
+        "answer": "Có 5 tập đoàn công nghệ thông tin lớn ở Việt Nam: FPT, Viettel, VNG, VNPT, CMC",
+        "value": 20,
+        "category": "Kiến thức chung"
     }
 ]
