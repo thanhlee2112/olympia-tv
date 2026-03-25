@@ -1311,5 +1311,71 @@
         "answer": "Cảng Vân Đồn",
         "value": 20,
         "category": "Lịch sử"
+    },
+    {
+        "id": 186,
+        "text": "Tại sao muối NaHCO3 thường được dùng để chế thuốc chữa đau dạ dày?",
+        "answer": "NaHCO3 có tính kiềm, giúp trung hòa axit trong dạ dày, giảm triệu chứng đau và khó chịu.",
+        "value": 10,
+        "category": "Hóa học"
+    },
+    {
+        "id": 187,
+        "text": "Tại sao \"chuồn chuồn bay thấp thì mưa, bay cao thì nắng, bay vừa thì râm\"?",
+        "answer": "Do cánh của chuồn chuồn mỏng, khi trời sắp mưa thì độ ẩm cao, đọng nước trên cánh làm cho chuồn chuồn nặng hơn, bay thấp hơn. Khi trời nắng, độ ẩm thấp, cánh khô nhẹ, chuồn chuồn bay cao hơn. Khi trời râm, độ ẩm vừa phải, chuồn chuồn bay ở độ cao trung bình.",
+        "value": 20,
+        "category": "Sinh học"
+    },
+    {
+        "id": 188,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Mars",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_29.mp4",
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 189,
+        "text": "Từ ba chữ số 1,2,3 có thể lập được bao nhiêu số chẵn có các chữ số khác nhau? Đó là những số nào?",
+        "answer": "Có 5 số chẵn: 132, 312, 2, 12, 32 (Để tạo thành số chẵn, chữ số cuối cùng phải là 2. Các chữ số còn lại có thể là 1 và 3, nên ta có thể tạo ra các số chẵn sau: 132, 312, 2, 12, 32)",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 190,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Tô Hiến Thành",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_30.mp4",
+        "category": "Lịch sử"
+    },
+    {
+        "id": 191,
+        "text": "Hai họ kim loại nào được xếp riêng thành hai hàng phía cuối bảng tuần hoàn các nguyên tố hóa học?",
+        "answer": "Lanthanides và Actinides",
+        "value": 20,
+        "category": "Hóa học"
+    },
+    {
+        "id": 192,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Koala",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_31.mp4",
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 193,
+        "text": "Tại sao trong những cơn giông, ta thường thấy tia chớp trước rồi mới nghe thấy tiếng sấm?",
+        "answer": "Ánh sáng từ tia chớp di chuyển nhanh hơn âm thanh của sấm, nên ta sẽ thấy chớp trước khi nghe thấy tiếng sấm.",
+        "value": 10,
+        "category": "Vật lý"
+    },
+    {
+        "id": 194,
+        "text": "Ai là vị vua đầu tiên trong lịch sử Việt Nam đã cày ruộng tịch điền nhân dịp đầu năm để khuyến khích người dân sản xuất nông nghiệp?",
+        "answer": "Vua Lê Đại Hành(Lê Hoàn)(năm 987)",
+        "value": 20,
+        "category": "Lịch sử"
     }
 ]

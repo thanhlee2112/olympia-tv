@@ -3,15 +3,17 @@ const http = require("http")
 const { Server } = require("socket.io")
 const path = require("path")
 const app = express()
+const fs = require("fs")
 const server = http.createServer(app)
 const kickoffQuestionBank = require("./data/questions/kickoff-2.json")
 const { v4: uuidv4 } = require("uuid")
 const { emit } = require("process")
+const SPEED_DURATION = 30000
 const { buzz } = require("../player-client/src/socket")
 const io = new Server(server, {
   cors: { origin: "*" }
 })
-
+const USED_QUESTIONS_PATH = path.join(__dirname, "data", "used_questions.json")
 function createFlexibleQuestionGroups(bank, numGroups = 4, questionsPerGroup = 12) {
     // 1. Nhóm các câu hỏi theo lĩnh vực
     let categories = {};
@@ -97,44 +99,52 @@ const { showQuestion } = require("../control-panel/src/socket")
 // Khởi tạo bản sao sạch
 let allQuestions = JSON.parse(JSON.stringify(finalQuestionBank));
 console.log(`Tổng số câu hỏi trong kho: ${allQuestions.length}`);
+// Khởi tạo file nếu chưa tồn tại
+if (!fs.existsSync(USED_QUESTIONS_PATH)) {
+    fs.writeFileSync(USED_QUESTIONS_PATH, JSON.stringify([]));
+}
 
+function getUsedIds() {
+    return JSON.parse(fs.readFileSync(USED_QUESTIONS_PATH, 'utf8'));
+}
+
+function markAsUsed(id) {
+    const usedIds = getUsedIds();
+    if (!usedIds.includes(id)) {
+        usedIds.push(id);
+        fs.writeFileSync(USED_QUESTIONS_PATH, JSON.stringify(usedIds, null, 2));
+    }
+}
 /**
  * @param {number} value - Mức điểm cần tìm
  * @param {boolean} alreadyHasSrc - Gói đã có câu hỏi chứa video/audio chưa
  * @param {Array} usedCategories - Danh sách các category đã có trong gói hiện tại
  */
 function pickOne(value, alreadyHasSrc, usedCategories) {
-  // 1. Lọc ứng viên theo mức điểm
-  let candidates = allQuestions.filter(q => q.value === value);
+  const usedIds = getUsedIds(); // Lấy danh sách ID đã dùng từ file
+  
+  // 1. Lọc ứng viên: Đúng điểm + Chưa từng sử dụng trước đây
+  let candidates = allQuestions.filter(q => q.value === value && !usedIds.includes(q.id));
 
   if (candidates.length === 0) {
-    throw new Error(`Cạn kiệt câu hỏi mức điểm ${value}!`);
+    throw new Error(`Cạn kiệt câu hỏi mức điểm ${value} chưa sử dụng!`);
   }
 
-  // 2. Xáo trộn danh sách ứng viên để đảm bảo tính ngẫu nhiên
-  candidates.sort(() => 0.5 - Math.random());
+  // 2. Trộn ngẫu nhiên (Dùng Fisher-Yates để tốt hơn sort)
+  for (let i = candidates.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [candidates[i], candidates[j]] = [candidates[j], candidates[i]];
+  }
 
-  for (let i = 0; i < candidates.length; i++) {
-    const candidate = candidates[i];
-
-    // ĐIỀU KIỆN 1: Nếu gói đã có câu SRC mà câu này cũng có SRC thì bỏ qua
+  for (let candidate of candidates) {
     if (candidate.src && alreadyHasSrc) continue;
-
-    // ĐIỀU KIỆN 2: Nếu category của câu này đã tồn tại trong gói thì bỏ qua
-    // (Lưu ý: Bạn có thể bỏ qua kiểm tra này nếu category là "Mời bạn trả lời..." nếu muốn)
     if (usedCategories.includes(candidate.category)) continue;
 
-    // 3. XÓA THEO ID: Tìm vị trí của câu hỏi dựa trên ID duy nhất trong kho tổng
-    const originalIndex = allQuestions.findIndex(q => q.id === candidate.id);
-    
-    if (originalIndex !== -1) {
-      // Cắt bỏ khỏi kho câu hỏi ngay lập tức và trả về
-      return allQuestions.splice(originalIndex, 1)[0];
-    }
+    // Trả về candidate (Chưa markAsUsed ở đây, chỉ mark khi câu hỏi thực sự hiện ra)
+    return candidate;
   }
 
-  // Nếu chạy hết vòng lặp mà không tìm được câu thỏa mãn cả 2 điều kiện (SRC và Category)
-  throw new Error(`Không tìm thấy câu ${value}đ phù hợp (Do giới hạn SRC hoặc trùng Category).`);
+  throw new Error(`Không tìm thấy câu ${value}đ phù hợp.`);
 }
 
 function createSet(pointsSequence) {
@@ -292,8 +302,8 @@ gameState.speedup =
     questions: [
       { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
       { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp đúng TT sử dụng áo phao trong trường hợp máy bay hạ cánh trên biển (quy định của HHKQGVN)", answer: "356124", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là gì?", answer: "Số PI (PI)", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
+      { id: 3, text: "Sắp xếp các tác phẩm với tác giả tương ứng", answer: "DACB", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là đất nước nào?", answer: "Áo", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,
@@ -746,26 +756,25 @@ socket.on("mc:toggleStar", () => {
   emitState()
 })
 socket.on("mc:startFinalTimer", () => {
-  const q = gameState.final.questions[
-    gameState.final.currentIndex
-  ]
-  if (!q) return  
-  gameState.final.running = true
+  const f = gameState.final;
+  const q = f.questions[f.currentIndex];
+  if (!q) return;
 
-  const duration =
-    q.value === 10 ? 10000 :
-    q.value === 20 ? 15000 :
-    20000
-  const startAt = Date.now()
-  gameState.final.startAt = startAt
-  
-  emitState()
+  // ĐÁNH DẤU CÂU HỎI ĐÃ SỬ DỤNG VÀO FILE
+  markAsUsed(q.id);
+  console.log(`Đã sử dụng câu hỏi ID: ${q.id} - ${q.text.substring(0, 30)}...`);
+
+  gameState.final.running = true;
+  const duration = q.value === 10 ? 10000 : q.value === 20 ? 15000 : 20000;
+  const startAt = Date.now();
+  gameState.final.startAt = startAt;
+
+  emitState();
   setTimeout(() => {
-    gameState.final.running = false
-    emitState()
-  }, duration)
-
-})
+    gameState.final.running = false;
+    emitState();
+  }, duration);
+});
 socket.on("mc:finalCorrect", () => {
   const f = gameState.final
   const q = f.questions[f.currentIndex]

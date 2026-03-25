@@ -199,12 +199,13 @@ const progress = computed(() => {
 .packages-panel.packages-visible {
   opacity: 1;
   pointer-events: auto;
+  animation: slideDownIn 3s cubic-bezier(0.22, 0.9, 0.32, 1) forwards;
 }
 
 .packages-panel.packages-hidden {
   opacity: 0;
   pointer-events: none;
-  animation: slideUpOut 1s cubic-bezier(0.22, 0.9, 0.32, 1) forwards;
+  animation: slideUpOut 3s cubic-bezier(0.22, 0.9, 0.32, 1) forwards;
 }
 
 .package {
@@ -239,7 +240,16 @@ const progress = computed(() => {
   box-shadow: 0 6px 20px rgba(255, 138, 101, 0.5);
   font-weight: 900;
 }
-
+@keyframes slideDownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%);
+  }
+}
 @keyframes slideUpOut {
   0% {
     opacity: 1;
@@ -247,7 +257,7 @@ const progress = computed(() => {
   }
   100% {
     opacity: 0;
-    transform: translateY(-120vh);
+    transform: translateY(120vh);
   }
 }
 
@@ -283,7 +293,7 @@ const progress = computed(() => {
 
 .center-container.animate-in {
   opacity: 1;
-  animation: slideInUp 0.9s cubic-bezier(0.22, 0.9, 0.32, 1) forwards;
+  animation: slideInUp 3s cubic-bezier(0.22, 0.9, 0.32, 1) forwards;
 }
 
 @keyframes slideInUp {
