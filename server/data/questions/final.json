@@ -1552,5 +1552,13 @@
         "text": "Máy khử rung tim (Defibrillator) được sử dụng để làm gì?",
         "answer": "Máy khử rung tim được sử dụng để cung cấp một cú sốc điện mạnh vào tim nhằm khôi phục lại nhịp tim bình thường khi bị rối loạn nhịp tim nghiêm trọng như rung thất hoặc ngừng tim.",
         "value": 30,
+        "category": "Sinh học"
+    },
+    {
+        "id": 220,
+        "text": "Hiện tượng nào là nguyên nhân của các \"vũng nước\" ảo ảnh mà ta thấy trên mặt đường nhựa vào những ngày hè nắng nóng?",
+        "answer": "Phản xạ toàn phần (total internal reflection) của ánh sáng tại các lớp khí có chiết suất khác nhau gần mặt đường, tạo ra ảo ảnh của bầu trời trên mặt đường, khiến ta nhìn thấy như có vũng nước.",
+        "value": 10,
+        "category": "Vật lý"
     }
 ]
