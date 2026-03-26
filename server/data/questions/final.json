@@ -1384,5 +1384,68 @@
         "answer": "Có 5 tập đoàn công nghệ thông tin lớn ở Việt Nam: FPT, Viettel, VNG, VNPT, CMC",
         "value": 20,
         "category": "Kiến thức chung"
+    },
+    {
+        "id": 196,
+        "text": "Trong lập trình hướng đối tượng (OOP), tính chất nào cho phép một lớp con kế thừa các thuộc tính và phương thức của một lớp cha?",
+        "answer": "Tính kế thừa (Inheritance)",
+        "value": 20,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 197,
+        "text": "Trong thiết kế đồ họa, nguyên lý phân cấp thị giác chủ yếu giúp người xem điều gì?",
+        "answer": "Xác định thứ tự quan trọng của các thông tin",
+        "value": 20,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 198,
+        "text": "Trong các cấu trúc dữ liệu phổ biến, cấu trúc nào hoạt động theo nguyên lý LIFO (Last In, First Out)?",
+        "answer": "Ngăn xếp (Stack)",
+        "value": 20,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 199,
+        "text": "Trong lĩnh vực trí tuệ nhân tạo, thuật toán nào được sử dụng phổ biến để giải quyết bài toán tối ưu hóa và tìm kiếm đường đi ngắn nhất?",
+        "answer": "Thuật toán A* (A-star)",
+        "value": 20,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 200,
+        "text": "Trong lĩnh vực thiết kế sản phẩm, nguyên tắc nào giúp đảm bảo rằng sản phẩm dễ sử dụng và thân thiện với người dùng?",
+        "answer": "Nguyên tắc thiết kế lấy người dùng làm trung tâm (User-Centered Design)",
+        "value": 20,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 201,
+        "text": "Hệ màu nào thường được sử dụng trong thiết kế các ấn phẩm in ấn như sách, tạp chí, và bao bì sản phẩm?",
+        "answer": "Hệ màu CMYK (Cyan, Magenta, Yellow, Key/Black)",
+        "value": 30,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 202,
+        "text": "Trong ngôn ngữ lập trình Javascript, sự khác biệt chính giữa \"==\" và \"===\" là gì?",
+        "answer": "\"==\" là toán tử so sánh bằng giá trị, nó sẽ thực hiện ép kiểu nếu hai giá trị có kiểu khác nhau trước khi so sánh. Trong khi đó, \"===\" là toán tử so sánh bằng cả giá trị và kiểu dữ liệu, nó sẽ trả về false nếu hai giá trị có kiểu khác nhau mà không thực hiện ép kiểu.",
+        "value": 30,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 203,
+        "text": "Độ phức tạp thời gian (Time Complexity) của thuật toán Tìm kiếm nhị phân (Binary Search) là bao nhiêu?",
+        "answer": "O(log n)",
+        "value": 30,
+        "category": "Công nghệ thông tin"
+    },
+    {
+        "id": 204,
+        "text": "Khoảng trống xung quanh và giữa các thành phần trong thiết kế được gọi là 'White Space'. Tác dụng quan trọng nhất của nó là gì?",
+        "answer": "Tạo không gian thở cho thiết kế, giúp tăng khả năng đọc và làm nổi bật các yếu tố quan trọng",
+        "value": 30,
+        "category": "Nghệ thuật"
     }
 ]
