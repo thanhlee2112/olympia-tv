@@ -524,16 +524,15 @@
     },
     {
         "id": 74,
-        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
-        "answer": "Na2SO3 (Khi cho Na2SO3 vào BaCl2 tạo ra kết tủa trắng BaSO3, sau đó khi cho thêm HCl vào sẽ tạo ra khí SO2 có tính tẩy màu, làm mất màu quỳ tím)",
+        "text": "Tại sao những người có nhóm máu O được gọi là \"người cho phổ dụng\" nhưng thực tế trong truyền máu hiện đại, các bác sĩ vẫn hạn chế tối đa việc truyền lượng lớn máu O cho các nhóm máu khác (như A hoặc B)?",
+        "answer": "Vì máu O vẫn chứa kháng thể alpha và beta trong huyết tương, có thể gây phản ứng miễn dịch nếu truyền quá nhiều.",
         "value": 30,
-        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_13.mp4",
-        "category": "Hóa học"
+        "category": "Sinh học"
     },
     {
         "id": 75,
         "text": "Một con sên bò từ chân lên tới đỉnh cái cột cao 10 mét. Ban ngày nó bò được 5 mét, ban đêm nó tụt xuống 4 mét. Hỏi sau bao nhiêu ngày và bao nhiêu đêm con sên sẽ bò lên được đỉnh cột?",
-        "answer": "6 ngày, 6 đêm (Trong 5 ngày đầu, con sên bò lên được 1 mét mỗi ngày, sau 5 ngày nó đã lên được 5 mét. Vào ngày thứ 6, nó bò lên 5 mét nữa là đạt đỉnh cột mà không bị tụt xuống nữa)",
+        "answer": "6 ngày, 5 đêm (Trong 5 ngày đầu, con sên bò lên được 1 mét mỗi ngày, sau 5 ngày nó đã lên được 5 mét. Vào ngày thứ 6, nó bò lên 5 mét nữa là đạt đỉnh cột mà không bị tụt xuống nữa)",
         "value": 30,
         "category": "Toán học"
     },
@@ -1447,5 +1446,111 @@
         "answer": "Tạo không gian thở cho thiết kế, giúp tăng khả năng đọc và làm nổi bật các yếu tố quan trọng",
         "value": 30,
         "category": "Nghệ thuật"
+    },
+    {
+        "id": 205,
+        "text": "Tại sao xà phòng có thể làm sạch dầu mỡ trên da và quần áo?",
+        "answer": "Xà phòng có khả năng hòa tan dầu mỡ nhờ cấu trúc phân tử đặc biệt, với một đầu ưa nước và một đầu kỵ nước, giúp tách dầu mỡ ra khỏi bề mặt và hòa tan chúng trong nước.",
+        "value": 30,
+        "category": "Hóa học"
+    },
+    {
+        "id": 206,
+        "text": "Khi luộc trứng quá lâu, ta thường thấy một lớp màng màu xanh xám bao quanh lòng đỏ. Về mặt hóa học, lớp màng này là kết quả của phản ứng giữa một nguyên tố có trong lòng đỏ và một loại hợp chất khí sinh ra từ sự biến tính protein trong lòng trắng. Hãy cho biết công thức hóa học của hợp chất màu xanh xám này?",
+        "answer": "FeS (sắt sulfua)",
+        "value": 30,
+        "category": "Hóa học"
+    },
+    {
+        "id": 207,
+        "text": "Tại sao khi bảo quản thực phẩm trong tủ lạnh, các loại rau củ thường nhanh bị héo nếu không được bọc kín, nhưng nếu bọc quá kín trong túi nilon và để lâu thì chúng lại dễ bị thối rữa và có mùi chua?",
+        "answer": "Rau củ khi để trong tủ lạnh sẽ mất nước qua quá trình bay hơi, nếu không được bọc kín thì chúng sẽ nhanh bị héo do mất nước. Tuy nhiên, nếu bọc quá kín trong túi nilon, rau củ sẽ không thể thoát khí CO2 và hơi nước sinh ra từ quá trình hô hấp của chúng sẽ tích tụ bên trong túi, tạo môi trường ẩm ướt và thiếu oxy, dẫn đến việc rau củ dễ bị thối rữa và có mùi chua do sự phát triển của vi khuẩn và nấm mốc.",
+        "value": 30,
+        "category": "Sinh học"
+    },
+    {
+        "id": 208,
+        "text": "Trong quy trình làm sữa chua tại nhà, tại sao sau khi pha hỗn hợp sữa, chúng ta phải để nguội sữa xuống khoảng 40°C - 45°C rồi mới cho men (sữa chua mồi) vào, mà không được cho ngay khi sữa còn đang sôi hoặc quá nguội?",
+        "answer": "Nếu sữa còn đang sôi hoặc quá nóng, nhiệt độ cao sẽ giết chết các vi khuẩn có lợi trong men sữa chua, khiến quá trình lên men không diễn ra được. Ngược lại, nếu sữa quá nguội, nhiệt độ thấp sẽ làm chậm quá trình lên men hoặc khiến vi khuẩn không hoạt động hiệu quả, dẫn đến sữa chua không đạt được độ đặc và hương vị mong muốn.",
+        "value": 30,
+        "category": "Sinh học"
+    },
+    {
+        "id": 209,
+        "text": "Tại sao trên các xe xitec chở xăng dầu, người ta thường lắp một sợi dây xích sắt có một đầu chạm xuống mặt đường nhựa khi xe đang di chuyển?",
+        "answer": "Sợi dây xích sắt này được gọi là dây tiếp đất, nó giúp xả tĩnh điện tích tụ trên xe khi di chuyển. Khi xe chở xăng dầu, sự ma sát giữa xe và không khí có thể tạo ra tĩnh điện, nếu không được xả kịp thời, tĩnh điện có thể gây ra tia lửa điện khi tiếp xúc với các vật liệu dễ cháy, dẫn đến nguy cơ cháy nổ. Dây tiếp đất giúp dẫn tĩnh điện xuống đất, giảm nguy cơ này.",
+        "value": 20,
+        "category": "Vật lý"
+    },
+    {
+        "id": 210,
+        "text": "Tại sao trong các rạp chiếu phim hoặc phòng thu âm, tường thường được làm xù xì, gồ ghề hoặc treo rèm nhung, mút gai thay vì làm phẳng và nhẵn?",
+        "answer": "Tường xù xì, gồ ghề hoặc được trang trí bằng rèm nhung, mút gai giúp hấp thụ và phân tán sóng âm, giảm hiện tượng phản xạ âm thanh và tạo ra môi trường âm thanh tốt hơn trong rạp chiếu phim hoặc phòng thu âm.",
+        "value": 20,
+        "category": "Vật lý"
+    },
+    {
+        "id": 211,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Clo",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_32.mp4",
+        "category": "Hóa học"
+    },
+    {
+        "id": 212,
+        "text": "Sáu chữ nào đã xuất hiện trên lá cờ khi xung trận của Trần Quốc Toản?",
+        "answer": "Phá cường địch, báo hoàng ân",
+        "value": 10,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 213,
+        "text": "Lượng ethanol khi con người uống đồ uống có cồn chủ yếu được hấp thụ qua cơ quan nào trong hệ tiêu hóa?",
+        "answer": "Ruột non",
+        "value": 20,
+        "category": "Sinh học"
+    },
+    {
+        "id": 214,
+        "text": "Với hai truyện ngắn nào trước cách mạng tháng 8, nhà văn Nam Cao đã thể hiện quan điểm cá nhân mạnh mẽ: phê phán thứ văn chương thi vị hóa cuộc sống đen tối, bất công; đề cao việc viết văn có trách nhiệm, không dối trá, không cẩu thả và không chạy theo đồng tiền?",
+        "answer": "Đời thừa và Giăng sáng",
+        "value": 30,
+        "category": "Văn học"
+    },
+    {
+        "id" :215,
+        "text": "Sự giống nhau của ảnh tạo bởi gương cầu lồi và ảnh tạo bởi gương phẳng là gì?",
+        "answer": "Ảnh ảo",
+        "value": 10,
+        "category": "Vật lý"
+    },
+    {
+        "id": 216,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Hành lang kinh tế Đông - Tây",
+        "value": 30,
+        "src": "http://10.16.31.53:3000/media/ve_dich_30_diem_33.mp4",
+        "category": "Địa lý"
+    },
+    {
+        "id": 217,
+        "text": "Hai hợp chất nào của iot thường được trộn với muối ăn để tạo thành muối iot, giúp phòng ngừa bệnh bướu cổ do thiếu iot?",
+        "answer": "KI và KIO3",
+        "value": 30,
+        "category": "Hóa học"
+    },
+    {
+        "id": 218,
+        "text": "Nhận định này nói về ai: \"Xem công việc của ... làm thì không phải là một người tầm thường, nhưng tiếc thay một người có tài kinh tế như thế, mà giả sử cứ giúp nhà Trần cho có thủy chung, thì dẫu giặc Minh có thế mạnh đến đâu đi nữa cũng chưa hầu dễ đã cướp được nước Nam\" (Trích Việt Nam Sử lược)?",
+        "answer": "Hồ Quý Ly (Lê Quý Ly)",
+        "value": 30,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 219,
+        "text": "Máy khử rung tim (Defibrillator) được sử dụng để làm gì?",
+        "answer": "Máy khử rung tim được sử dụng để cung cấp một cú sốc điện mạnh vào tim nhằm khôi phục lại nhịp tim bình thường khi bị rối loạn nhịp tim nghiêm trọng như rung thất hoặc ngừng tim.",
+        "value": 30,
     }
 ]
