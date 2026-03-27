@@ -1550,7 +1550,7 @@
     {
         "id": 219,
         "text": "Máy khử rung tim (Defibrillator) được sử dụng để làm gì?",
-        "answer": "Máy khử rung tim được sử dụng để cung cấp một cú sốc điện mạnh vào tim nhằm khôi phục lại nhịp tim bình thường khi bị rối loạn nhịp tim nghiêm trọng như rung thất hoặc ngừng tim.",
+        "answer": "Máy khử rung tim được sử dụng để cung cấp một cú sốc điện mạnh vào tim nhằm khôi phục lại nhịp tim bình thường khi bị rối loạn nhịp tim nghiêm trọng như rung thất.",
         "value": 30,
         "category": "Sinh học"
     },
@@ -1560,5 +1560,40 @@
         "answer": "Phản xạ toàn phần (total internal reflection) của ánh sáng tại các lớp khí có chiết suất khác nhau gần mặt đường, tạo ra ảo ảnh của bầu trời trên mặt đường, khiến ta nhìn thấy như có vũng nước.",
         "value": 10,
         "category": "Vật lý"
+    },
+    {
+        "id": 221,
+        "text": "Năm 2025 là năm Ất Tỵ. Có bao nhiêu năm Ất Tỵ trong thiên niên kỉ thứ ba sau Công Nguyên?",
+        "answer": "17 năm (Cứ 60 năm thì lặp lại 1 năm Ất Tỵ, vì vậy năm Ất Tỵ đầu tiên là năm 2025, năm Ất Tỵ cuối cùng là năm 2985. Tổng số năm Ất Tỵ trong khoảng thời gian này là (2985 - 2025) / 60 + 1 = 17)",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 222,
+        "text": "Chiến thắng nào của quân dân Nam Bộ trong năm 1965 được coi là chiến thắng đầu tiên của quân đội ta trước quân đội Mỹ trong cuộc kháng chiến chống Mỹ cứu nước?",
+        "answer": "Chiến thắng Núi Thành",
+        "value": 30,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 223,
+        "text": "Ở người, các bệnh máu khó đông, mù màu \"đỏ - lục\" di truyền liên kết với giới tính, được phát hiện nhờ phương pháp nào?",
+        "answer": "Nghiên cứu phả hệ",
+        "value": 30,
+        "category": "Sinh học"
+    },
+    {
+        "id": 224,
+        "text": "Tháng 11/2024, bức tranh do Ai-Da vẽ đã được đấu giá với mức giá đáng kinh ngạc. Có gì đặc biệt ở tác giả Ai-Da góp phần khiến bức tranh được đánh giá cao như vậy?",
+        "answer": "Ai-Da là một robot nghệ sĩ được trang bị trí tuệ nhân tạo",
+        "value": 20,
+        "category": "Nghệ thuật"
+    },
+    {
+        "id": 225,
+        "text": "Số XIX(19) được tạo thành từ 2 số La Mã cơ bản khác nhau, đồng thời khi đọc các ký tự của nó từ trái qua phải hay phải qua trái thì đều không đổi. Có 2 số La Mã khác cũng thỏa mãn đặc điểm này. Đó là các số nào, giá trị của chúng trong hệ thập phân là bao nhiêu?",
+        "answer": "Các số La Mã thỏa mãn đặc điểm này là: CXC (190) và MCM (1900). Cả hai số này đều được tạo thành từ các ký tự La Mã cơ bản khác nhau, và khi đọc từ trái qua phải hay phải qua trái đều không đổi.",
+        "value": 30,
+        "category": "Toán học"
     }
 ]
