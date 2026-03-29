@@ -7,7 +7,7 @@ if (typeof window !== "undefined") {
   token = new URLSearchParams(window.location.search).get("token");
 }
 
-const socket = io("http://10.16.31.53:3000", {
+const socket = io("http://192.168.1.12:3000", {
   auth: {
     role: "player",
     token: token,

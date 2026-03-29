@@ -220,13 +220,13 @@ let gameState = {
 }
 
 gameState.players = [
-  { id: "1", name: "Duy Anh", score: 0, token: uuidv4(), socketId: null },
-  { id: "2", name: "Minh Quang", score: 0, token: uuidv4(), socketId: null },
+  { id: "1", name: "Minh Quang", score: 0, token: uuidv4(), socketId: null },
+  { id: "2", name: "Duy Anh", score: 0, token: uuidv4(), socketId: null },
   { id: "3", name: "Huỳnh Thái", score: 0, token: uuidv4(), socketId: null}
 ]
 gameState.players.forEach(player => {
   console.log(
-    `${player.name}: http://10.16.31.53:5174/?token=${player.token}`
+    `${player.name}: http://192.168.1.12:5174/?token=${player.token}`
   )
 })
 gameState.obstacle = {
@@ -286,7 +286,7 @@ gameState.obstacle = {
       question: "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
       answer: "CHỦ QUYỀN"
     },
-    imageUrl: "http://10.16.31.53:3000/media/cnv.png"
+    imageUrl: "http://192.168.1.12:3000/media/cnv.png"
   },
   currentRow: null,
   timer: 0,
@@ -300,10 +300,10 @@ gameState.obstacle = {
 gameState.speedup =  
 {
     questions: [
-      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://10.16.31.53:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://10.16.31.53:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp các tác phẩm với tác giả tương ứng", answer: "DACB", src:"http://10.16.31.53:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là đất nước nào?", answer: "Áo", src:"http://10.16.31.53:3000/media/speedup_4.mp4", type:"video" }
+      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://192.168.1.12:3000/media/speedup_1.png", type:"image" },
+      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://192.168.1.12:3000/media/speedup_2.mp4", type:"video" },
+      { id: 3, text: "Sắp xếp các tác phẩm với tác giả tương ứng", answer: "DACB", src:"http://192.168.1.12:3000/media/speedup_3.png", type:"image" },
+      { id: 4, text: "Đây là đất nước nào?", answer: "Áo", src:"http://192.168.1.12:3000/media/speedup_4.mp4", type:"video" }
     ],
     currentQuestion: null,
     timer: 0,

@@ -2,7 +2,7 @@
 import { io } from "socket.io-client"
 import { reactive } from "vue";
 
-export const socket = io("http://10.16.31.53:3000", {
+export const socket = io("http://192.168.1.12:3000", {
   auth: {
     role: "public",
   },
