@@ -1609,5 +1609,19 @@
         "answer": "A: Đám cháy chất rắn (gỗ, giấy, vải); B: Đám cháy chất lỏng (xăng, dầu); C: Đám cháy khí (gas)",
         "value": 20,
         "category": "Kiến thức chung"
+    },
+    {
+        "id": 228,
+        "text": "Người ta xác định được lượng nước trong một loại hạt tươi chiếm 19%, còn lượng nước trong loại hạt đó phơi khô là 10%. Hỏi phơi khô 500kg hạt tươi thu được bao nhiêu kg hạt khô?",
+        "answer": "450 kg hạt khô (Khối lượng phần hạt trong hạt tươi là 500 kg * (1 - 0.19) = 405 kg, khối lượng phần hạt trong hạt khô là 405 kg / (1 - 0.1) = 450 kg).",
+        "value": 30,
+        "category": "Toán học"
+    },
+    {
+        "id": 229,
+        "text": "Một giải bóng đấu loại trực tiếp, nghĩa là mỗi đội sẽ bị loại sau một trận thua duy nhất (trường hợp hòa sẽ bốc thăm may rủi để loại), có 28 đội tham gia. Hỏi cần tổ chức bao nhiêu trận đấu để tìm ra nhà vô địch?",
+        "answer": "27 trận đấu (Trong một giải đấu loại trực tiếp, số trận đấu cần tổ chức để tìm ra nhà vô địch luôn bằng số đội tham gia trừ đi 1, vì mỗi trận đấu sẽ loại đi một đội. Do đó, với 28 đội tham gia, cần tổ chức 28 - 1 = 27 trận đấu.)",
+        "value": 20,
+        "category": "Toán học"
     }
 ]
