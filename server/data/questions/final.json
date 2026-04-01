@@ -1623,5 +1623,50 @@
         "answer": "27 trận đấu (Trong một giải đấu loại trực tiếp, số trận đấu cần tổ chức để tìm ra nhà vô địch luôn bằng số đội tham gia trừ đi 1, vì mỗi trận đấu sẽ loại đi một đội. Do đó, với 28 đội tham gia, cần tổ chức 28 - 1 = 27 trận đấu.)",
         "value": 20,
         "category": "Toán học"
+    },
+    {
+        "id": 230,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Nguyễn Công Trứ",
+        "src": "http://192.168.1.12:3000/media/ve_dich_30_diem_34.mp4",
+        "value": 30,
+        "category": "Văn học"
+    },
+    {
+        "id": 231,
+        "text": "Địa hình nước ta gồm hai hướng chính nào?",
+        "answer": "Địa hình nước ta gồm hai hướng chính: hướng Tây Bắc - Đông Nam và hướng vòng cung",
+        "value": 20,
+        "category": "Địa lý"
+    },
+    {
+        "id": 232,
+        "text": "Mời bạn trả lời câu hỏi của nhóm phóng viên Olympia",
+        "answer": "Mai Hắc Đế (Mai Thúc Loan)",
+        "src": "http://192.168.1.12:3000/media/ve_dich_30_diem_35.mp4",
+        "value": 30,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 233,
+        "text": "Bộ tiểu thuyết lịch sử lớn nhất của nhân loại có tên là gì?",
+        "answer": "Chiến tranh và hòa bình (War and Peace) của nhà văn Nga Lev Tolstoy",
+        "value": 20,
+        "category": "Văn học"
+    },
+    {
+        "id": 234,
+        "text": "Bạn hãy trả lời câu hỏi sau bằng Tiếng Anh",
+        "answer": "Dragon",
+        "src": "http://192.168.1.12:3000/media/ve_dich_20_diem_13.mp4",
+        "value": 20,
+        "category": "Tiếng Anh"
+    },
+    {
+        "id": 235,
+        "text": "Châu lục nào được con người khám phá muộn nhất?",
+        "answer": "Châu Nam Cực (Antarctica)",
+        "value": 10,
+        "category": "Địa lý"
     }
 ]
