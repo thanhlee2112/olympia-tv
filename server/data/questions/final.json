@@ -1668,5 +1668,26 @@
         "answer": "Châu Nam Cực (Antarctica)",
         "value": 10,
         "category": "Địa lý"
+    },
+    {
+        "id": 236,
+        "text": "Trong Thế chiến II, phe Trục gồm các nước nào?",
+        "answer": "Phe Trục gồm Đức, Ý và Nhật Bản",
+        "value": 10,
+        "category": "Lịch sử"
+    },
+    {
+        "id": 237,
+        "text": "A và B cách nhau 90 dặm. Họ bắt đầu đi về phía người kia cùng 1 lúc. A có vận tốc 10 dặm/h, B có vận tốc 5 dặm/h. Nếu sau mỗi giờ họ lại tăng vận tốc gấp đội thì khi gặp nhau, A đã đi được bao nhiêu dặm?",
+        "answer": "60 dặm",
+        "value": 20,
+        "category": "Toán học"
+    },
+    {
+        "id": 238,
+        "text": "Cho một gương phẳng và một bút chì. Đặt bút chì và gương thế nào để thu được ảnh của bút chì song song, cùng chiều với nó?",
+        "answer": "Đặt bút chì song song với gương. Khi đó, ảnh của bút chì sẽ xuất hiện ở phía sau gương, cùng chiều và song song với bút chì thật.",
+        "value": 10,
+        "category": "Vật lý"
     }
 ]
