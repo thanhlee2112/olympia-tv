@@ -282,6 +282,7 @@ gameState.final = {
   activePlayer: null,
   packageValue: null,
   questions: [],
+  playVideo: false,
   currentIndex: 0,
   showContent: false,
   running: false,
@@ -364,6 +365,13 @@ io.on("connection", (socket) => {
     gameState.phase = phase
 emitState()
   })
+  socket.on("mc:startVideo",()=>{
+    if(gameState.phase !== "VeDich") return
+    if(gameState.final.questions[gameState.final.currentIndex]?.src){
+      gameState.final.playVideo = true
+    }
+    emitState()
+  })
 socket.on("player:answerRow", (answer) => {
   const rowId = gameState.obstacle.currentRow
   if (!rowId && !gameState.obstacle.centerSelected) return
@@ -383,6 +391,13 @@ socket.on("player:answerRow", (answer) => {
 
   emitState()
 })
+socket.on("public:stopVideo", () => {  
+  if (gameState.final.playVideo) {
+    gameState.final.playVideo = false
+    emitState()
+  }
+})
+
 socket.on("mc:openScoreboard", () => {
   gameState.phase = "scoreboard"
   gameState.scoreboard.revealed = []

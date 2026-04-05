@@ -26,13 +26,14 @@
         <div v-if="state.final.questions[state.final.currentIndex]?.src && state.final.showContent" class="video-frame" style="width: 100%; display: flex; justify-content: center; margin-bottom: 24px;">
           <video
             :src="state.final.questions[state.final.currentIndex]?.src"
-            controls
-            style="width: 100%; max-width: 900px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.3);"
+            ref="videoRef"
+            @ended="stopVideo"
+            style="width: 100%; height:100%; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.3); object-fit: cover;"
           ></video>
         </div>
-        <div class="center-wrapper">
+        <div class="center-wrapper" v-if="!state.final.playVideo">
           <div class="center-container" :class="{ 'animate-in': packageAnimationState === 'showing-content' }">
-                                <div class="star-wrap">
+            <div class="star-wrap">
                 <div v-if="state.final.star" class="star">⭐</div>
                       </div>           
             <div class="left">
@@ -70,8 +71,9 @@
 
 <script setup>
 import { computed, ref, onMounted, onUnmounted, watch } from "vue"
-import { state } from "../socket"
+import { state, socket } from "../socket"
 
+const videoRef = ref(null)
 const activePlayer = computed(() =>
   state.players.find(
     p => p.id === state.final.activePlayer
@@ -123,6 +125,15 @@ watch(
   }
 )
 
+watch(
+    () => state.final.playVideo,
+  (newValue) => {
+    // When playVideo becomes true, show content immediately
+    if (newValue) {
+      videoRef.value.play();
+    }
+  }
+)
 const tick = ref(0)
 let _interval = null
 onMounted(() => {
@@ -164,6 +175,9 @@ const progress = computed(() => {
   
   return currentProgress
 })
+function stopVideo() {
+    socket.emit("public:stopVideo")
+}
 </script>
 
 <style scoped>

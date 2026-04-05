@@ -46,9 +46,10 @@
         <button class="final-btn" @click="gapSound">...</button>
         <button class="final-btn" @click="toggleStar">⭐</button>
         <button class="final-btn" @click="startTimer">Start</button>
+        <button class="final-btn" @click="startVideo">Phát video</button>
         <button class="final-btn" @click="correct">ĐÚNG</button>
         <button class="final-btn" @click="wrong">SAI</button>
-        <button class="final-btn" @click="nextQuestion">CÂU TIẾP</button>
+        <button class="final-btn" @click="nextQuestion" :disabled="state.final.currentIndex == 2">CÂU TIẾP</button>
       </div>
       <div v-if="state.final.buzzPlayer" class="final-buzz-group">
         {{ getName(state.final.buzzPlayer) }}
@@ -113,6 +114,9 @@ function start(id){
   socket.emit("mc:startFinal", id)
   play('/sounds/open_questions_pack.mp3')
 
+}
+function startVideo(){
+  socket.emit("mc:startVideo")
 }
 function pkg(v){
   socket.emit("mc:selectPackage", v)
