@@ -1,32 +1,80 @@
 [
     {
-        "CNV": "Tuyên ngôn độc lập",
-        "image": "http://192.168.1.12:3000/media/cnv-2.png",
-        "image_explain": "1 góc căn nhà số 48 Hàng Ngang"
+    "game_id": 1,
+    "keyword": "BIỂN ĐÔNG (8 chữ cái)",
+    "imageUrl": "http://192.168.1.12:3000/media/cnv.png",
+    "image_explain": "Nhà giàn DK1 trên Biển Đông",
+    "center": {
+      "revealed": false,
+      "question": "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
+      "answer": "CHỦ QUYỀN"
     },
-    {
+    "rows": [
+      {
+        "id": 1,
+        "question": "Định dạng file tài liệu phổ biến của Microsoft Word là gì?",
+        "answer": "DOC",
+        "revealed": false,
+        "disabled": false,
+        "selected": false
+      },
+      {
+        "id": 2,
+        "question": "Ngôi đình nào nổi tiếng với lễ hội thi \"Ông Voi\"?",
+        "answer": "TRÀCỔ",
+        "revealed": false,
+        "disabled": false,
+        "selected": false
+      },
+      {
+        "id": 3,
+        "question": "Một tấn bằng bao nhiêu gram?",
+        "answer": "1000000",
+        "revealed": false,
+        "disabled": false,
+        "selected": false
+      },
+      {
+        "id": 4,
+        "question": "Trong toán học, ký hiệu thường được dùng để biểu diễn diện tích là gì?",
+        "answer": "S",
+        "revealed": false,
+        "disabled": false,
+        "selected": false
+      }
+    ]
+  },
+  {
+    "game_id": 2,
+    "keyword": "Tuyên ngôn độc lập",
+    "imageUrl": "http://192.168.1.12:3000/media/cnv-2.png",
+    "image_explain": "1 góc căn nhà số 48 Hàng Ngang",
+    "center": {
+      "revealed": false,
+      "question": "Ngày 2 tháng 9 hàng năm được chọn là ngày gì ở Việt Nam?",
+      "answer": "Quốc Khánh"
+    },
+    "rows": [
+      {
         "id": 1,
         "question": "Trong hệ đếm La Mã, MCMXLV tương đương với số nào theo hệ đếm cơ số 10?",
         "answer": "1945"
-    },
-    {
+      },
+      {
         "id": 2,
         "question": "Phạm Bành và Đinh Công Tráng là những lãnh đạo của cuộc khởi nghĩa nông dân nào trong thế kỷ XIX?",
-        "answer": "Ba Đình"
-    },
-    {
+        "answer": "BAĐÌNH"
+      },
+      {
         "id": 3,
         "question": "Ai là vị chủ tịch duy nhất của Đảng Cộng sản Việt Nam?",
-        "answer": "Hồ Chí Minh"
-    },
-    {
+        "answer": "HỒCHÍMINH"
+      },
+      {
         "id": 4,
         "question": "Theo truyền thuyết \"Con Rồng cháu Tiên\", từ nào dùng để chỉ những người cùng một giống nòi, cùng sinh ra từ bọc trăm trứng của mẹ Âu Cơ?",
-        "answer": "Đồng bào"
-    },
-    {
-        "id": 5,
-        "question": "Ngày 2 tháng 9 hàng năm được chọn là ngày gì ở Việt Nam?",
-        "answer": "Quốc Khánh"
-    }
+        "answer": "ĐỒNGBÀO"
+      }
+    ]
+  }
 ]

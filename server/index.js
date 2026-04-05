@@ -6,6 +6,8 @@ const app = express()
 const fs = require("fs")
 const server = http.createServer(app)
 const kickoffQuestionBank = require("./data/questions/kickoff-2.json")
+const obstacleQuestionsBank = require("./data/questions/obstacle.json")
+const speedupQuestionsBank = require("./data/questions/speedup.json")
 const { v4: uuidv4 } = require("uuid")
 const { emit } = require("process")
 const SPEED_DURATION = 30000
@@ -229,8 +231,9 @@ gameState.players.forEach(player => {
     `${player.name}: http://192.168.1.12:5174/?token=${player.token}`
   )
 })
+const obstacleQuestions = obstacleQuestionsBank.find(q => q.game_id === 2)
 gameState.obstacle = {
-  keyword: "BIỂN ĐÔNG (8 chữ cái)",
+  keyword: obstacleQuestions.keyword,
   rowAnswers:{
       1: null,
       2: null,
@@ -239,40 +242,7 @@ gameState.obstacle = {
       5: null
   },
   displayImage: false,
-  rows: [
-    {
-      id: 1,
-      question: "Định dạng file tài liệu phổ biến của Microsoft Word là gì?",
-      answer: "DOC",
-      revealed: false,
-      disabled: false,
-      selected: false,
-    },
-    {
-      id: 2,
-      question: "Ngôi đình nào nổi tiếng với lễ hội thi \"Ông Voi\"?",
-      answer: "TRÀCỔ",
-      revealed: false,
-      disabled: false,
-      selected: false,
-    },
-    {
-      id: 3,
-      question: "Một tấn bằng bao nhiêu gram?",
-      answer: "1000000",
-      revealed: false,
-      disabled: false,
-      selected: false,
-    },
-    {
-      id: 4,
-      question: "Trong toán học, ký hiệu thường được dùng để biểu diễn diện tích là gì?",
-      answer: "S",
-      revealed: false,
-      disabled: false,
-      selected: false,
-    }
-  ],
+  rows: obstacleQuestions.rows,
 
   image: {
     parts: [
@@ -283,10 +253,10 @@ gameState.obstacle = {
     ],
     center: {
       revealed: false,
-      question: "Từ nào thường được dùng để nói về phần lãnh thổ mà một quốc gia có quyền kiểm soát và bảo vệ?",
-      answer: "CHỦ QUYỀN"
+      question: obstacleQuestions.center.question,
+      answer: obstacleQuestions.center.answer
     },
-    imageUrl: "http://192.168.1.12:3000/media/cnv.png"
+    imageUrl: obstacleQuestions.imageUrl,
   },
   currentRow: null,
   timer: 0,
@@ -299,12 +269,7 @@ gameState.obstacle = {
 }
 gameState.speedup =  
 {
-    questions: [
-      { id: 1, text: "Tìm mật mã dựa trên dữ kiện hình sau?", answer: "14",src:"http://192.168.1.12:3000/media/speedup_1.png", type:"image" },
-      { id: 2, text: "Đây là gì?", answer: "Mùa thu", src:"http://192.168.1.12:3000/media/speedup_2.mp4", type:"video" },
-      { id: 3, text: "Sắp xếp các tác phẩm với tác giả tương ứng", answer: "DACB", src:"http://192.168.1.12:3000/media/speedup_3.png", type:"image" },
-      { id: 4, text: "Đây là đất nước nào?", answer: "Áo", src:"http://192.168.1.12:3000/media/speedup_4.mp4", type:"video" }
-    ],
+    questions: speedupQuestionsBank[1],
     currentQuestion: null,
     timer: 0,
     showAnswers: false,

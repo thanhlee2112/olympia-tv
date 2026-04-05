@@ -1,0 +1,32 @@
+{
+  "1": [
+    {
+      "id": 1,
+      "text": "Tìm mật mã dựa trên dữ kiện hình sau?",
+      "answer": "14",
+      "src": "http://192.168.1.12:3000/media/speedup_1.png",
+      "type": "image"
+    },
+    {
+      "id": 2,
+      "text": "Đây là gì?",
+      "answer": "Mùa thu",
+      "src": "http://192.168.1.12:3000/media/speedup_2.mp4",
+      "type": "video"
+    },
+    {
+      "id": 3,
+      "text": "Sắp xếp các tác phẩm với tác giả tương ứng",
+      "answer": "DACB",
+      "src": "http://192.168.1.12:3000/media/speedup_3.png",
+      "type": "image"
+    },
+    {
+      "id": 4,
+      "text": "Đây là đất nước nào?",
+      "answer": "Áo",
+      "src": "http://192.168.1.12:3000/media/speedup_4.mp4",
+      "type": "video"
+    }
+  ]
+}
